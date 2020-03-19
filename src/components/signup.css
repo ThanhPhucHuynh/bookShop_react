@@ -1,0 +1,25 @@
+.formSignup{
+    margin: auto;
+    width: 800px;
+}
+.image-container img {
+    border-radius: 100px;
+    border: 1px solid;
+}
+.image-container {
+    margin: 20px;
+}
+.contentSignUp{
+    float: right;
+    clear: right;
+    /* height: 65%; */
+    width: 70%;
+    text-align: center;
+    margin: 10% auto;
+}
+.contentSignUp h1{
+    font: 1em sans-serif;
+    font-size: 300%;
+    margin: auto;
+    font-weight: 300;
+}

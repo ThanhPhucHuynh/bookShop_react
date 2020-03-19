@@ -1,0 +1,36 @@
+.Login_form{
+    margin: auto;
+    width: 50%;
+}
+.form-group{
+    clear: both;
+}
+.imgAvata{
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    border: 1px solid black;
+    
+}
+.imgAvataNot{
+    height: 200px;
+    width: 200px;
+    /* border-radius: 100px; */
+    border: none;
+    opacity: 0;
+    
+}
+.wellcome{
+    display: block;
+    margin: 20px 0;
+}
+.wellcome h1{
+    font-size: 130%;
+    display: block;
+    float: right;
+    margin-top: 15%;
+    text-align: center;
+}
+.notification{
+    color: red;
+}
