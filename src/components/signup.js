@@ -135,13 +135,11 @@ class SignUp extends Component {
         }else{
             return(
                 <Router>
-                <Redirect
-                to={{
-                    pathname: "/main",
-                    state: {
-                        form: this.state.user
-                    }
-                }}
+               <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: this.state }
+            }}
 
     />
 </Router>

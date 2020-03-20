@@ -19,16 +19,20 @@ function App() {
       <div className="App">
       
         {/* <LoginA /> */}
-
-
+        <div>ThanhPhuc</div>
+        <Link to="/login"> LoginA</Link>
+        
         <Switch>
-          <Route path="/login">
+        <Route exact path="/">
+           <div>Home</div>
+          </Route>
+          <Route exact path="/login" >
             <LoginA />
           </Route>
-          <Router path='/signup'>
+          <Router exact  path="/signup" >
             <SignUp />
           </Router>
-          <Route path="/main">
+          <Route  path="/main">
             <Main />
           </Route>
         </Switch>

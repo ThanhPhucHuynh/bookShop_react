@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap'
-
+import Cookie from 'js-cookie';
 import { Redirect , withRouter} from 'react-router-dom'
 import './logina.css'
 import axois from 'axios';
@@ -45,6 +45,8 @@ class LoginA extends Component {
                         imgAvatar: res.data.user.userImg,
                         name: res.data.user.name,
                         pass: res.data.user.pass
+                    },()=>{
+                        Cookie.set("email",email,{expires: 1})
                     })
 
                 }).catch(err=>{
@@ -152,7 +154,7 @@ class LoginA extends Component {
                     
                     <Redirect
                     to={{
-                        pathname: "/signup",
+                        pathname: "/main",
                         state: {
                             form: this.state.user
                         }
