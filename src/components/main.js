@@ -9,6 +9,7 @@ import Cookie from 'js-cookie';
 import axois from 'axios'
 import Product from '../page/product'
 import Cart from '../page/cart'
+import { Button } from 'reactstrap';
 
 class main extends Component {
     constructor(props){
@@ -20,6 +21,7 @@ class main extends Component {
          console.log('00',this.props.location.state);
         //this.getCookie();
         // }
+        this.onClickLogout = this.onClickLogout.bind(this)
     }
     componentWillMount(){
         const valueCookie = Cookie.get('email');
@@ -47,6 +49,10 @@ class main extends Component {
 
 
     }
+    onClickLogout(event){
+        Cookie.remove('email');
+        window.location.reload(false);
+    }
     render(){
         
         const {email,password}= this.props;
@@ -62,17 +68,17 @@ class main extends Component {
                     <h1>{email}</h1>
                     <h2>{password}</h2>
                         <p>{name}</p>
-                    <Link to="/product"> Product</Link>
-                    <Link to="/cart"> Cart</Link>
-                    <Link to="/pets">   Pest</Link>
-
+                    <Link to="/main/product"> Product</Link>
+                    <Link to="/main/cart"> Cart</Link>
+                    <Link to="/main/pets">   Pest</Link>
+                    <Button className='logout' onClick={this.onClickLogout}>Logn out</Button>
                     <Switch>
                         
                     
-                        <Route exact path="/product" >
+                        <Route exact path="/main/product" >
                             <Product />
                         </Route>
-                        <Router exact  path="/cart" >
+                        <Router exact  path="/main/cart" >
                             <Cart />
                         </Router>
                         {/* <Route  path="/pet">

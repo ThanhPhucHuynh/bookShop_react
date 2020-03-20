@@ -1,0 +1,16 @@
+.card {
+    margin-bottom: 10px;
+  }
+  .card img {
+    height: 212px;
+    /* width: 192px; */
+  }
+  /* .card-text {
+    display: none;
+  } */
+  
+  .card:hover {
+    display: block;
+    color: blue;
+  }
+  
