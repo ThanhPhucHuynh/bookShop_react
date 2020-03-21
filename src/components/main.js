@@ -4,13 +4,13 @@ import { BrowserRouter as Router,
     Switch,
     Route,
     Link, Redirect } from 'react-router-dom'
-
 import Cookie from 'js-cookie';
 import axois from 'axios'
 import Product from '../page/product'
 import Cart from '../page/cart'
 import { Button } from 'reactstrap';
-
+import { connect } from "react-redux";
+import { reloadToCart } from "../actions/index";
 class main extends Component {
     constructor(props){
         super(props);
@@ -54,6 +54,10 @@ class main extends Component {
         window.location.reload(false);
     }
     render(){
+        var {cartProducts} = this.props;
+        console.log("cartproduct",cartProducts);
+        console.log(this.props.getData);
+        
         
         const {email,password}= this.props;
         const {name,isCookie} = this.state;
@@ -68,15 +72,15 @@ class main extends Component {
                     <h1>{email}</h1>
                     <h2>{password}</h2>
                         <p>{name}</p>
-                    <Link to="/main/product"> Product</Link>
-                    <Link to="/main/cart"> Cart</Link>
+                    <Link to="/main/product" > Product</Link>
+                    <Link to="/main/cart"> Cart ({cartProducts.length})</Link>
                     <Link to="/main/pets">   Pest</Link>
                     <Button className='logout' onClick={this.onClickLogout}>Logn out</Button>
                     <Switch>
                         
                     
                         <Route exact path="/main/product" >
-                            <Product />
+                            <Product getData={this.props.getData}/>
                         </Route>
                         <Router exact  path="/main/cart" >
                             <Cart />
@@ -96,4 +100,15 @@ class main extends Component {
         }
     }
 }
-export default withRouter(main);
+
+const mapCartProduct = state =>{
+    return {
+        cartProducts: state.cartproduct
+    }
+}
+const mapDispatchToProps = (dispatch,props) => {
+    return {
+      getData: () => dispatch(reloadToCart())
+    }
+  }
+export default connect(mapCartProduct,mapDispatchToProps)(withRouter(main));

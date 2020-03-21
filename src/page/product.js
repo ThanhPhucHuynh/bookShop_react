@@ -16,7 +16,9 @@ import PropTypes from "prop-types";
 import "./product.css";
 import axios from "axios";
 // import { CartContext } from "../contexts/Cart";
-
+import { connect } from "react-redux";
+import { dispatch } from "redux";
+import { reloadToCart } from "../actions/index";
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,7 @@ class Product extends Component {
       pagination_third:3,
       number_pagination: 0
     };
+    this.addToCart = this.addToCart.bind(this)
   }
   componentDidMount() {
     let numberProduct;
@@ -42,7 +45,7 @@ class Product extends Component {
     });
 
     let numberPage = window.location.search;
-    if(numberPage=='?0' || !numberPage){
+    if(numberPage==='?0' || !numberPage){
         numberPage=1;
     }else{
         numberPage = Number( numberPage.slice(1,numberPage.length))
@@ -55,6 +58,41 @@ class Product extends Component {
         pagination_third:numberPage +1
     })
     
+  }
+  addToCart(product){
+    // var map = mapAddCart;
+    // map.actaddToCart(product)  
+    let data = JSON.parse(localStorage.getItem("cartProduct"));
+    let cartProduct = data ? data : [];
+    console.log(product.id)
+    // console.log(cartProduct[0].id)
+    var flag;
+    for(var an in cartProduct){
+        if(product.id === cartProduct[an].id){
+          flag=an;
+          continue;
+        }
+    }
+    console.log(flag)
+    if(flag){
+      if(cartProduct[flag].number){
+        cartProduct[flag].number++;
+
+      }else{
+        cartProduct[flag].number=1;
+        // cartProduct = [...cartProduct].concat(product)
+      // console.log(this.props)
+      }
+    }else{
+      cartProduct = [...cartProduct].concat(product)
+      // console.log(this.props)
+    }
+    
+   
+    localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+
+    
+    this.props.getData();
   }
   render() {
     const { products, girl } = this.state;
@@ -88,6 +126,11 @@ class Product extends Component {
                         <Button onClick={() => addToCart(product)}>ADD</Button>
                       )}
                     </CartContext.Consumer> */}
+                    <Button className="buttomAddCArt"
+                      onClick={()=>{
+                        this.addToCart(product)
+                      }}
+                    >Add to cart</Button>
                   </CardBody>
                 </Card>
               </div>
@@ -170,4 +213,5 @@ CardTitle.propTypes = {
   className: PropTypes.string
 };
 
-export default Product;
+
+export default (Product);

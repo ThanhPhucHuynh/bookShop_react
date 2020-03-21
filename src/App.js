@@ -15,37 +15,52 @@ import {
   
 } from "react-router-dom";
 import Main from './components/main'
+import {createStore} from 'redux'
+import{Provider} from 'react-redux'
+import appCart from './reducers/index'
+
+
+const store = createStore(
+    appCart
+)
 
 function App() {
   if(Cookie.get('email')){
     return (
-    
-      <Router>
-        <div className="App">
-        
-          {/* <LoginA /> */}
-          <div>ThanhPhuc</div>
-          {/* <Redirect to='/main'></Redirect> */}
-          <Link to="/login"> LoginA</Link>
-          <Switch>
-          <Route exact path="/">
-             <div>Home</div>
-            </Route>
-            <Route exact path="/login" >
-              <LoginA />
-            </Route>
-            <Router exact  path="/signup" >
-              <SignUp />
-            </Router>
-            <Route  path="/main">
-              <Main />
-            </Route>
-          </Switch>
-  
-       </div>
-  
-  
-      </Router>
+      <Provider store={store}>
+
+          <Router>
+            <div className="App">
+            
+              {/* <LoginA /> */}
+              <div>ThanhPhuc</div>
+              {/* <Redirect to='/main'></Redirect> */}
+              <Link to="/login"> LoginA</Link>
+              <Switch>
+              <Route exact path="/">
+                <div>Home</div>
+                </Route>
+                <Route exact path="/login" >
+                  <LoginA />
+                </Route>
+                <Router exact  path="/signup" >
+                  <SignUp />
+                </Router>
+                <Route  path="/main">
+                  <Main />
+                </Route>
+              </Switch>
+            {/* <!--       _
+                      
+                      /\_/\ < (cặt cặt....)
+                    ( o.o )
+                     > ^ <  
+                ~~~~~~~~~~~~~~~~~~--> */}
+          </div>
+      
+      
+          </Router>
+      </Provider>
       
         /* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -65,32 +80,32 @@ function App() {
     );
   }else{
     return (
-    
-      <Router>
-        <div className="App">
-        
-          <Redirect to="/login"></Redirect>
-          <Link to="/login"> LoginA</Link>
-          <Switch>
-          <Route exact path="/">
-             <div>Home</div>
-            </Route>
-            <Route exact path="/login" >
-              <LoginA />
-            </Route>
-            <Router exact  path="/signup" >
-              <SignUp />
-            </Router>
-            <Route  path="/main">
-              <Main />
-            </Route>
-          </Switch>
-  
-       </div>
-  
-  
-      </Router>
+       <Provider store={store}>
+          <Router>
+            <div className="App">
+            
+              <Redirect to="/login"></Redirect>
+              <Link to="/login"> LoginA</Link>
+              <Switch>
+              <Route exact path="/">
+                <div>Home</div>
+                </Route>
+                <Route exact path="/login" >
+                  <LoginA />
+                </Route>
+                <Router exact  path="/signup" >
+                  <SignUp />
+                </Router>
+                <Route  path="/main">
+                  <Main />
+                </Route>
+              </Switch>
       
+          </div>
+      
+      
+          </Router>
+        </Provider>
         /* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
