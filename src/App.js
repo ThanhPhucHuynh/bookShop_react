@@ -18,7 +18,9 @@ import Main from './components/main'
 import {createStore} from 'redux'
 import{Provider} from 'react-redux'
 import appCart from './reducers/index'
-
+import AddProduct from './components/addProduct'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+ 
 
 const store = createStore(
     appCart
@@ -28,7 +30,7 @@ function App() {
   if(Cookie.get('email')){
     return (
       <Provider store={store}>
-
+          
           <Router>
             <div className="App">
             
@@ -48,6 +50,9 @@ function App() {
                 </Router>
                 <Route  path="/main">
                   <Main />
+                </Route>
+                <Route exact path="/addproduct" >
+                  <AddProduct />
                 </Route>
               </Switch>
             {/* <!--       _
@@ -92,6 +97,9 @@ function App() {
                 </Route>
                 <Route exact path="/login" >
                   <LoginA />
+                </Route>
+                <Route exact path="/addproduct" >
+                  <AddProduct />
                 </Route>
                 <Router exact  path="/signup" >
                   <SignUp />

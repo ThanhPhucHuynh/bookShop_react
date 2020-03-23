@@ -13,7 +13,7 @@ import '../test/Login_v18/css/main.css'
 class LoginForm extends Component {
     render(){
         return(
-            <div className='formSignup'>
+            <div >
         <title>Login V18</title>
         <meta charSet="UTF-8" />
       

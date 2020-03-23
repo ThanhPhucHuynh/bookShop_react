@@ -35,8 +35,10 @@ class LoginA extends Component {
         
         if(email){
             console.log(__dirname)
-            axois.get('http://localhost:1234/user/'+email)
-                .then(res=>{
+            // axois.get('http://localhost:1234/user/'+email)
+            axois.get('http://192.168.3.129:1234/user/'+email)
+             
+            .then(res=>{
                     // this.setState({
                         console.log("sadad",res.data.user.userImg);
                     //     imgAvatar: res.data

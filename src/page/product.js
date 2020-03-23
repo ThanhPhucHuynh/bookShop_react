@@ -10,7 +10,8 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
-  Pagination, PaginationItem, PaginationLink
+  Pagination, PaginationItem, PaginationLink,
+  FormGroup, Label,Input
 } from "reactstrap";
 import PropTypes from "prop-types";
 import "./product.css";
@@ -19,6 +20,18 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { dispatch } from "redux";
 import { reloadToCart } from "../actions/index";
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import ReactNotification from 'react-notifications-component'
+import { store } from 'react-notifications-component'
+const noty = () => {
+  return (
+    <div className="app-container">
+      <ReactNotification />
+      
+    </div>
+  )
+};
+
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -30,18 +43,25 @@ class Product extends Component {
       pagination_third:3,
       number_pagination: 0
     };
+    let productsOriginal;
     this.addToCart = this.addToCart.bind(this)
+    this.searchProduct = this.searchProduct.bind(this)
+    this.createNotification=this.createNotification.bind(this)
   }
   componentDidMount() {
     let numberProduct;
-    axios.get("http://localhost:1234/product").then(res => {
+    // axios.get("http://localhost:1234/product").then(res => {
+    axios.get("http://192.168.3.129:1234/product").then(res => {
+    
       this.setState({
         products: res.data.product
       },()=>{
           numberProduct= this.state.products.length;
-        //   console.log(this.state.products);
-        //   console.log("ss",res.data);
+           console.log(this.state.products);
+          // console.log("ss",res.data.product);
       });
+      this.productsOriginal =[...this.state.products]
+      console.log("ori", this.productsOriginal)
     });
 
     let numberPage = window.location.search;
@@ -60,57 +80,131 @@ class Product extends Component {
     
   }
   addToCart(product){
+    // NotificationManager.success('Success message', 'Title here');
+    store.addNotification({
+      title: "Wonderful!",
+      message: "success.....",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000
+        // , onScreen: true
+      }
+    });
     // var map = mapAddCart;
     // map.actaddToCart(product)  
-    let data = JSON.parse(localStorage.getItem("cartProduct"));
-    let cartProduct = data ? data : [];
-    console.log(product.id)
-    // console.log(cartProduct[0].id)
-    var flag;
-    for(var an in cartProduct){
-        if(product.id === cartProduct[an].id){
-          flag=an;
-          continue;
-        }
-    }
-    console.log(flag)
-    if(flag){
-      if(cartProduct[flag].number){
-        cartProduct[flag].number++;
-
-      }else{
-        cartProduct[flag].number=1;
-        // cartProduct = [...cartProduct].concat(product)
-      // console.log(this.props)
+    try {
+        
+      let data = JSON.parse(localStorage.getItem("cartProduct"));
+      let cartProduct = data ? data : [];
+      console.log(product.id)
+      // console.log(cartProduct[0].id)
+      var flag;
+      for(var an in cartProduct){
+          if(product.id === cartProduct[an].id){
+            flag=an;
+            continue;
+          }
       }
-    }else{
-      cartProduct = [...cartProduct].concat(product)
-      // console.log(this.props)
-    }
-    
-   
-    localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+      console.log(flag)
+      if(flag){
+        console.log(cartProduct[flag].number);
+        
+        if(cartProduct[flag].number==undefined){
+          cartProduct[flag].number=1;
+          console.log(cartProduct[flag].number);
 
+        }else{
+         
+          cartProduct[flag].number++;
+          // cartProduct = [...cartProduct].concat(product)
+         console.log("haah")
+        }
+      }else{
+        product.number=1;
+        cartProduct = [...cartProduct].concat(product)
+        // console.log(this.props)
+      }
+      
     
-    this.props.getData();
+      localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
+      this.props.getData();
+      console.log("dasdasd");
+      //NotificationManager.success('Success message', 'Title here');
+      //NotificationManager.info('Info message');
+      
+     // this.createNotification('success',"thanh cong","3000")
+    } catch (error) {
+      this.createNotification('error')
+    }
   }
+  searchProduct(event){
+    event.preventDefault();
+    const textSearch=event.target.value;
+    console.log(event.target.value)
+    // this.setState({
+    //   products: [...this.productsOriginal]
+    // })
+    let searchProduct = this.productsOriginal.filter((product)=>{
+      console.log(textSearch,product.name,product.name.search(textSearch));
+      
+      return (product.name.search(textSearch)!==-1)
+    })
+    this.setState({
+      products: [...searchProduct]
+    })
+    
+  }
+  createNotification = (type) => {
+    return () => {
+
+      switch (type) {
+        case 'info':
+          NotificationManager.info('Info message');
+          break;
+        case 'success':
+          NotificationManager.success('Success message', 'Title here');
+          break;
+        case 'warning':
+          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+          break;
+        case 'error':
+          NotificationManager.error('Error message', 'Click me!', 5000, () => {
+            alert('callback');
+          });
+          break;
+      }
+    };
+  };
   render() {
     const { products, girl } = this.state;
    
     let {pagination_first,pagination_second,pagination_third} = this.state;
     let productNagivication = products.slice(pagination_second*6,pagination_second*6+6);
+    if(products.length<=6 ){
+      productNagivication = [...products]
+    }
     console.log(this.props,window.location.search)
     return (
+      
         <div>
-
-        
+           <ReactNotification />
         <Container>
+       
         <h1>Product</h1>
+        <FormGroup>
+                <Label for="exampleEmail">Name</Label>
+                <Input type="text" name="nameSearch" id="exampleSearch" placeholder="Searching....."
+                  onChange={this.searchProduct} />
+        </FormGroup>
         <Row>
           {productNagivication.map((product, index) => (
             <Col sm="4" key={index}>
               <div>
-                <Card>
+                <Card body >
                   <CardImg
                     top
                     width="100%"
@@ -129,6 +223,7 @@ class Product extends Component {
                     <Button className="buttomAddCArt"
                       onClick={()=>{
                         this.addToCart(product)
+
                       }}
                     >Add to cart</Button>
                   </CardBody>
@@ -137,7 +232,9 @@ class Product extends Component {
             </Col>
           ))}
         </Row>
+      
       </Container>
+     
             <Pagination size="sm" aria-label="Page navigation example">
             <PaginationItem>
                 <PaginationLink first href="#" />
@@ -167,6 +264,7 @@ class Product extends Component {
                 <PaginationLink last href="#" />
             </PaginationItem>
             </Pagination>
+      <NotificationContainer />  
       </div>
     );
   }

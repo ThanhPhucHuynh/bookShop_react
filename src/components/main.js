@@ -8,6 +8,7 @@ import Cookie from 'js-cookie';
 import axois from 'axios'
 import Product from '../page/product'
 import Cart from '../page/cart'
+import Pet from "../page/pet";
 import { Button } from 'reactstrap';
 import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
@@ -74,7 +75,7 @@ class main extends Component {
                         <p>{name}</p>
                     <Link to="/main/product" > Product</Link>
                     <Link to="/main/cart"> Cart ({cartProducts.length})</Link>
-                    <Link to="/main/pets">   Pest</Link>
+                    <Link to="/main/pet">   Pest</Link>
                     <Button className='logout' onClick={this.onClickLogout}>Logn out</Button>
                     <Switch>
                         
@@ -83,11 +84,12 @@ class main extends Component {
                             <Product getData={this.props.getData}/>
                         </Route>
                         <Router exact  path="/main/cart" >
-                            <Cart />
+                            <Cart getData={this.props.getData} />
                         </Router>
-                        {/* <Route  path="/pet">
-                            <Main />
-                        </Route> */}
+                        <Route  exact path="/main/pet">
+                            <h1>dasda</h1>
+                            <Pet />
+                        </Route>
                     </Switch>
                 </div>
                 </Router>

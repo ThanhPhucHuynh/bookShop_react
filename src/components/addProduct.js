@@ -14,7 +14,7 @@ import axios from 'axios';
 import sortID from 'short-id';
 // import { Redirect , withRouter} from 'react-router-dom'
 
-class SignUp extends Component {
+class addProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,18 +27,19 @@ class SignUp extends Component {
     handleSubmit(event){
         event.preventDefault();
         const Dname =event.target.name.value;
-        const Demail =event.target.email.value;
-        const Dpass =event.target.pass.value;
-        console.log(Dname , Demail,Dpass, this.state.imagePreviewUrl);
-        if(Dname && Demail && Dpass && this.state.imagePreviewUrl){
-            var user = {
+        const Description =event.target.description.value;
+        const dprice =event.target.price.value;
+        console.log(Dname , Description,dprice, this.state.imagePreviewUrl);
+        if(Dname && Description && dprice && this.state.imagePreviewUrl){
+            var product = {
                 id: sortID.generate(),
                 name: Dname,
-                email: Demail,
-                pass: Dpass,
-                userImg: this.state.imagePreviewUrl
+                description: Description,
+                price: dprice,
+                number: event.target.number,
+                img: this.state.imagePreviewUrl
             }
-            axios.post('http://localhost:1234/user',user)
+            axios.post('http://localhost:1234/product',product)
                 .then(res=>{
                     console.log(res);
                 })
@@ -98,12 +99,16 @@ class SignUp extends Component {
                     <Input type="text" name="name" id="exampleName" placeholder="Your Name" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="Your Email" />
+                    <Label for="exampleDescription">description</Label>
+                    <Input type="text" name="description" id="exampleDescription" placeholder="Your description" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="examplePassword">Password</Label>
-                    <Input type="password" name="pass" id="examplePassword" placeholder="password placeholder" />
+                    <Label for="price">Price</Label>
+                    <Input type="number" name="price" id="examplePrice" placeholder="Price" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="SL">Total</Label>
+                    <Input type="number" name="total" id="examplePrice" placeholder="Price" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
@@ -113,7 +118,7 @@ class SignUp extends Component {
                         It's a bit lighter and easily wraps to a new line.
                     </FormText>
                     <div className="App">
-                    <Input type="file" name="avatar" onChange={this.fileChangedHandler} />
+                    <Input type="file" name="img" onChange={this.fileChangedHandler} />
                     {/* <button type="button" onClick={this.submit} > Upload </button> */}
                    
       </div>
@@ -141,12 +146,12 @@ class SignUp extends Component {
               state: { from: this.state }
             }}
 
-    />
-</Router>
+              />
+                </Router>
             )
         }
     }
 }
 
 
-export default SignUp;
+export default addProduct;

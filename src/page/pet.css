@@ -1,0 +1,8 @@
+.divImg img{
+    height:400px ;
+    width: 400px;
+}
+.divImg{
+    margin: auto;
+    /* width: 40%; */
+}
