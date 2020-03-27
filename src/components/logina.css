@@ -1,3 +1,4 @@
+@import './css/font-awesome-4.7.0/css/font-awesome.min.css';
 .Login_form{
     margin: auto;
     width: 50%;
@@ -33,4 +34,101 @@
 }
 .notification{
     color: red;
+}
+.loginBackgound{
+    background-image: url(./images/img_a.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* position: relative; */
+    z-index: 1;
+    float: left;
+    width: 75%;
+    height: 100%;
+    /* transition: ease 2s; */
+}
+.Login_form{
+    float: right;
+    width: 25%;
+    height: 100%;
+    padding: 5%;
+    transition: ease .5s;
+
+}
+.wrap-login{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;;
+}
+.btn_login{
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+.form-check{
+    margin: auto;
+    padding-top: 5%;
+}
+.form-check-label{
+    font-style: italic;
+    font-size: 11px;
+    padding: 0;
+}
+.signup-content{
+    display: block;
+    text-align: center;
+    margin: 10px;
+    margin-top: 20px;
+    transition: ease 8s;
+}
+.signupfor a {
+    margin: 5px;
+}
+input{
+    transition: ease 2s;
+}
+@media only screen and (max-width: 1200px) {
+    .imgAvata{
+        display: block;
+    /* position: unset; */
+    /* align-items: center; */
+    margin: auto;
+    }
+    .wellcome h1{
+        display: block;
+        text-align: center;
+    /* display: initial; */
+          width: 100%;
+    }
+        
+    .loginBackgound{
+        /* background-image: url(./images/img_a.jpg); */
+        /* background-repeat: no-repeat; */
+        /* background-size: cover; */
+        /* background-position: center; */
+        /* position: relative; */
+        /* z-index: 1; */
+        /* float: left; */
+        width: 60%;
+        /* height: 100%; */
+    }
+    .Login_form{
+        /* float: right; */
+        width: 40%;
+        /* height: 100%; */
+        /* padding: 5%; */
+    }
+}
+@media only screen and (max-width: 550px) {
+    .loginBackgound{
+    display: none;
+  
+    }
+    .Login_form{
+        /* float: right; */
+        width: 100%;
+        height: 100%;
+        padding: 5%;
+    }
 }

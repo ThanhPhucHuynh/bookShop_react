@@ -49,6 +49,7 @@ class Pet extends Component {
 
                 <FormGroup>
                     <Label for="exampleSelect">Select</Label>
+                    
                     <Input type="select" name="select" id="exampleSelect" 
                         onChange={this.onChangeOR}
                     >
@@ -58,17 +59,19 @@ class Pet extends Component {
                     {/* <option>3</option> */}
                     
                     </Input>
+                    
                 </FormGroup>
                 <h1>Pets Images</h1>
                 <div>
                     <div className='divImg'>
+                        <button>
                         <CardImg 
                             src={urlIMG}
                             alt="pic_catORdog"
                             onClick={this.changeIMG}
 
                         ></CardImg >
-
+                        </button>
                     </div>
                 </div>
                 

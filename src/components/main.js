@@ -75,7 +75,7 @@ class main extends Component {
                         <p>{name}</p>
                     <Link to="/main/product" > Product</Link>
                     <Link to="/main/cart"> Cart ({cartProducts.length})</Link>
-                    <Link to="/main/pet">   Pest</Link>
+                    <Link to="/main/pet"> Pest</Link>
                     <Button className='logout' onClick={this.onClickLogout}>Logn out</Button>
                     <Switch>
                         

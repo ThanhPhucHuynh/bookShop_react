@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LoginForm from './components/login';
 import LoginA from './components/logina'
-import SignUp from './components/signup2'
+import SignUp from './components/signup'
 import Cookie from 'js-cookie'
 import {
   BrowserRouter as Router,
@@ -33,11 +33,12 @@ function App() {
           
           <Router>
             <div className="App">
-            
+
               {/* <LoginA /> */}
-              <div>ThanhPhuc</div>
+              {/* <div>ThanhPhuac</div> */}
               {/* <Redirect to='/main'></Redirect> */}
-              <Link to="/login"> LoginA</Link>
+              {/* <Redirect to="/main"></Redirect> */}
+              {/* <Link to="/login"> LoginA</Link> */}
               <Switch>
               <Route exact path="/">
                 <div>Home</div>
@@ -89,8 +90,8 @@ function App() {
           <Router>
             <div className="App">
             
-              <Redirect to="/login"></Redirect>
-              <Link to="/login"> LoginA</Link>
+              {/* <Redirect to="/login"></Redirect> */}
+              {/* <Link to="/login"> LoginA</Link> */}
               <Switch>
               <Route exact path="/">
                 <div>Home</div>

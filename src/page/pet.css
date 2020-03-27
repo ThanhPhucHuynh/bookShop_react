@@ -4,5 +4,10 @@
 }
 .divImg{
     margin: auto;
-    /* width: 40%; */
+    width: min-content;
+}
+divImg img:hover{
+    height:450px ;
+    width: 450px;
+    /* cursor: grab; */
 }

@@ -35,8 +35,8 @@ class LoginA extends Component {
         
         if(email){
             console.log(__dirname)
-            // axois.get('http://localhost:1234/user/'+email)
-            axois.get('http://192.168.3.129:1234/user/'+email)
+            axois.get('http://localhost:1234/user/'+email)
+            // axois.get('http://192.168.3.129:1234/user/'+email)
              
             .then(res=>{
                     // this.setState({
@@ -48,7 +48,7 @@ class LoginA extends Component {
                         name: res.data.user.name,
                         pass: res.data.user.pass
                     },()=>{
-                        Cookie.set("email",email,{expires: 1})
+                        // Cookie.set("email",email,{expires: 1})
                     })
 
                 }).catch(err=>{
@@ -70,7 +70,7 @@ class LoginA extends Component {
 
         //  history.push('/main',event.target.email.value,event.target.pass.value )
         if(pass === this.state.pass){
-            
+            Cookie.set("email",email,{expires: 1})    
         this.setState({
            
                 
@@ -115,39 +115,54 @@ class LoginA extends Component {
                 }
             return (
                 <Router>
-                <div className='Login_form' onSubmit={this.handleSubmit} onChange={this.onChangeEmail}>
-                    <Form>
-                    <h2 >Login</h2>
+                <div className="wrap-login">
 
-                        <div className='wellcome'>
-                            {$wellcome}
-                            <h1>Wellcome  {(this.state.name )}</h1>
-                        </div>
                     
+                    <div className='Login_form' onSubmit={this.handleSubmit} onChange={this.onChangeEmail}>
+                        <Form>
+                        <h2 className="title_login">Login to continue</h2>
 
-                        <Form.Group controlId="formBasicEmail">
-                            {$checkNotification}
-                            <Form.Label>Email address</Form.Label>
+                            <div className='wellcome'>
+                                {$wellcome}
+                                <h1>Wellcome  {(this.state.name )}</h1>
+                            </div>
+                        
+
+                            <Form.Group controlId="formBasicEmail">
+                                {$checkNotification}
+                                <Form.Label>Email address</Form.Label>
 
 
-                            <Form.Control name='email' type="email" placeholder="Enter email" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                    </Form.Text>
-                        </Form.Group>
+                                <Form.Control name='email' type="email" placeholder="Enter email" />
+                                <Form.Text className="text-muted">
+                                    We'll never share your email with anyone else.
+                        </Form.Text>
+                            </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control name='pass' type="password" placeholder="Password" />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control name='pass' type="password" placeholder="Password" />
+                            </Form.Group>
+                            <Form.Group controlId="formBasicCheckbox">
+                                <Form.Check type="checkbox" label="Remember your password????" />
+                            </Form.Group>
+                            <Button className="btn_login" variant="primary" type="submit">
 
-                            Submit
-                        </Button>
-                    </Form>
+                                LOGIN
+                            </Button>
+                            <p className="signup-content">or sign up using</p>
+                            <div className="signupfor login100-form-social flex-c-m">
+                               
+                                <a href="#" className="login100-form-social-item flex-c-m bg1 m-r-5">
+                                    <i className="fa fa-facebook-f" aria-hidden="true" />
+                                </a>
+                                <a href="#" className="login100-form-social-item flex-c-m bg2 m-r-5">
+                                    <i className="fa fa-twitter" aria-hidden="true" />
+                                </a>
+                            </div>
+                        </Form>
+                    </div>
+                    <div className="loginBackgound"></div>
                 </div>
               </Router>
              )

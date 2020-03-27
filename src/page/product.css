@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 .card {
     margin-bottom: 10px;
   }
@@ -12,6 +13,8 @@
   .card:hover {
     display: block;
     color: blue;
+    background-color: rgba(206, 205, 205,.5);
+    transition: ease .5s;
   }
   .react-notification-root {
     /* width: 160px; */
@@ -39,4 +42,18 @@
   .notification-content{
     width: 160px;
     opacity: 1;
+  }
+  .price{
+    color: red;
+    float: right;
+    font-size: 22px;
+    /* font-weight: 600; */
+    font-family: 'Open Sans', sans-serif;
+  }
+  @media screen and (max-width: 1024px){
+
+    .card img {
+      height: 300px;
+      /* width: 192px; */
+    }
   }
