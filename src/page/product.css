@@ -9,12 +9,20 @@
   /* .card-text {
     display: none;
   } */
-  
+  .panigation_lable{
+    display: block;
+    width: 100%;
+  }
   .card:hover {
     display: block;
     color: blue;
     background-color: rgba(206, 205, 205,.5);
     transition: ease .5s;
+  }
+  .panigation_lable ul{
+    float: right;
+    height: 28px;
+    width: 129px;
   }
   .react-notification-root {
     /* width: 160px; */

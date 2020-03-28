@@ -1,0 +1,69 @@
+.wellcomImgUser img {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+.wellcomImgUser p {
+    margin: auto;
+}
+.wellcomImgUser{
+    position: relative;
+}
+.dropdown-toggle::after { 
+    content: none; 
+} 
+.dropdown-toggle{
+    background-color:unset;
+    border: none;
+}
+.dropdown-toggle:hover{
+    
+    background-color:silver;
+    border: none;
+}
+.dropdown-toggle:active .wellcomImgUser p{
+   color: white;
+}
+.dropdown-toggle:end .wellcomImgUser p{
+    color: white;
+ }
+
+.dropdown {
+    width: 15%;
+    right: 0;
+    left: 0;
+    display: block;
+}
+
+.wellcomImgUserPannal{
+    width: 15%;
+}
+.HeaderName{
+    margin-left: 5%;
+}
+.nav-item{
+    margin-right: 30px;
+    /* font-size: 20px; */
+}
+.nav-link p {
+    color: rgb(85, 85, 255);
+    font-size: 15px;
+    font-weight: 1;
+    transition: ease .5s;
+}
+.nav-link:hover p{
+    font-size: 20px;
+}
+.dropdown-menu-right{
+    left: 0;
+}
+.navbar{
+    background-color: rgb(240, 239, 239);
+}
+.nav-link .choosed{
+    color: rgb(0, 87, 128);
+    text-decoration: underline;
+    font-size: 17px;
+}

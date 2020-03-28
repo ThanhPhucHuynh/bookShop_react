@@ -41,7 +41,7 @@ function App() {
               {/* <Link to="/login"> LoginA</Link> */}
               <Switch>
               <Route exact path="/">
-                <div>Home</div>
+                {/* <div>Home</div> */}
                 </Route>
                 <Route exact path="/login" >
                   <LoginA />
@@ -90,11 +90,11 @@ function App() {
           <Router>
             <div className="App">
             
-              {/* <Redirect to="/login"></Redirect> */}
+              {/* <Redirect to="/main"></Redirect> */}
               {/* <Link to="/login"> LoginA</Link> */}
               <Switch>
               <Route exact path="/">
-                <div>Home</div>
+                <div>NOthing</div>
                 </Route>
                 <Route exact path="/login" >
                   <LoginA />

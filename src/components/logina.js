@@ -6,6 +6,7 @@ import { Redirect , withRouter} from 'react-router-dom'
 import './logina.css'
 import axois from 'axios';
 import path from 'path'
+import Singup from './signup'
 import {
     BrowserRouter as Router,
     Switch,
@@ -163,12 +164,13 @@ class LoginA extends Component {
                         </Form>
                     </div>
                     <div className="loginBackgound"></div>
+                   
                 </div>
+                
               </Router>
              )
             }else{
                 return(
-                    
                     <Redirect
                     to={{
                         pathname: "/main",

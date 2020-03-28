@@ -181,12 +181,15 @@ class Product extends Component {
   };
   render() {
     const { products, girl } = this.state;
-   
+    console.log(products)
     let {pagination_first,pagination_second,pagination_third} = this.state;
-    let productNagivication = products.slice(pagination_second*6,pagination_second*6+6);
+    let productNagivication = products.slice((pagination_second-1)*6,pagination_second*6);
+    console.log(pagination_first,pagination_second,pagination_third);
+    
     if(products.length<=6 ){
       productNagivication = [...products]
     }
+    console.log(productNagivication)
     console.log(this.props,window.location.search)
     return (
       
@@ -235,16 +238,13 @@ class Product extends Component {
               </div>
             </Col>
           ))}
-        </Row>
-      
-      </Container>
-     
-            <Pagination size="sm" aria-label="Page navigation example">
-            <PaginationItem>
+          
+          <Pagination size="sm" aria-label="Page navigation example" className="panigation_lable">
+            {/* <PaginationItem>
                 <PaginationLink first href="#" />
-            </PaginationItem>
+            </PaginationItem> */}
             <PaginationItem>
-                <PaginationLink previous href="#" />
+                <PaginationLink previous href={"product?"+pagination_first} />
             </PaginationItem>
             <PaginationItem>
                 <PaginationLink href={"product?"+pagination_first}>
@@ -262,12 +262,16 @@ class Product extends Component {
                 </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-                <PaginationLink next href="#" />
+                <PaginationLink next href={"product?"+pagination_third} />
             </PaginationItem>
-            <PaginationItem>
+            {/* <PaginationItem>
                 <PaginationLink last href="#" />
-            </PaginationItem>
+            </PaginationItem> */}
             </Pagination>
+        </Row>
+      
+      </Container>
+     
       <NotificationContainer />  
       </div>
     );

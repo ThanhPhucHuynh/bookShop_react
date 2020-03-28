@@ -6,17 +6,25 @@ import { BrowserRouter as Router,
     Link, Redirect } from 'react-router-dom'
 import Cookie from 'js-cookie';
 import axois from 'axios'
+import './main.css'
+
+
 import Product from '../page/product'
 import Cart from '../page/cart'
 import Pet from "../page/pet";
-import { Button } from 'reactstrap';
+import { Button,UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    Dropdown, } from 'reactstrap';
 import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
 class main extends Component {
     constructor(props){
         super(props);
         this.state={
-            name:[]
+            name:[],
+            navNumber:0
         }
         // if(this.props.location.state){
          console.log('00',this.props.location.state);
@@ -38,6 +46,7 @@ class main extends Component {
                     this.setState({
                         cookie:valueCookie,
                         name: res.data.user.name,
+                        imgAvata:res.data.user.userImg,
                         isCookie:true
                     },()=>{
                         console.log(this.state.cookie)
@@ -54,14 +63,17 @@ class main extends Component {
         Cookie.remove('email');
         window.location.reload(false);
     }
+    returnClassChoose(){
+        return "choosed"
+    }
     render(){
         var {cartProducts} = this.props;
         console.log("cartproduct",cartProducts);
-        console.log(this.props.getData);
+        // console.log(this.state.imgAvata);
         
         
         const {email,password}= this.props;
-        const {name,isCookie} = this.state;
+        const {name,isCookie,imgAvata} = this.state;
         console.log("is", isCookie)
         if(Cookie.get('email')){
 
@@ -69,14 +81,73 @@ class main extends Component {
             return(
                 <Router>
                 <div>
-                    <h2>Haha {(this.props.location.state!=undefined) ? this.props.location.state.form.name:''} </h2>
+                {/* <script src="css/owl.js"></script> */}
+                {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> */}
+                    {/* <link rel="stylesheet" href="css/owl.css" /> */}
+                    <div className='navbar navbar-expand-lg '>
+                    <h2 className="HeaderName navbar-brand">Haha</h2>
+                        {/* {(this.props.location.state!=undefined) ? this.props.location.state.form.name:''} </h2> */}
                     <h1>{email}</h1>
                     <h2>{password}</h2>
-                        <p>{name}</p>
-                    <Link to="/main/product" > Product</Link>
-                    <Link to="/main/cart"> Cart ({cartProducts.length})</Link>
-                    <Link to="/main/pet"> Pest</Link>
-                    <Button className='logout' onClick={this.onClickLogout}>Logn out</Button>
+                   
+                    <div className="navbar-collapse collapse show">
+                        <ul className="navbar-nav ml-auto">
+                             <li className="nav-item">
+                                 <Link className="nav-link" to="/main" onClick={()=>{
+                                     this.setState({
+                                         navNumber:0
+                                     })
+                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>Main</p> </Link>
+                            </li>
+                            <li className="nav-item">
+                                 <Link className="nav-link" to="/main/product" onClick={()=>{
+                                     this.setState({
+                                         navNumber:1
+                                     })
+                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>Product</p> </Link>
+                            </li>
+                            <li className="nav-item">
+                              <Link className="nav-link" to="/main/cart"onClick={()=>{
+                                     this.setState({
+                                         navNumber:2
+                                     })
+                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> Cart ({cartProducts.length})</p></Link>
+                            </li>
+                            <li className="nav-item">
+                              <Link className="nav-link" to="/main/pet"onClick={()=>{
+                                     this.setState({
+                                         navNumber:3
+                                     })
+                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}>Pest</p> </Link>
+                            </li>
+                            <li className="nav-item">
+                                
+                            </li>
+                        </ul>
+
+                        <div className="wellcomImgUserPannal">
+                        <UncontrolledDropdown  inNavbar>
+                                <DropdownToggle  caret>
+                                
+                                  <div className="wellcomImgUser">
+                                        <img src={imgAvata}></img>
+                                        <p className="wellcomUser">{name}</p>
+                                    </div>
+                                </DropdownToggle>
+                                <DropdownMenu right  >
+                                    <DropdownItem  >
+                                         <a className='logout' onClick={this.onClickLogout}>Logn out</a>
+                                    </DropdownItem>
+                                </DropdownMenu>
+                        </UncontrolledDropdown>
+                   
+
+                        </div>
+                     </div>
+                    </div>
+
+                    
+
                     <Switch>
                         
                     
@@ -92,6 +163,13 @@ class main extends Component {
                         </Route>
                     </Switch>
                 </div>
+
+                <div className="imgAbout">
+                    
+                </div>
+
+
+
                 </Router>
             )
         }else{
