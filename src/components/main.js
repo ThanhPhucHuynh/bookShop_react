@@ -139,6 +139,7 @@ class main extends Component {
                                         <p className="wellcomUser">{name}</p>
                                     </div>
                                 </DropdownToggle>
+                                
                                 <DropdownMenu right  >
                                     <DropdownItem  >
                                          <button className='logout' onClick={this.onClickLogout}>Logn out</button>
