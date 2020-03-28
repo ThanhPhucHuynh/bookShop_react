@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component ,useState} from 'react';
 import { withRouter} from 'react-router-dom'
 import { BrowserRouter as Router,
     Switch,
@@ -8,7 +8,7 @@ import Cookie from 'js-cookie';
 import axois from 'axios'
 import './main.css'
 
-
+import './mainJs'
 import Product from '../page/product'
 import Cart from '../page/cart'
 import Pet from "../page/pet";
@@ -16,7 +16,9 @@ import { Button,UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    Dropdown, } from 'reactstrap';
+    Dropdown,
+    NavbarToggler,
+    Nav, } from 'reactstrap';
 import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
 class main extends Component {
@@ -24,7 +26,8 @@ class main extends Component {
         super(props);
         this.state={
             name:[],
-            navNumber:0
+            navNumber:0,
+            navHide: false
         }
         // if(this.props.location.state){
          console.log('00',this.props.location.state);
@@ -36,6 +39,7 @@ class main extends Component {
         const valueCookie = Cookie.get('email');
         console.log(valueCookie);
         console.log(this.state.cookie)
+        
         if(valueCookie){
             axois.get('http://localhost:1234/user/'+valueCookie)
                 .then(res=>{
@@ -66,6 +70,7 @@ class main extends Component {
     returnClassChoose(){
         return "choosed"
     }
+    
     render(){
         var {cartProducts} = this.props;
         console.log("cartproduct",cartProducts);
@@ -76,7 +81,7 @@ class main extends Component {
         const {name,isCookie,imgAvata} = this.state;
         console.log("is", isCookie)
         if(Cookie.get('email')){
-
+        
         
             return(
                 <Router>
@@ -89,8 +94,9 @@ class main extends Component {
                         {/* {(this.props.location.state!=undefined) ? this.props.location.state.form.name:''} </h2> */}
                     <h1>{email}</h1>
                     <h2>{password}</h2>
-                   
-                    <div className="navbar-collapse collapse show">
+                  
+                    <div className="navbar-collapse collapse show navDropdown">
+                    {/* <button className="navbar-toggler btn_dropdown"></button> */}
                         <ul className="navbar-nav ml-auto">
                              <li className="nav-item">
                                  <Link className="nav-link" to="/main" onClick={()=>{
@@ -121,14 +127,13 @@ class main extends Component {
                                  }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}>Pest</p> </Link>
                             </li>
                             <li className="nav-item">
-                                
+                                 
                             </li>
                         </ul>
 
                         <div className="wellcomImgUserPannal">
                         <UncontrolledDropdown  inNavbar>
                                 <DropdownToggle  caret>
-                                
                                   <div className="wellcomImgUser">
                                         <img src={imgAvata}></img>
                                         <p className="wellcomUser">{name}</p>
@@ -136,12 +141,12 @@ class main extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right  >
                                     <DropdownItem  >
-                                         <a className='logout' onClick={this.onClickLogout}>Logn out</a>
+                                         <button className='logout' onClick={this.onClickLogout}>Logn out</button>
                                     </DropdownItem>
                                 </DropdownMenu>
                         </UncontrolledDropdown>
-                   
-
+                                 
+                        <div className="DivTemp"></div>
                         </div>
                      </div>
                     </div>

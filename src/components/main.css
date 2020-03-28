@@ -67,3 +67,51 @@
     text-decoration: underline;
     font-size: 17px;
 }
+.btn_dropdown{
+    background-color: black;
+    height: 100%;
+    width: 20%;
+    margin: auto;
+}
+.navDropdown{
+    position: relative;
+}
+.DivTemp{
+
+    display: none;
+    z-index: -1;
+   
+}
+.logout{
+    background-color: rgba(0,0,0,0);
+    color: blue;
+    border: none;
+}
+@media only screen and (max-width: 990px) {
+    .navbar-nav.ml-auto{
+        display: none;
+    }
+    .navDropdown:hover .navbar-nav.ml-auto {
+        display: block;
+      
+        transition: ease 2s; 
+    } 
+    .navDropdown:hover .DivTemp{
+        display: block;
+        height: 56px;
+        transition: ease 2s; 
+    } 
+    .nav-item{
+        margin: auto;
+    }
+    .nameNav {
+        text-align: center;
+    }
+    .wellcomImgUserPannal, .dropdown, .dropdown button{
+        width: 100%;
+   
+        margin: auto;
+   
+    }
+   
+}
