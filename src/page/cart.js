@@ -89,25 +89,30 @@ class Cart extends Component{
             return(
                 <div>
                     <h1>Cart</h1>
-                    { cartProduct.map((product,index)=>(
-                           <Media key={index}>
-                           <Media left href="#">
-                             <Media object src={product.img} alt="product image" />
-                           </Media>
-                           <Media body>
-                             <Media heading>
-                               {product.name}
-                             </Media>
-                             {/* Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. */}
-                             SL: {product.number}
-                            <p> {product.price}</p>
-                            <Button onClick={()=>{
-                              this.delItem(product)
-                            }}>Del</Button>
-                           </Media>
-                         </Media> 
-                    ))}
-                    <Button> Buy ${ price } </Button>
+                    <div className="cart">
+
+                    
+                      { cartProduct.map((product,index)=>(
+                            <Media className="mediaCart" key={index}>
+                            <Media left href="#">
+                              <Media object src={product.img} alt="product image" />
+                            </Media>
+                            <Media body>
+                              <Media heading>
+                                {product.name}
+                              </Media>
+                              {/* Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. */}
+                              SL: {product.number}
+                              <p> {product.price}</p>
+                              <Button onClick={()=>{
+                                this.delItem(product)
+                              }}>Del</Button>
+                            </Media>
+                          </Media> 
+                      ))}
+                    </div>
+                    <Button color="primary" className="btnPrice"> Buy ${ price } </Button>
+                    
                 </div>
             )
         }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
 .wellcomImgUser img {
     height: 40px;
     width: 40px;
@@ -42,6 +43,8 @@
 }
 .HeaderName{
     margin-left: 5%;
+    font-size: 150%;
+    font-family: 'Kaushan Script', cursive;
 }
 .nav-item{
     margin-right: 30px;
@@ -61,6 +64,7 @@
 }
 .navbar{
     background-color: rgb(240, 239, 239);
+   /* background:  linear-gradient(silver 90%, Black); */
 }
 .nav-link .choosed{
     color: rgb(0, 87, 128);
@@ -72,6 +76,14 @@
     height: 100%;
     width: 20%;
     margin: auto;
+}
+.imgIcon{
+    height: 40px;
+    width: 40px;
+}
+.imgIconHome{
+    height: 50px;
+    width: 50px;
 }
 .navDropdown{
     position: relative;
@@ -113,5 +125,9 @@
         margin: auto;
    
     }
-   
+    .HeaderName{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }

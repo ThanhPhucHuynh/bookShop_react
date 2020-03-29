@@ -1,4 +1,42 @@
 .media-left img{
     height: 140px;
+    transition: ease 1s;
     width: 140px;
+}
+.mediaCart{
+    float: left;
+    margin: 20px;
+    background-color: silver;
+    border-radius: 6px;
+    transition: ease 1s;
+}
+.media-body{
+    margin: 0px 10px;
+    transition: ease 1s;
+}
+.media-body button{
+    display: none;
+    width: 60px;
+    transition: ease 1s;
+}
+.media-body p, .media-body button{
+    clear: both;
+    float: right;
+    margin-left: 50px;
+}
+.mediaCart:hover .media-body button{
+    display: block;
+    transition: ease 10s;
+    
+}
+.btnPrice{
+    clear: both;
+    display: block;
+    margin: auto;
+}
+@media only screen and (max-width: 990px) {
+    .mediaCart{
+        float:  none;
+       
+    }
 }

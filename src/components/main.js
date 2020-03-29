@@ -7,11 +7,18 @@ import { BrowserRouter as Router,
 import Cookie from 'js-cookie';
 import axois from 'axios'
 import './main.css'
-
+// import './css/font-awesome-4.7.0/css/font-awesome.min.css'
+import './css/fontawesome.min.css'
+import './css/fontawesome.css'
 import './mainJs'
 import Product from '../page/product'
 import Cart from '../page/cart'
 import Pet from "../page/pet";
+import imgHome from './images/siberian-husky.svg'
+import imgCart from './images/supermarket.svg'
+import imgProduct from './images/bowl.svg'
+import imgFunImg from './images/cat.svg'
+import imgDOG from './images/dog.png'
 import { Button,UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -86,10 +93,11 @@ class main extends Component {
             return(
                 <Router>
                 <div>
-                {/* <script src="css/owl.js"></script> */}
                 {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> */}
                     {/* <link rel="stylesheet" href="css/owl.css" /> */}
                     <div className='navbar navbar-expand-lg '>
+                    {/* <i className="fa fa-cat"></i> */}
+                    {/* <img src={imgDOG}className="imgIconHome"></img> */}
                     <h2 className="HeaderName navbar-brand">Haha</h2>
                         {/* {(this.props.location.state!=undefined) ? this.props.location.state.form.name:''} </h2> */}
                     <h1>{email}</h1>
@@ -98,33 +106,36 @@ class main extends Component {
                     <div className="navbar-collapse collapse show navDropdown">
                     {/* <button className="navbar-toggler btn_dropdown"></button> */}
                         <ul className="navbar-nav ml-auto">
+
                              <li className="nav-item">
+                               
+
                                  <Link className="nav-link" to="/main" onClick={()=>{
                                      this.setState({
                                          navNumber:0
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>Main</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={imgHome}className="imgIcon"></img> Main</p> </Link>
                             </li>
                             <li className="nav-item">
                                  <Link className="nav-link" to="/main/product" onClick={()=>{
                                      this.setState({
                                          navNumber:1
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>Product</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={imgProduct}className="imgIcon"></img> Product</p> </Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/cart"onClick={()=>{
                                      this.setState({
                                          navNumber:2
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> Cart ({cartProducts.length})</p></Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={imgCart}className="imgIcon"></img> Cart ({cartProducts.length})</p></Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/pet"onClick={()=>{
                                      this.setState({
                                          navNumber:3
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}>Pest</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={imgFunImg}className="imgIcon"></img>Fun Pic</p> </Link>
                             </li>
                             <li className="nav-item">
                                  
@@ -142,7 +153,7 @@ class main extends Component {
                                 
                                 <DropdownMenu right  >
                                     <DropdownItem  >
-                                         <button className='logout' onClick={this.onClickLogout}>Logn out</button>
+                                         <a className='logout btn' onClick={this.onClickLogout}>Logn out</a>
                                     </DropdownItem>
                                 </DropdownMenu>
                         </UncontrolledDropdown>
@@ -150,10 +161,11 @@ class main extends Component {
                         <div className="DivTemp"></div>
                         </div>
                      </div>
+                     
                     </div>
 
                     
-
+                                
                     <Switch>
                         
                     
