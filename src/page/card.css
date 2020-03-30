@@ -4,29 +4,54 @@
     width: 140px;
 }
 .mediaCart{
+    width: 320px;
     float: left;
     margin: 20px;
-    background-color: silver;
+    background-color: rgb(192,192,192);
     border-radius: 6px;
     transition: ease 1s;
+}
+.cartMain{
+    padding: 20px;
+}
+.cart{
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 70%;
 }
 .media-body{
     margin: 0px 10px;
     transition: ease 1s;
+    height: 140px;
+    position: relative;
 }
 .media-body button{
-    display: none;
+/* display: none; */
+    font-size: 12px;
     width: 60px;
+    position: absolute;
+    bottom: 2px;
+    right: 0;
     transition: ease 1s;
 }
+
 .media-body p, .media-body button{
     clear: both;
     float: right;
     margin-left: 50px;
 }
-.mediaCart:hover .media-body button{
-    display: block;
-    transition: ease 10s;
+.mediaCart:hover{
+    
+    background-color: rgba(224,224,224);
+    transition: ease 1s;
+    
+}
+.mediaCart:hover .media-body h4 {
+    
+    /* background-color: rgba(224,224,224); */
+    /* transition: ease 1s; */
+    color: rgb(118, 118, 255);
     
 }
 .btnPrice{
@@ -37,6 +62,8 @@
 @media only screen and (max-width: 990px) {
     .mediaCart{
         float:  none;
-       
+        width: 100%;
+        
     }
+   
 }

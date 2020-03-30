@@ -50,8 +50,8 @@ class Product extends Component {
   }
   componentDidMount() {
     let numberProduct;
-    axios.get("http://localhost:1234/product").then(res => {
-    // axios.get("http://192.168.3.129:1234/product").then(res => {
+    // axios.get("http://localhost:1234/product").then(res => {
+    axios.get("http://192.168.3.104:1234/product").then(res => {
     
       this.setState({
         products: res.data.product

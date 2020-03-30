@@ -14,6 +14,7 @@ import './mainJs'
 import Product from '../page/product'
 import Cart from '../page/cart'
 import Pet from "../page/pet";
+import Home from "../page/home"
 import imgHome from './images/siberian-husky.svg'
 import imgCart from './images/supermarket.svg'
 import imgProduct from './images/bowl.svg'
@@ -48,7 +49,9 @@ class main extends Component {
         console.log(this.state.cookie)
         
         if(valueCookie){
-            axois.get('http://localhost:1234/user/'+valueCookie)
+            // axois.get('http://localhost:1234/user/'+valueCookie)
+            axois.get('http://192.168.3.104:1234/user/'+valueCookie)
+
                 .then(res=>{
                     // this.setState({
                     
@@ -98,7 +101,7 @@ class main extends Component {
                     <div className='navbar navbar-expand-lg '>
                     {/* <i className="fa fa-cat"></i> */}
                     {/* <img src={imgDOG}className="imgIconHome"></img> */}
-                    <h2 className="HeaderName navbar-brand">Haha</h2>
+                    <h2 className="HeaderName navbar-brand">Webpet</h2>
                         {/* {(this.props.location.state!=undefined) ? this.props.location.state.form.name:''} </h2> */}
                     <h1>{email}</h1>
                     <h2>{password}</h2>
@@ -110,7 +113,7 @@ class main extends Component {
                              <li className="nav-item">
                                
 
-                                 <Link className="nav-link" to="/main" onClick={()=>{
+                                 <Link className="nav-link" to="/main/home" onClick={()=>{
                                      this.setState({
                                          navNumber:0
                                      })
@@ -164,6 +167,7 @@ class main extends Component {
                      
                     </div>
 
+                    {/* <h1 className='tem'>asdasd</h1> */}
                     
                                 
                     <Switch>
@@ -176,9 +180,13 @@ class main extends Component {
                             <Cart getData={this.props.getData} />
                         </Router>
                         <Route  exact path="/main/pet">
-                            <h1>dasda</h1>
+                           
                             <Pet />
                         </Route>
+                        <Route  exact path="/main/home">
+                           
+                           <Home />
+                       </Route>
                     </Switch>
                 </div>
 

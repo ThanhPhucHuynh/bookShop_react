@@ -1,13 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 .divImg img{
     height:400px ;
     width: 400px;
+    border-radius: 15px;
+    transition: ease-out 1s;
 }
 .divImg{
     margin: auto;
     width: min-content;
 }
-divImg img:hover{
+.divImg img:hover{
     height:450px ;
+    transition: ease 2s;
     width: 450px;
     /* cursor: grab; */
+}
+.petImgContent{
+    display: block;
+    margin: 5px;
+    text-align: center;
+    color: hotpink;
+}
+.contentFun{
+    margin: 20px;
+    text-align: center;
+    color: rgb(39, 41, 78);
+    font-family: 'Indie Flower', cursive;
+}
+.FromGoupFun{
+    margin: 20px;
+}
+.Note{
+    font-size: 20px;
+    text-align: center;
 }

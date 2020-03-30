@@ -87,12 +87,14 @@ class Cart extends Component{
                 number = 0;
             }
             return(
-                <div>
+                <div className="cartMain">
                     <h1>Cart</h1>
+                    <Row>
                     <div className="cart">
-
+                      
                     
                       { cartProduct.map((product,index)=>(
+                        
                             <Media className="mediaCart" key={index}>
                             <Media left href="#">
                               <Media object src={product.img} alt="product image" />
@@ -103,14 +105,16 @@ class Cart extends Component{
                               </Media>
                               {/* Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. */}
                               SL: {product.number}
-                              <p> {product.price}</p>
+                              <p> $ {product.price}</p>
                               <Button onClick={()=>{
                                 this.delItem(product)
-                              }}>Del</Button>
+                              }}>remove</Button>
                             </Media>
                           </Media> 
+                          
                       ))}
                     </div>
+                    </Row>
                     <Button color="primary" className="btnPrice"> Buy ${ price } </Button>
                     
                 </div>

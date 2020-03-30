@@ -46,8 +46,8 @@ class Pet extends Component {
         console.log(urlIMG)
         return(
             <div className="divMainPet">
-
-                <FormGroup>
+                <h1 className="contentFun">It will make you happy</h1>
+                <FormGroup className="FromGoupFun">
                     <Label for="exampleSelect">Select</Label>
                     
                     <Input type="select" name="select" id="exampleSelect" 
@@ -60,8 +60,8 @@ class Pet extends Component {
                     
                     </Input>
                     
-                </FormGroup>
-                <h1>Pets Images</h1>
+                </FormGroup >
+                <h1 className="petImgContent">Pets Images &#128522;</h1>
                 <div>
                     <div className='divImg'>
                         <button>
@@ -73,6 +73,7 @@ class Pet extends Component {
                         ></CardImg >
                         </button>
                     </div>
+                    <p className="Note">Click picture to change &#128525; &#128525;</p>
                 </div>
                 
             </div>
