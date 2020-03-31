@@ -20,7 +20,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { dispatch } from "redux";
 import { reloadToCart } from "../actions/index";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
 const noty = () => {
@@ -46,12 +46,12 @@ class Product extends Component {
     let productsOriginal;
     this.addToCart = this.addToCart.bind(this)
     this.searchProduct = this.searchProduct.bind(this)
-    this.createNotification=this.createNotification.bind(this)
+    // this.createNotification=this.createNotification.bind(this)
   }
   componentDidMount() {
     let numberProduct;
-    // axios.get("http://localhost:1234/product").then(res => {
-    axios.get("http://192.168.3.104:1234/product").then(res => {
+    axios.get("http://localhost:1234/product").then(res => {
+    // axios.get("http://192.168.3.104:1234/product").then(res => {
     
       this.setState({
         products: res.data.product
@@ -158,27 +158,27 @@ class Product extends Component {
     })
     
   }
-  createNotification = (type) => {
-    return () => {
+  // createNotification = (type) => {
+  //   return () => {
 
-      switch (type) {
-        case 'info':
-          NotificationManager.info('Info message');
-          break;
-        case 'success':
-          NotificationManager.success('Success message', 'Title here');
-          break;
-        case 'warning':
-          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-          break;
-        case 'error':
-          NotificationManager.error('Error message', 'Click me!', 5000, () => {
-            alert('callback');
-          });
-          break;
-      }
-    };
-  };
+  //     switch (type) {
+  //       case 'info':
+  //         NotificationManager.info('Info message');
+  //         break;
+  //       case 'success':
+  //         NotificationManager.success('Success message', 'Title here');
+  //         break;
+  //       case 'warning':
+  //         NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+  //         break;
+  //       case 'error':
+  //         NotificationManager.error('Error message', 'Click me!', 5000, () => {
+  //           alert('callback');
+  //         });
+  //         break;
+  //     }
+  //   };
+  // };
   render() {
     const { products, girl } = this.state;
     console.log(products)
@@ -193,7 +193,7 @@ class Product extends Component {
     console.log(this.props,window.location.search)
     return (
       
-        <div>
+        <div className="productDiv">
            <ReactNotification />
         <Container>
        
@@ -272,7 +272,7 @@ class Product extends Component {
       
       </Container>
      
-      <NotificationContainer />  
+      {/* <NotificationContainer />   */}
       </div>
     );
   }

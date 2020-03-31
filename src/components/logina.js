@@ -36,8 +36,8 @@ class LoginA extends Component {
         
         if(email){
             console.log(__dirname)
-            // axois.get('http://localhost:1234/user/'+email)
-            axois.get('http://192.168.3.104:1234/user/'+email)
+            axois.get('http://localhost:1234/user/'+email)
+            // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{
                     // this.setState({

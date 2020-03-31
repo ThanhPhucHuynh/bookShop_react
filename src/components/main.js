@@ -49,8 +49,8 @@ class main extends Component {
         console.log(this.state.cookie)
         
         if(valueCookie){
-            // axois.get('http://localhost:1234/user/'+valueCookie)
-            axois.get('http://192.168.3.104:1234/user/'+valueCookie)
+            axois.get('http://localhost:1234/user/'+valueCookie)
+            // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
 
                 .then(res=>{
                     // this.setState({
@@ -95,6 +95,8 @@ class main extends Component {
         
             return(
                 <Router>
+                    {/* <Redirect to="/main/home
+                    "></Redirect> */}
                 <div>
                 {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> */}
                     {/* <link rel="stylesheet" href="css/owl.css" /> */}
@@ -161,12 +163,12 @@ class main extends Component {
                                 </DropdownMenu>
                         </UncontrolledDropdown>
                                  
-                        <div className="DivTemp"></div>
+                       
                         </div>
                      </div>
                      
                     </div>
-
+                    <div className="DivTemp"></div>
                     {/* <h1 className='tem'>asdasd</h1> */}
                     
                                 

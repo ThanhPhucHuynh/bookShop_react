@@ -10,9 +10,20 @@
     background-color: rgb(192,192,192);
     border-radius: 6px;
     transition: ease 1s;
+    animation-name: open;
+    animation-duration: 2s;
 }
+@keyframes open {
+    from {width: 0px;}
+    to {width: 320px;;}
+  }
 .cartMain{
     padding: 20px;
+}
+.cartMain h1{
+    display: block;
+    width: 80%;
+    margin: auto;
 }
 .cart{
     display: block;

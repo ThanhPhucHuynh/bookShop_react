@@ -31,13 +31,21 @@
     color: white;
  }
 
+
 .dropdown {
     width: 15%;
     right: 0;
     left: 0;
     display: block;
 }
-
+.navbar {
+    position: fixed;
+    background: white;
+    z-index: 50;
+    /* display: block; */
+    background-color:rgba(255, 255, 255, 0.8);
+    width: 100%;
+}
 .wellcomImgUserPannal{
     width: 15%;
 }
@@ -62,12 +70,7 @@
 .dropdown-menu-right{
     left: 0;
 }
-.navbar{
-    /* background-color: rgb(240, 239, 239); */
-    background-color:rgba(240, 239, 239,0.4);
-    /* border-bottom: black solid 1px; */
-   /* background:  linear-gradient(silver 90%, Black); */
-}
+
 .nav-link .choosed{
     color: rgb(0, 87, 128);
     text-decoration: underline;
@@ -100,6 +103,12 @@
     background-color: rgba(0,0,0,0);
     color: blue;
     border: none;
+
+}
+.DivTemp{
+    width: 100%;
+    display: block;
+    height: 99px;
 }
 @media only screen and (max-width: 990px) {
     .navbar-nav.ml-auto{
@@ -131,5 +140,11 @@
         display: block;
         width: 100%;
         text-align: center;
+    }
+    .DivTemp{
+
+       height: 145px;
+        z-index: -1;
+       
     }
 }

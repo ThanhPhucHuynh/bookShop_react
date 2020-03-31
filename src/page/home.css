@@ -85,18 +85,30 @@
     height: 100%;
     width: 25%;
     margin-left: 5%;
-    padding-top: 20%;
+    padding-top: 10%;
 }
 .section3 >div {
    
     margin-left: 7%;
 }
+#mapDiv{
+    -webkit-filter: grayscale(100%);
+                                filter: grayscale(100%);
+                               
+}
+
 .section3 div h1{
    margin-bottom: 15%;
 }
 .section3 div p{
     padding-left: 10%;
  }
+ #mapDiv{
+     /* background-color: black; */
+    height: 200px;
+    width: 100%;
+    display: block;
+}
 @media only screen and (max-width: 600px) {
     .headerSection2{
         float: none;
@@ -118,18 +130,37 @@
         margin: auto;
         padding: 10%;
     }
+    .cantactLocation{
+        width: 100%;
+    }
+    #mapDiv{
+        display: block;
+        position: absolute;
+        margin: 0;
+        left: 49%;
+        width: 50%;
+        top: 0;
+    }
 }
 
 @media only screen and (max-width: 875px) {
     .section3 div {
         float: none;
         height: 30%;
-        width: 100%;
+        /* width: 100%; */
         margin-left: 5%;
         padding-top: 5%;
     }
     .section3 div h1{
         padding: 0;
         margin: 2%;
+    }
+    #mapDiv{
+        display: block;
+        position: absolute;
+        margin: 0;
+        left: 49%;
+        width: 50%;
+        top: 0;
     }
 }

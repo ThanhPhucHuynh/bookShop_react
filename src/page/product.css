@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
+.productDiv{
+  background-color: rgba(192, 192, 192,.2);
+}
 .card {
     margin-bottom: 10px;
   }
@@ -28,7 +30,7 @@
   .react-notification-root {
     /* width: 160px; */
     position: fixed;
-    top: 10px;
+    top: 100px;
     right: 20px;
     /* background-color: blue; */
     /* color: white; */
@@ -44,7 +46,7 @@
     opacity: .6;
     border-radius: 10px;
     padding: 11px;
-    top: 10px;
+    top: 40px;
     margin: 10px;
     width: 160px;
   }
