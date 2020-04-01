@@ -59,7 +59,9 @@
     /* font-size: 20px; */
 }
 .nav-link p {
-    color: rgb(85, 85, 255);
+    /* color: rgb(85, 85, 255); */
+    color: rgb(58, 56, 56);
+
     font-size: 15px;
     font-weight: 1;
     transition: ease .5s;
@@ -72,7 +74,7 @@
 }
 
 .nav-link .choosed{
-    color: rgb(0, 87, 128);
+    color: rgb(38, 0, 255);
     text-decoration: underline;
     font-size: 17px;
 }

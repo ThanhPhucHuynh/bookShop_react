@@ -155,7 +155,7 @@ class LoginA extends Component {
                             <div className="signupfor login100-form-social flex-c-m">
                                
                                 <a href="#" className="login100-form-social-item flex-c-m bg1 m-r-5">
-                                    <i className="fa fa-facebook-f" aria-hidden="true" />
+                                    <i className="fa fa-facebook" aria-hidden="true" />
                                 </a>
                                 <a href="#" className="login100-form-social-item flex-c-m bg2 m-r-5">
                                     <i className="fa fa-twitter" aria-hidden="true" />
@@ -173,7 +173,7 @@ class LoginA extends Component {
                 return(
                     <Redirect
                     to={{
-                        pathname: "/main",
+                        pathname: "/main/home",
                         state: {
                             form: this.state.user
                         }

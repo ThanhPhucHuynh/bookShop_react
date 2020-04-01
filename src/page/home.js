@@ -47,9 +47,11 @@ class Home extends Component {
 
                         <div className="contactFollow">
                             <h1>Follow</h1>
+
                             <ul>
-                                <li><a href="https://www.facebook.com/phuchuynhfait"><p>Facebook</p></a></li>
-                                <li><a href="https://www.instagram.com/thanh_phuc_huynh/"><p>Instagram</p></a></li>
+                            {/* <i className="fa fa-facebook" aria-hidden="true" /> */}
+                                <li><a href="https://www.facebook.com/phuchuynhfait"><p><i className="fa fa-facebook" aria-hidden="true"  style={{margin:"5px"}}/>  Facebook</p></a></li>
+                                <li><a href="https://www.instagram.com/thanh_phuc_huynh/"><p> <i className="fa fa-instagram" aria-hidden="true"  style={{margin:"5px"}} />Instagram</p></a></li>
                                 <li><p>Youtube</p></li>
 
                             </ul>
