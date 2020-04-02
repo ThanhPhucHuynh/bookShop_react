@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 .productDiv{
   background-color: rgba(192, 192, 192,.2);
+  /* height: 100px; */
 }
 .card {
     margin-bottom: 10px;
@@ -17,7 +18,7 @@
     width: 100%;
   }
   .card:hover {
-    display: block;
+    /* display: block; */
     color: blue;
     background-color: rgba(206, 205, 205,.5);
     transition: ease .5s;
@@ -27,18 +28,16 @@
     height: 28px;
     width: 129px;
   }
+  .row{
+    clear: both;
+  }
   .react-notification-root {
-    /* width: 160px; */
     position: fixed;
     top: 100px;
     right: 20px;
-    /* background-color: blue; */
-    /* color: white; */
     padding: 11px;
-    
+
     z-index: 100;
-    
-    /* background-color: #2e8ba6; */
   }
   .notification-parent{
     color: #ffffff;
@@ -61,10 +60,46 @@
     /* font-weight: 600; */
     font-family: 'Open Sans', sans-serif;
   }
+  .formProduct{
+    position: relative;
+
+  }
+  .radioFillter {
+    float: left;
+    position: absolute;
+  }
+  .radioFillter div div{
+    float: left;
+    
+  }
+  .search{
+    float: right;
+    width: 40%;
+    transition: ease .5s;
+  }
+  .navigationZero{
+    display: none;
+  }
   @media screen and (max-width: 1024px){
 
     .card img {
       height: 300px;
       /* width: 192px; */
+    }
+  }
+  @media screen and (max-width: 790px){
+
+    .card img {
+      height: 300px;
+      /* width: 192px; */
+    }
+    .radioFillter {
+      float: left;
+      position: relative;
+    }
+    .search{
+      /* float: right; */
+      width: 98%;
+      transition: ease .5s;
     }
   }

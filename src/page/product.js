@@ -10,16 +10,17 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
+  CustomInput,
   Pagination, PaginationItem, PaginationLink,
-  FormGroup, Label,Input
+  FormGroup, Label,Input,Form
 } from "reactstrap";
 import PropTypes from "prop-types";
 import "./product.css";
 import axios from "axios";
 // import { CartContext } from "../contexts/Cart";
-import { connect } from "react-redux";
-import { dispatch } from "redux";
-import { reloadToCart } from "../actions/index";
+// import { connect } from "react-redux";
+// import { dispatch } from "redux";
+// import { reloadToCart } from "../actions/index";
 // import {NotificationContainer, NotificationManager} from 'react-notifications';
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
@@ -44,8 +45,10 @@ class Product extends Component {
       number_pagination: 0
     };
     let productsOriginal;
+    let productsAfterFillter;
     this.addToCart = this.addToCart.bind(this)
     this.searchProduct = this.searchProduct.bind(this)
+    this.radioFillter = this.radioFillter.bind(this)
     // this.createNotification=this.createNotification.bind(this)
   }
   componentDidMount() {
@@ -61,6 +64,8 @@ class Product extends Component {
           // console.log("ss",res.data.product);
       });
       this.productsOriginal =[...this.state.products]
+      this.productsAfterFillter =[...this.state.products]
+
       console.log("ori", this.productsOriginal)
     });
 
@@ -128,15 +133,9 @@ class Product extends Component {
         cartProduct = [...cartProduct].concat(product)
         // console.log(this.props)
       }
-      
     
       localStorage.setItem("cartProduct",JSON.stringify(cartProduct));
       this.props.getData();
-      console.log("dasdasd");
-      //NotificationManager.success('Success message', 'Title here');
-      //NotificationManager.info('Info message');
-      
-     // this.createNotification('success',"thanh cong","3000")
     } catch (error) {
       this.createNotification('error')
     }
@@ -144,13 +143,7 @@ class Product extends Component {
   searchProduct(event){
     event.preventDefault();
     const textSearch=event.target.value;
-    console.log(event.target.value)
-    // this.setState({
-    //   products: [...this.productsOriginal]
-    // })
-    let searchProduct = this.productsOriginal.filter((product)=>{
-      console.log(textSearch,product.name,product.name.search(textSearch));
-      
+    let searchProduct = this.productsAfterFillter.filter((product)=>{
       return (product.name.search(textSearch)!==-1)
     })
     this.setState({
@@ -158,27 +151,25 @@ class Product extends Component {
     })
     
   }
-  // createNotification = (type) => {
-  //   return () => {
 
-  //     switch (type) {
-  //       case 'info':
-  //         NotificationManager.info('Info message');
-  //         break;
-  //       case 'success':
-  //         NotificationManager.success('Success message', 'Title here');
-  //         break;
-  //       case 'warning':
-  //         NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-  //         break;
-  //       case 'error':
-  //         NotificationManager.error('Error message', 'Click me!', 5000, () => {
-  //           alert('callback');
-  //         });
-  //         break;
-  //     }
-  //   };
-  // };
+  radioFillter(event){
+    if(event.target.value==="all"){
+      this.productsAfterFillter = [...this.productsOriginal]
+      this.setState({
+        products: [...this.productsOriginal]
+      })
+    }else{
+      let searchProduct = this.productsOriginal.filter((product)=>{
+        return (product.type===event.target.value)
+      })
+      this.setState({
+        products: [...searchProduct]
+      })
+      this.productsAfterFillter=[...searchProduct]
+    }    
+    document.getElementById("exampleSearch").value = "";
+  }
+  
   render() {
     const { products, girl } = this.state;
     console.log(products)
@@ -198,11 +189,25 @@ class Product extends Component {
         <Container>
        
         <h1>Product</h1>
-        <FormGroup>
-                <Label for="exampleEmail">Name</Label>
-                <Input type="text" name="nameSearch" id="exampleSearch" placeholder="Searching....."
-                  onChange={this.searchProduct} />
-        </FormGroup>
+        <div className="formProduct">
+          <Form >
+          <FormGroup className="radioFillter" onChange={this.radioFillter} >
+          <Label for="exampleCheckbox" >Fillter</Label>
+            <div>
+              <CustomInput type="radio" name="fillter" value="all" id="exampleCustomCheckbox" label="All" defaultChecked  />
+              <CustomInput type="radio" name="fillter" value="food" id="exampleCustomCheckbox2" label="Food" />
+              <CustomInput type="radio" name="fillter" value="care" id="exampleCustomCheckbox3" label="Health care" />
+              <CustomInput type="radio" name="fillter" value="other" id="exampleCustomCheckbox4" label="other" />
+            </div>
+          </FormGroup>
+          <FormGroup className="search">
+            
+                  <Label for="exampleEmail">Name</Label>
+                  <Input type="text" name="nameSearch" id="exampleSearch" placeholder="Searching....."
+                    onChange={this.searchProduct} />
+          </FormGroup>
+          </Form>
+        </div>
         <Row>
           {productNagivication.map((product, index) => (
             <Col sm="4" key={index}>
@@ -218,11 +223,13 @@ class Product extends Component {
                     <CardTitle>{product.name}</CardTitle>
                     {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                     <CardText>{product.description}</CardText>
+                    <CardText>{product.type}</CardText>
                     {/* <CartContext.Consumer>
                       {({ addToCart }) => (
                         <Button onClick={() => addToCart(product)}>ADD</Button>
                       )}
                     </CartContext.Consumer> */}
+                     <p className="price">$ {product.price}</p>
                     <div>
                       <Button className="buttomAddCArt"
                         onClick={()=>{
@@ -230,7 +237,7 @@ class Product extends Component {
 
                         }}
                       >Add to cart</Button>
-                      <p className="price">$ {product.price}</p>
+                     
                     </div>
                     
                   </CardBody>
@@ -247,7 +254,7 @@ class Product extends Component {
                 <PaginationLink previous href={"product?"+pagination_first} />
             </PaginationItem>
             <PaginationItem>
-                <PaginationLink href={"product?"+pagination_first}>
+                <PaginationLink href={"product?"+pagination_first} className={(pagination_first===0? "navigationZero":"")}>
                 {pagination_first}
                 </PaginationLink>
             </PaginationItem>

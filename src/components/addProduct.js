@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Input, FormText, CustomInput } from 'reactstrap'
 import './signup.css';
 import { Redirect , withRouter} from 'react-router-dom';
 import {
@@ -28,12 +28,14 @@ class addProduct extends Component {
         event.preventDefault();
         const Dname =event.target.name.value;
         const Description =event.target.description.value;
+        const dtype =event.target.type.value;
         const dprice =event.target.price.value;
-        console.log(Dname , Description,dprice, this.state.imagePreviewUrl);
+        console.log(Dname , Description,dprice, this.state.imagePreviewUrl,"ádas"+dtype);
         if(Dname && Description && dprice && this.state.imagePreviewUrl){
             var product = {
                 id: sortID.generate(),
                 name: Dname,
+                type: dtype,
                 description: Description,
                 price: dprice,
                 number: event.target.number,
@@ -99,6 +101,15 @@ class addProduct extends Component {
                     <Input type="text" name="name" id="exampleName" placeholder="Your Name" />
                 </FormGroup>
                 <FormGroup>
+                    <Label for="exampleCustomSelect">Type</Label>
+                    <CustomInput type="select" id="exampleCustomSelect" name="type">
+                    {/* <option value="">Select</option> */}
+                    <option>food</option>
+                    <option>care</option>
+                    <option>other</option>
+                    </CustomInput>
+                </FormGroup>
+                <FormGroup>
                     <Label for="exampleDescription">description</Label>
                     <Input type="text" name="description" id="exampleDescription" placeholder="Your description" />
                 </FormGroup>
@@ -108,7 +119,7 @@ class addProduct extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="SL">Total</Label>
-                    <Input type="number" name="total" id="examplePrice" placeholder="Price" />
+                    <Input type="number" name="total" id="examplePrice" placeholder="Total" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
@@ -139,15 +150,18 @@ class addProduct extends Component {
         )
         }else{
             return(
-                <Router>
-               <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: this.state }
-            }}
+                <div>
+                    <h1>Complete</h1>
+                </div>
+            //     <Router>
+            //    <Redirect
+            // to={{
+            //   pathname: "/login",
+            //   state: { from: this.state }
+            // }}
 
-              />
-                </Router>
+            //   />
+            //     </Router>
             )
         }
     }

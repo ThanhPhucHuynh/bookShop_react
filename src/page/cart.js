@@ -27,7 +27,7 @@ class Cart extends Component{
         }
         this.delItem = this.delItem.bind(this)
     }
-    componentWillMount(){
+    componentDidMount(){
         if(localStorage.getItem('cartProduct')!=null){
         let item = JSON.parse(localStorage.getItem('cartProduct'));
         var Gia=0;  

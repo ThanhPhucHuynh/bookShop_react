@@ -99,15 +99,29 @@
 
 .section3 div h1{
    margin-bottom: 15%;
+   
+   font-weight: 100;
+    text-transform: uppercase;
+    
 }
 .section3 div p{
     padding-left: 10%;
+    
+ }
+ .section3 div p:hover{
+    /* padding-left: 10%; */
+    color: white;
+    transition: ease .2s;
  }
  #mapDiv{
      /* background-color: black; */
     height: 200px;
     width: 100%;
     display: block;
+}
+#mapDiv iframe{
+    margin-left: -27px;
+    margin-top: 54px;
 }
 @media only screen and (max-width: 600px) {
     .headerSection2{

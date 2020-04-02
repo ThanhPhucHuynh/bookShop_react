@@ -1,4 +1,4 @@
-import React, { Component ,useState} from 'react';
+import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom'
 import { BrowserRouter as Router,
     Switch,
@@ -19,14 +19,10 @@ import imgHome from './images/siberian-husky.svg'
 import imgCart from './images/supermarket.svg'
 import imgProduct from './images/bowl.svg'
 import imgFunImg from './images/cat.svg'
-import imgDOG from './images/dog.png'
-import { Button,UncontrolledDropdown,
+import { UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem,
-    Dropdown,
-    NavbarToggler,
-    Nav, } from 'reactstrap';
+    DropdownItem } from 'reactstrap';
 import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
 class main extends Component {
@@ -43,7 +39,7 @@ class main extends Component {
         // }
         this.onClickLogout = this.onClickLogout.bind(this)
     }
-    componentWillMount(){
+    componentDidMount(){
         const valueCookie = Cookie.get('email');
         console.log(valueCookie);
         console.log(this.state.cookie)
@@ -119,28 +115,28 @@ class main extends Component {
                                      this.setState({
                                          navNumber:0
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={imgHome}className="imgIcon"></img> Main</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={imgHome}className="imgIcon" alt="imgMain"></img> Main</p> </Link>
                             </li>
                             <li className="nav-item">
                                  <Link className="nav-link" to="/main/product" onClick={()=>{
                                      this.setState({
                                          navNumber:1
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={imgProduct}className="imgIcon"></img> Product</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={imgProduct}className="imgIcon" alt="imgProduct"></img> Product</p> </Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/cart"onClick={()=>{
                                      this.setState({
                                          navNumber:2
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={imgCart}className="imgIcon"></img> Cart ({cartProducts.length})</p></Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={imgCart}className="imgIcon" alt="imgcart"></img> Cart ({cartProducts.length})</p></Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/pet"onClick={()=>{
                                      this.setState({
                                          navNumber:3
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={imgFunImg}className="imgIcon"></img>Fun Pic</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={imgFunImg}className="imgIcon" alt="imgFun"></img>Fun Pic</p> </Link>
                             </li>
                             <li className="nav-item">
                                  
@@ -151,14 +147,14 @@ class main extends Component {
                         <UncontrolledDropdown  inNavbar>
                                 <DropdownToggle  caret>
                                   <div className="wellcomImgUser">
-                                        <img src={imgAvata}></img>
+                                        <img src={imgAvata} alt="imgAvater"></img>
                                         <p className="wellcomUser">{name}</p>
                                     </div>
                                 </DropdownToggle>
                                 
                                 <DropdownMenu right  >
                                     <DropdownItem  >
-                                         <a className='logout btn' onClick={this.onClickLogout}>Logn out</a>
+                                         <a href="/main" className='logout btn' onClick={this.onClickLogout}>Logn out</a>
                                     </DropdownItem>
                                 </DropdownMenu>
                         </UncontrolledDropdown>

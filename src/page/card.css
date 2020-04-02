@@ -1,21 +1,24 @@
 .media-left img{
-    height: 140px;
+    height: 100px;
     transition: ease 1s;
-    width: 140px;
+    width: 100px;
 }
 .mediaCart{
     width: 320px;
     float: left;
     margin: 20px;
-    background-color: rgb(192,192,192);
+    background-color: rgb(255, 255, 255);
     border-radius: 6px;
     transition: ease 1s;
     animation-name: open;
     animation-duration: 2s;
+    height: 100px;
 }
 @keyframes open {
     from {width: 0px;}
-    to {width: 320px;;}
+    to {width: 320px;
+        transition: ease .5s;
+    }
   }
 .cartMain{
     padding: 20px;
@@ -34,7 +37,7 @@
 .media-body{
     margin: 0px 10px;
     transition: ease 1s;
-    height: 140px;
+    height: 100px;
     position: relative;
 }
 .media-body button{
@@ -46,7 +49,9 @@
     right: 0;
     transition: ease 1s;
 }
-
+.media-left img{
+    border-radius: 8px;
+}
 .media-body p, .media-body button{
     clear: both;
     float: right;
@@ -72,9 +77,14 @@
 }
 @media only screen and (max-width: 990px) {
     .mediaCart{
-        float:  none;
         width: 100%;
-        
+        animation-name: open;
+        animation-duration: 2s;
     }
+    @keyframes open {
+        from {width: 0px;}
+        to {width: 100%;
+        }
+      }
    
 }

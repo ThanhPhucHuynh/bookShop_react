@@ -36,13 +36,13 @@ class Home extends Component {
                         </div>
                         <div className="contact">
                             <h1>Contact</h1>
-                            <p>
-                                ThanhPhuc
-                                <br/>
-                                0347766101
-                                <br/>
-                                phucb1706515@student.ctu.edu.com
-                            </p>
+                               <ul>
+                                   <li><p>Thanh Phuc Huynh</p></li>
+                                   <li><p>0347766101</p></li>
+                                   <li><p>phucb1706515@student.ctu.edu.vn</p></li>
+
+                               </ul>
+                           
                         </div>
 
                         <div className="contactFollow">
@@ -52,7 +52,7 @@ class Home extends Component {
                             {/* <i className="fa fa-facebook" aria-hidden="true" /> */}
                                 <li><a href="https://www.facebook.com/phuchuynhfait"><p><i className="fa fa-facebook" aria-hidden="true"  style={{margin:"5px"}}/>  Facebook</p></a></li>
                                 <li><a href="https://www.instagram.com/thanh_phuc_huynh/"><p> <i className="fa fa-instagram" aria-hidden="true"  style={{margin:"5px"}} />Instagram</p></a></li>
-                                <li><p>Youtube</p></li>
+                                <li><a href="https://www.instagram.com/thanh_phuc_huynh/"><p> <i className="fa fa-youtube" aria-hidden="true"  style={{margin:"5px"}} />Youtube</p></a></li>
 
                             </ul>
                         </div>
