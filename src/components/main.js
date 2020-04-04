@@ -175,7 +175,7 @@ class main extends Component {
                             <Product getData={this.props.getData}/>
                         </Route>
                         <Router exact  path="/main/cart" >
-                            <Cart getData={this.props.getData} />
+                            <Cart getData={this.props.getData} nameUser={this.state.name} />
                         </Router>
                         <Route  exact path="/main/pet">
                            

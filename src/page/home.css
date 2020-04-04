@@ -111,6 +111,7 @@
  .section3 div p:hover{
     /* padding-left: 10%; */
     color: white;
+    text-shadow: 1px 1px black;
     transition: ease .2s;
  }
  #mapDiv{

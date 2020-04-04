@@ -40,8 +40,8 @@
     height: 100px;
     position: relative;
 }
-.media-body button{
-/* display: none; */
+.media-body .btn_cart{
+
     font-size: 12px;
     width: 60px;
     position: absolute;
@@ -52,10 +52,17 @@
 .media-left img{
     border-radius: 8px;
 }
-.media-body p, .media-body button{
+/* .media-body p, .media-body button{
     clear: both;
     float: right;
     margin-left: 50px;
+} */
+.countCart{
+    position: absolute;
+}
+.media-body p{
+  
+    margin-bottom: 5px;
 }
 .mediaCart:hover{
     
@@ -74,6 +81,36 @@
     clear: both;
     display: block;
     margin: auto;
+}
+.numberCart{
+    margin: 6px;
+}
+.btn_thanhtoan{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.Price h1 {
+    display: block;
+    text-align: center;
+}
+.Price > p {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: darkblue;
+}
+#phone_number , #address{
+    margin: auto;
+    width: 90%;
+}
+.btn_thanhtoan {
+    border-radius: 0px;
+}
+.Price_gia{
+    text-align: center;
+    display: block;
+    color: red;
+    font-size: 20px;
 }
 @media only screen and (max-width: 990px) {
     .mediaCart{
