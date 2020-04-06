@@ -6,15 +6,15 @@ import { Redirect , withRouter} from 'react-router-dom'
 import './logina.css'
 import axois from 'axios';
 import path from 'path'
-import Singup from './signup'
+// import Singup from './signup'
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
-  import Main from './main.js';
-class LoginA extends Component {
+//   import Main from './main.js';
+class LoginAdmin extends Component {
     constructor(props){
         super(props);
         console.log("sdaksdh")
@@ -36,18 +36,18 @@ class LoginA extends Component {
         
         if(email){
             console.log(__dirname)
-            axois.get('http://localhost:1234/user/'+email)
+            axois.get('http://localhost:1234/admin/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{
                     // this.setState({
-                        console.log("sadad",res.data.user.userImg);
+                        console.log("sadad",res.data.admin.userImg);
                     //     imgAvatar: res.data
                     // })
                     this.setState({
-                        imgAvatar: res.data.user.userImg,
-                        name: res.data.user.name,
-                        pass: res.data.user.pass
+                        imgAvatar: res.data.admin.userImg,
+                        name: res.data.admin.name,
+                        pass: res.data.admin.pass
                     },()=>{
                         // Cookie.set("email",email,{expires: 1})
                     })
@@ -129,7 +129,7 @@ class LoginA extends Component {
                     
                     <div className='Login_form' onSubmit={this.handleSubmit} >
                         <Form>
-                        <h2 className="title_login">Login to continue</h2>
+                        <h2 className="title_login">Admin Login</h2>
 
                             <div className='wellcome'>
                                 {$wellcome}
@@ -195,4 +195,4 @@ class LoginA extends Component {
 
     }
 }
-export default withRouter(LoginA);
+export default withRouter(LoginAdmin);

@@ -7,7 +7,7 @@ class Home extends Component {
             <div className="Home">
                 <section>
                     <div className="section1">
-                        <h1>Wellcome to WEBPET</h1>
+                        <h1>Welcome to WEBPET</h1>
                             <div className='img_section1'></div>
                     </div>
                     <div className="section2">

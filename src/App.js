@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import LoginForm from './components/login';
 import LoginA from './components/logina'
+import LoginAdmin from './admin/login_admin.js'
 import SignUp from './components/signup'
+import SignUpAdmin from './components/signupAdmin'
 import Cookie from 'js-cookie'
 import {
   BrowserRouter as Router,
@@ -46,6 +48,9 @@ function App() {
                 <Route exact path="/login" >
                   <LoginA />
                 </Route>
+                <Route exact path="/loginadmin" >
+                  <LoginAdmin />
+                </Route>
                 <Router exact  path="/signup" >
                   <SignUp />
                 </Router>
@@ -55,6 +60,10 @@ function App() {
                 <Route exact path="/addproduct" >
                   <AddProduct />
                 </Route>
+                <Router exact  path="/dkadmin" >
+                  <h1>haha</h1>
+                  <SignUpAdmin />
+                </Router>
               </Switch>
             {/* <!--       _
                       
@@ -99,11 +108,18 @@ function App() {
                 <Route exact path="/login" >
                   <LoginA />
                 </Route>
+                <Route exact path="/loginadmin" >
+                  <LoginAdmin />
+                </Route>
                 <Route exact path="/addproduct" >
                   <AddProduct />
                 </Route>
                 <Router exact  path="/signup" >
                   <SignUp />
+                </Router>
+                <Router exact  path="/dkadmin" >
+                  <h1>haha</h1>
+                  <SignUpAdmin />
                 </Router>
                 <Route  path="/main">
                   <Main />

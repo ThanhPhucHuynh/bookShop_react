@@ -38,7 +38,7 @@ class SignUp extends Component {
                 pass: Dpass,
                 userImg: this.state.imagePreviewUrl
             }
-            axios.post('http://localhost:1234/user',user)
+            axios.post('http://localhost:1234/admin',user)
             // axios.post('http://192.168.3.129:1234/user',user)
 
                 .then(res=>{
