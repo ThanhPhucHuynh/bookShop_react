@@ -103,7 +103,7 @@ class LoginA extends Component {
         const {corrent,use,isPass} = this.state;
 
            
-            if (corrent===false) {
+            if (corrent===false && !Cookie.get('email')) {
                 let $checkNotification=(<div></div>);
                 if(isPass===false){
                     $checkNotification=(<div>
@@ -123,6 +123,7 @@ class LoginA extends Component {
                 </img>)
                 }
             return (
+
                 <Router>
                 <div className="wrap-login">
 

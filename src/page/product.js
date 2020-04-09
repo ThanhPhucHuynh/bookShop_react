@@ -53,7 +53,7 @@ class Product extends Component {
   }
   componentDidMount() {
     let numberProduct;
-    let type = localStorage.getItem("type");
+    let type = sessionStorage.getItem("type");
     let API_link = (!type) ? "http://localhost:1234/product" : "http://localhost:1234/product/" + type
     if (type) {
       document.getElementById(type).checked = true
@@ -178,7 +178,7 @@ class Product extends Component {
       this.productsAfterFillter = [...this.state.products]
       console.log("ori", this.productsOriginal)
     });
-    localStorage.setItem("type", event.target.value)
+    sessionStorage.setItem("type", event.target.value)
 
   }
   render() {
