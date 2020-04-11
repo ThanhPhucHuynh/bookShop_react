@@ -117,9 +117,16 @@ class Cart extends Component{
         
         if(cartProduct.length===0){
             return(
-            <div>
-                <h1>Cart</h1>
-                <p>Nothing item.....</p>
+              <div className="cartMain">
+                <div className="cartContent">
+                      <h1>Cart</h1>
+                </div>
+                <Row className="row_cart">
+                  <div className="cart">
+                    <p className="noThingsItem">Nothing item.....</p>
+                  </div>
+                </Row>
+                
             </div>
             )
         }else{
@@ -129,8 +136,10 @@ class Cart extends Component{
             }
             return(
                 <div className="cartMain">
-                    <h1>Cart</h1>
-                    <Row>
+                    <div className="cartContent">
+                      <h1>Cart</h1>
+                    </div>
+                    <Row className="row_cart">
                     <div className="cart">
                       
                     

@@ -8,11 +8,7 @@
   }
   .card img {
     height: 212px;
-    /* width: 192px; */
   }
-  /* .card-text {
-    display: none;
-  } */
   .panigation_lable{
     display: block;
     width: 100%;
@@ -55,10 +51,13 @@
   }
   .price{
     color: red;
-    float: right;
+    float: left;
     font-size: 22px;
     /* font-weight: 600; */
     font-family: 'Open Sans', sans-serif;
+  }
+  .buttomAddCArt{
+    float: right;
   }
   .formProduct{
     position: relative;

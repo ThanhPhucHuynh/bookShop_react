@@ -49,6 +49,7 @@ class Product extends Component {
     this.addToCart = this.addToCart.bind(this)
     this.searchProduct = this.searchProduct.bind(this)
     this.radioFillter = this.radioFillter.bind(this)
+    this.shuffle = this.shuffle.bind(this)
 
   }
   componentDidMount() {
@@ -62,7 +63,7 @@ class Product extends Component {
     axios.get(API_link).then(res => {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
       this.setState({
-        products: res.data.product
+        products: this.shuffle(res.data.product)
       }, () => {
         numberProduct = this.state.products.length;
         console.log(this.state.products);
@@ -157,6 +158,7 @@ class Product extends Component {
   }
   radioFillter(event) {
     let numberProduct;
+    let rdomitem= event.target.value;
     console.log(event.target.value)
     let API = "http://localhost:1234/product"
     if (event.target.value === "all") {
@@ -168,7 +170,8 @@ class Product extends Component {
     axios.get(API).then(res => {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
       this.setState({
-        products: res.data.product
+        products: (rdomitem === "all")? this.shuffle(res.data.product): res.data.product
+        
       }, () => {
         numberProduct = this.state.products.length;
         console.log(this.state.products);
@@ -181,6 +184,18 @@ class Product extends Component {
     sessionStorage.setItem("type", event.target.value)
 
   }
+  shuffle(arr) {
+    var i,
+        j,
+        temp;
+    for (i = arr.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    return arr;    
+};
   render() {
     const { products, girl, valueRadio } = this.state;
     console.log(products)

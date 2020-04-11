@@ -31,7 +31,6 @@
     color: white;
  }
 
-
 .dropdown {
     width: 15%;
     right: 0;
@@ -111,6 +110,13 @@
     width: 100%;
     display: block;
     height: 99px;
+}
+.dropdown-toggle:not(:disabled):not(.disabled).active, 
+.dropdown-toggle:not(:disabled):not(.disabled):active, 
+.show>.dropdown-toggle.dropdown-toggle{
+    color: #fff;
+    background-color: #c7c2c2;
+    border-color: #4e555b;
 }
 @media only screen and (max-width: 990px) {
     .navbar-nav.ml-auto{

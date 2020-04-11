@@ -4,7 +4,7 @@
     width: 100px;
 }
 .mediaCart{
-    width: 320px;
+    width: 400px;
     float: left;
     margin: 20px;
     background-color: rgb(255, 255, 255);
@@ -32,7 +32,7 @@
     display: block;
     margin: auto;
     position: relative;
-    width: 70%;
+    width: 80%;
 }
 .media-body{
     margin: 0px 10px;
@@ -102,6 +102,14 @@
 #phone_number , #address{
     margin: auto;
     width: 90%;
+}
+.noThingsItem{
+    text-align: center;
+    font-size: 31px;
+}
+.row_cart{
+    height: 800px;
+    overflow: scroll;
 }
 .btn_thanhtoan {
     border-radius: 0px;

@@ -24,7 +24,6 @@ class Home extends Component {
                             </p>
                             
                         </div>
-                        {/* <p></p>     */}
                     </div>
                     <div className="section3">
                         <div className="cantactLocation">

@@ -66,9 +66,11 @@
 .decriptitonSection2 p{
     display: block;
     margin: auto;
+    margin-top: 35%;
     margin-left: 20px;
     padding-right: 20%;
     text-align: justify;
+    font-size: 18px;
     /* font-family: 'Fjalla One', sans-serif; */
 }
 .signText{
@@ -110,8 +112,9 @@
  }
  .section3 div p:hover{
     /* padding-left: 10%; */
-    color: white;
-    text-shadow: 1px 1px black;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    text-shadow: 1px 1px rgb(255, 255, 255);
     transition: ease .2s;
  }
  #mapDiv{
@@ -162,7 +165,7 @@
     .section3 div {
         float: none;
         height: 30%;
-        /* width: 100%; */
+        width: 100%;
         margin-left: 5%;
         padding-top: 5%;
     }
