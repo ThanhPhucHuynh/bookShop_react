@@ -94,6 +94,10 @@
     display: block;
     text-align: center;
 }
+.Price {
+    height: 100%;
+    overflow: scroll;
+}
 .Price > p {
     margin-left: 10px;
     margin-top: 10px;

@@ -79,6 +79,19 @@
   .navigationZero{
     display: none;
   }
+  /* .cardProduct{
+    transition:ease-out 1s;
+    animation-name: open;
+    animation-duration: 1s;
+}
+@keyframes open {
+    from {opacity: 0.4;}
+    to {opacity: 1;
+      
+    }
+  } */
+
+
   @media screen and (max-width: 1024px){
 
     .card img {

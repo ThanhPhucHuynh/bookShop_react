@@ -42,7 +42,10 @@ class Product extends Component {
       pagination_first: 1,
       pagination_second: 2,
       pagination_third: 3,
-      number_pagination: 0
+      number_pagination: 0,
+      // API_HOST : 'localhost'
+      API_HOST : '192.168.1.7'
+
     };
     let productsOriginal = [];
     let productsAfterFillter = [];
@@ -54,12 +57,15 @@ class Product extends Component {
   }
   componentDidMount() {
     let numberProduct;
+    let numberPage = window.location.search;
+    console.log(numberPage === '?0' || numberPage==='' )
     let type = sessionStorage.getItem("type");
-    let API_link = (!type) ? "http://localhost:1234/product" : "http://localhost:1234/product/" + type
+    let API_URL = "http://"+this.state.API_HOST+":1234/product";
+    let API_link = (!type) ? API_URL : API_URL+"/" + type
     if (type) {
       document.getElementById(type).checked = true
     } else { document.getElementById("all").checked = true }
-    if (type === "all") API_link = "http://localhost:1234/product";
+    if (type === "all") API_link = API_URL;
     axios.get(API_link).then(res => {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
       this.setState({
@@ -76,7 +82,7 @@ class Product extends Component {
 
 
 
-    let numberPage = window.location.search;
+    
     if (numberPage === '?0' || !numberPage) {
       numberPage = 1;
     } else {
@@ -160,12 +166,13 @@ class Product extends Component {
     let numberProduct;
     let rdomitem= event.target.value;
     console.log(event.target.value)
-    let API = "http://localhost:1234/product"
+    let API_URL = "http://"+this.state.API_HOST+":1234/product";
+    let API = API_URL;
     if (event.target.value === "all") {
-      API = "http://localhost:1234/product"
+      API = API_URL;
 
     } else {
-      API = "http://localhost:1234/product/" + event.target.value;
+      API = API_URL+"/" + event.target.value;
     }
     axios.get(API).then(res => {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
@@ -243,7 +250,7 @@ class Product extends Component {
           <Row>
             {productNagivication.map((product, index) => (
               <Col sm="4" key={index}>
-                <div>
+                <div className="cardProduct">
                   <Card body >
                     <CardImg
                       top

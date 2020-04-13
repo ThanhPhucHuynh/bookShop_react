@@ -30,16 +30,27 @@ class SignUp extends Component {
         const Demail =event.target.email.value;
         const Dpass =event.target.pass.value;
         console.log(Dname , Demail,Dpass, this.state.imagePreviewUrl);
+        console.log(this.state.selectedFile)
         if(Dname && Demail && Dpass && this.state.imagePreviewUrl){
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            };
             var user = {
                 id: sortID.generate(),
                 name: Dname,
                 email: Demail,
                 pass: Dpass,
-                userImg: this.state.imagePreviewUrl
+                // userImg: this.state.imagePreviewUrl
+                userImg: this.selectedFile
             }
-            axios.post('http://localhost:1234/user',user)
-            // axios.post('http://192.168.3.129:1234/user',user)
+            let formData = new FormData();
+            formData.append('userImg',this.state.selectedFile);
+            formData.append('user',(JSON.stringify(user)));
+            console.log(formData)
+            // axios.post('http://localhost:1234/user/img',formData,config)
+            axios.post('http://192.168.3.129:1234/user',user)
 
                 .then(res=>{
                     console.log(res);

@@ -31,7 +31,10 @@ class main extends Component {
         this.state={
             name:[],
             navNumber:0,
-            navHide: false
+            navHide: false,
+            // API_HOST : 'localhost'
+            API_HOST : '192.168.1.7'
+
         }
         // if(this.props.location.state){
          console.log('00',this.props.location.state);
@@ -45,7 +48,7 @@ class main extends Component {
         console.log(this.state.cookie)
         
         if(valueCookie){
-            axois.get('http://localhost:1234/user/'+valueCookie)
+            axois.get('http://'+this.state.API_HOST+':1234/user/'+valueCookie)
             // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
 
                 .then(res=>{

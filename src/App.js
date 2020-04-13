@@ -1,3 +1,4 @@
+
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -14,7 +15,6 @@ import {
   Route,
   Link,
   Redirect
-  
 } from "react-router-dom";
 import Main from './components/main'
 import {createStore} from 'redux'

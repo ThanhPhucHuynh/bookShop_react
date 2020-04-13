@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {} from 'dotenv'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap'
 import Cookie from 'js-cookie';
@@ -23,8 +24,12 @@ class LoginA extends Component {
             corrent: false,
             imgAvatar: '',
             pass:'',
-            isPass: true
+            isPass: true,
+            // API_HOST : 'localhost'
+            API_HOST : '192.168.1.7'
+
         }
+        // let API_HOST = 'localhost';
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this)
     }
@@ -33,10 +38,10 @@ class LoginA extends Component {
         // const data = new FormData(event.target);
         const email = event.target.value;
         console.log(email)
-        
+        // console.log(process.env.URL_HOST)
         if(email){
             console.log(__dirname)
-            axois.get('http://localhost:1234/user/'+email)
+            axois.get('http://'+ this.state.API_HOST +':1234/user/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{
