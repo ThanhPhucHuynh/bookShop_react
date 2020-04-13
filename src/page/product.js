@@ -58,7 +58,8 @@ class Product extends Component {
   componentDidMount() {
     let numberProduct;
     let numberPage = window.location.search;
-    console.log(numberPage === '?0' || numberPage==='' )
+    // console.log(numberPage==='')
+    // console.log(numberPage === '?0' || numberPage==='' )
     let type = sessionStorage.getItem("type");
     let API_URL = "http://"+this.state.API_HOST+":1234/product";
     let API_link = (!type) ? API_URL : API_URL+"/" + type
@@ -70,6 +71,8 @@ class Product extends Component {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
       this.setState({
         products: this.shuffle(res.data.product)
+        // products: (res.data.product)
+
       }, () => {
         numberProduct = this.state.products.length;
         console.log(this.state.products);

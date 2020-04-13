@@ -157,8 +157,15 @@ class main extends Component {
                                 
                                 <DropdownMenu right  >
                                     <DropdownItem  >
+                                          <a href="/main" className='logout btn' >Pets care</a>
+                                    </DropdownItem>
+                                    <DropdownItem  >
+                                          <a href="/main" className='logout btn' >Oder</a>
+                                    </DropdownItem>
+                                    <DropdownItem  >
                                          <a href="/main" className='logout btn' onClick={this.onClickLogout}>Logn out</a>
                                     </DropdownItem>
+                                    
                                 </DropdownMenu>
                         </UncontrolledDropdown>
                                  
