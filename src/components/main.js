@@ -15,6 +15,7 @@ import Product from '../page/product'
 import Cart from '../page/cart'
 import Pet from "../page/pet";
 import Home from "../page/home"
+import PetCare from "../page/petcare"
 import imgHome from './images/siberian-husky.svg'
 import imgCart from './images/supermarket.svg'
 import imgProduct from './images/bowl.svg'
@@ -135,11 +136,11 @@ class main extends Component {
                                  }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={imgCart}className="imgIcon" alt="imgcart"></img> Cart ({cartProducts.length})</p></Link>
                             </li>
                             <li className="nav-item">
-                              <Link className="nav-link" to="/main/pet"onClick={()=>{
+                              <Link className="nav-link" to="/main/petcare"onClick={()=>{
                                      this.setState({
                                          navNumber:3
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={imgFunImg}className="imgIcon" alt="imgFun"></img>Fun Pic</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={imgFunImg}className="imgIcon" alt="imgFun"></img>PetCare</p> </Link>
                             </li>
                             <li className="nav-item">
                                  
@@ -157,7 +158,7 @@ class main extends Component {
                                 
                                 <DropdownMenu right  >
                                     <DropdownItem  >
-                                          <a href="/main" className='logout btn' >Pets care</a>
+                                          <a href="/main/pet" className='logout btn' >Pets Fun</a>
                                     </DropdownItem>
                                     <DropdownItem  >
                                           <a href="/main" className='logout btn' >Oder</a>
@@ -182,7 +183,10 @@ class main extends Component {
                         
                     
                         <Route exact path="/main/product" >
-                            <Product getData={this.props.getData}/>
+                            <Product getData={this.props.getData} nameUser={this.state.name}/>
+                        </Route>
+                        <Route exact path="/main/petcare" >
+                            <PetCare getData={this.props.getData} nameUser={this.state.name}/>
                         </Route>
                         <Router exact  path="/main/cart" >
                             <Cart getData={this.props.getData} nameUser={this.state.name} />

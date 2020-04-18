@@ -1,0 +1,257 @@
+.imgbotstrapqulai{
+    height: 640px;
+    width: 100%;
+    margin: auto;
+    resize: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: ease .2s;
+    background-position: center;
+    /* position: relative; */
+  
+   
+   
+}
+.searchGoogle,
+.searchGoogle:before,
+.searchGoogle:after,
+.one,
+.one:before,
+.one:after,
+.two,
+.two:before,
+.two:after{
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: -webkit-transform 0.6s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: transform 0.6s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: transform 0.6s cubic-bezier(0.6, 0, 0.4, 1), -webkit-transform 0.6s cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: inherit;
+  opacity: 0.6;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: inherit;
+  opacity: 0.6;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: inherit;
+  opacity: 0.6;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: inherit;
+  opacity: 0.6;
+}
+
+.searchPetCare {
+  overflow: hidden;
+  padding: 0 0 1.25em;
+  opacity: 0.7;
+  cursor: pointer;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+.searchPetCare:hover, .searchPetCare:focus-within {
+  opacity: 1;
+}
+
+.one {
+  font-size: 3.5vw;
+  margin-top: 1rem;
+  width: calc(15em - -3.5em);
+  height: 2em;
+  z-index: 2;
+}
+
+.two {
+  width: calc(100% - 1em);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 1em;
+}
+
+.one:before,
+.two:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1em;
+  border: 0.1em solid rgb(0, 0, 0);
+}
+.one:before:hover,
+.two:before:hover {
+  background-color: rgb(5, 5, 5);
+}
+
+.one:before {
+  left: 0;
+  border-right: none;
+  border-radius: 1em 0 0 1em;
+}
+
+.two:before {
+  right: 0;
+  border-left: none;
+  border-radius: 0 1em 1em 0;
+}
+
+.three {
+  height: 100%;
+  width: calc(100% - 1em);
+  overflow: hidden;
+}
+
+.searchPetCareInput{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0.1em solid;
+  border-left: none;
+  border-right: none;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+}
+.searchPetCareInput, .searchPetCareInput:focus {
+  outline: none;
+}
+
+.stick {
+  position: absolute;
+  height: 1em;
+  width: 0.1em;
+  right: 1em;
+  top: 50%;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+.stick:before, .stick:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(24, 23, 23);
+}
+.stick:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.stick:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.one {
+  -webkit-transform: translateX(50%) translateX(-1em);
+          transform: translateX(50%) translateX(-1em);
+}
+
+.two {
+  -webkit-transform: translateX(-100%) translateX(1em);
+          transform: translateX(-100%) translateX(1em);
+}
+
+.three {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.four {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.stick:before, .stick:after {
+  -webkit-transform: rotate(-45deg) translateY(150%);
+          transform: rotate(-45deg) translateY(150%);
+}
+
+.searchPetCare:after {
+  content: "";
+  position: absolute;
+  top: 1.25em;
+  left: 0.25em;
+  right: 0.25em;
+  bottom: 1.5em;
+  z-index: 0;
+  border: solid 0.25em turquoise;
+  box-sizing: content-box;
+  opacity: 0;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  border-radius: 3em;
+}
+
+.searchPetCare:focus-within:after {
+  opacity: 1;
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+.searchPetCare:focus-within .one,
+.searchPetCare:focus-within .two,
+.searchPetCare:focus-within .three,
+.searchPetCare:focus-within .four {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.searchPetCare:focus-within .stick {
+  pointer-events: auto;
+}
+.searchPetCare:focus-within .stick:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.searchPetCare:focus-within .stick:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+body {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+}
+.searchGoogle:focus-within {
+  background-color: #7c7c7c86;
+}
+
+.searchGoogle,
+.searchGoogle:before,
+.searchGoogle:after {
+  position: relative;
+  box-sizing: border-box;
+}
+.searchGoogle{
+  height: 400px;
+}
+.searchPetCare{
+   margin: auto;
+    /* width: 50%; */
+    position: absolute;
+    left: 18%;
+}
+.contentPetcare{
+  font-weight: 100;
+  font-family: inherit;
+  text-align: center;
+  font-size: 26px;  
+  text-shadow: -1px -1px white;
+  margin-top: 170px;
+    position: absolute;
+    display: block;
+    width: 100%;
+}

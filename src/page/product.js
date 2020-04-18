@@ -14,6 +14,8 @@ import {
   Pagination, PaginationItem, PaginationLink,
   FormGroup, Label, Input, Form
 } from "reactstrap";
+import Modal from 'react-awesome-modal';
+import ReactImageMagnify from 'react-image-magnify';
 import PropTypes from "prop-types";
 import "./product.css";
 import axios from "axios";
@@ -33,12 +35,15 @@ const noty = () => {
   )
 };
 
+
 class Product extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      visible : false,
       products: [],
+       productDetail: [],
       pagination_first: 1,
       pagination_second: 2,
       pagination_third: 3,
@@ -53,6 +58,8 @@ class Product extends Component {
     this.searchProduct = this.searchProduct.bind(this)
     this.radioFillter = this.radioFillter.bind(this)
     this.shuffle = this.shuffle.bind(this)
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
 
   }
   componentDidMount() {
@@ -70,7 +77,8 @@ class Product extends Component {
     axios.get(API_link).then(res => {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
       this.setState({
-        products: this.shuffle(res.data.product)
+        products: this.shuffle(res.data.product),
+        productDetail : res.data.product[0]
         // products: (res.data.product)
 
       }, () => {
@@ -192,7 +200,7 @@ class Product extends Component {
       console.log("ori", this.productsOriginal)
     });
     sessionStorage.setItem("type", event.target.value)
-
+    // window.location.href = 'product';
   }
   shuffle(arr) {
     var i,
@@ -205,10 +213,31 @@ class Product extends Component {
         arr[j] = temp;
     }
     return arr;    
-};
+  };
+  openModal() {
+    this.setState({
+        visible : true
+    });
+  }
+
+  closeModal() {
+      this.setState({
+          visible : false
+      });
+    }
+  
+
+
+  
   render() {
     const { products, girl, valueRadio } = this.state;
-    console.log(products)
+    const productDetail = this.state.productDetail; 
+    // if(!productDetail){
+    //   productDetail = products[0];
+    // }
+    // const a = productDetail.img;
+    console.log(productDetail)
+    console.log((productDetail.name) ,products.length)
     let numberPage = Math.ceil(products.length / 6)
     let { pagination_first, pagination_second, pagination_third } = this.state;
     let productNagivication = products.slice((pagination_second - 1) * 6, pagination_second * 6);
@@ -219,6 +248,9 @@ class Product extends Component {
     }
     console.log(productNagivication)
     console.log(this.props, window.location.search)
+
+    
+
     return (
       <div className="productDiv">
         <div>
@@ -226,7 +258,7 @@ class Product extends Component {
         </div>
         <Container>
 
-          <h1>Product</h1>
+          <h1 className="contenProductMain">Product</h1>
           <div className="formProduct">
             <Form >
               <FormGroup className="radioFillter" onChange={this.radioFillter} >
@@ -260,6 +292,7 @@ class Product extends Component {
                       width="100%"
                       src={product.img}
                       alt={product.name}
+                      onClick={()=>{this.setState({productDetail:product,visible:true})}}
                     />
                     <CardBody>
                       <CardTitle>{product.name}</CardTitle>
@@ -320,9 +353,59 @@ class Product extends Component {
           </Row>
 
         </Container>
+        <section>
+          {/* <Button color="primary" className="btnPrice" onClick={this.openModal}> Buy </Button> */}
+          <Modal visible={this.state.visible} width="70%" height="90%" effect="fadeInUp" onClickAway={this.closeModal}>
+              <div className="detail_product">
+                  <h1 className="detaiContent">Details</h1>
+                  <div className="boderdetail"></div>
+                  <div className="mainDetai">
+                      <div className='DetailProduct' >
+                        <ReactImageMagnify {...{
+                            smallImage: {
+                                alt: 'Wristwatch by Ted Baker London',
+                                isFluidWidth: true,
+                                // src: "https://picsum.photos/200/300"
+                                src: this.state.productDetail.img
 
+                            },
+                            largeImage: {
+                                
+                                // src: "https://picsum.photos/200/300",
+                                src: this.state.productDetail.img,
+                                width: 1000,
+                                height: 900
+                            }
+                        }} />    
+                      </div>  
+                      <div className='contenProductDetail'>
+                        <p className="detailName">{this.state.productDetail.name}</p>
+                        <p className="detailType">Type: {this.state.productDetail.type}</p>
+
+                        <p className="detaildecription">Description: {this.state.productDetail.description}</p>
+                          <div className="detailPriceMain">
+                            <p className="detailPriceGoc">original price: ${this.state.productDetail.price*130/100} </p>
+                            
+                            <p className="detailPriceSave">Save 30%</p>
+                            <div className="detailPrice">Price: <p>${this.state.productDetail.price}</p></div>
+                          </div> 
+                        </div>         
+                      </div> 
+                      <Button color="info" className="btn_thanhtoan"  onClick={() => {
+                            this.addToCart(this.state.productDetail)
+
+                          }}>ADD TO CART</Button>
+                  
+
+                    {/* <a  onClick={this.closeModal}>Close</a> */}
+              </div>
+          </Modal>
+          </section>
+                                 
         {/* <NotificationContainer />   */}
+       
       </div>
+      
     );
   }
 }

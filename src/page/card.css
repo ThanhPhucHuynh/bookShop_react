@@ -93,6 +93,12 @@
 .Price h1 {
     display: block;
     text-align: center;
+    letter-spacing: 7px;
+    font-size: -webkit-xxx-large;
+    color: black;
+    font-weight: 300;
+    
+    text-transform: uppercase;
 }
 .Price {
     height: 100%;
