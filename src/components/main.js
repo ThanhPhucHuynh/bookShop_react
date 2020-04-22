@@ -33,8 +33,8 @@ class main extends Component {
             name:[],
             navNumber:0,
             navHide: false,
-            API_HOST : 'localhost'
-            // API_HOST : '192.168.3.121'
+            // API_HOST : 'localhost'
+            API_HOST : process.env.REACT_APP_API_URL
 
         }
         // if(this.props.location.state){

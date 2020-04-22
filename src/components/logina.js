@@ -25,8 +25,8 @@ class LoginA extends Component {
             imgAvatar: '',
             pass:'',
             isPass: true,
-            API_HOST : 'localhost'
-            // API_HOST : '192.168.3.121'
+            // API_HOST : 'localhost'
+            API_HOST : process.env.REACT_APP_API_URL
 
         }
         // let API_HOST = 'localhost';

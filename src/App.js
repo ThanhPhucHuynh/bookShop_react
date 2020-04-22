@@ -1,4 +1,5 @@
 
+import dotenv from 'dotenv'
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -8,6 +9,7 @@ import LoginAdmin from './admin/login_admin.js'
 import SignUp from './components/signup'
 import SignUpAdmin from './components/signupAdmin'
 import Cookie from 'js-cookie'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +26,7 @@ import AddProduct from './components/addProduct'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
  
 import Main_admin from './admin/main_admin';
-
+dotenv.config()
 const store = createStore(
     appCart
 )
@@ -33,7 +35,7 @@ function App() {
   if(Cookie.get('email')){
     return (
       <Provider store={store}>
-          
+          {/* <h1>sadasd</h1> */}
           <Router>
             <div className="App">
 

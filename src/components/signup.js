@@ -42,15 +42,15 @@ class SignUp extends Component {
                 name: Dname,
                 email: Demail,
                 pass: Dpass,
-                // userImg: this.state.imagePreviewUrl
-                userImg: this.selectedFile
+                userImg: this.state.imagePreviewUrl
+                // userImg: this.selectedFile
             }
             let formData = new FormData();
             formData.append('userImg',this.state.selectedFile);
             formData.append('user',(JSON.stringify(user)));
             console.log(formData)
             // axios.post('http://localhost:1234/user/img',formData,config)
-            axios.post('http://192.168.3.129:1234/user',user)
+            axios.post('http://localhost:1234/user',user)
 
                 .then(res=>{
                     console.log(res);

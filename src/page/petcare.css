@@ -12,6 +12,15 @@
    
    
 }
+.myVideo{
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
 .searchGoogle,
 .searchGoogle:before,
 .searchGoogle:after,

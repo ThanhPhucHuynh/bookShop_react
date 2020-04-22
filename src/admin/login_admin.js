@@ -23,7 +23,8 @@ class LoginAdmin extends Component {
             corrent: false,
             imgAvatar: '',
             pass:'',
-            isPass: true
+            isPass: true,
+            API_HOST : process.env.REACT_APP_API_URL
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this)
@@ -36,7 +37,7 @@ class LoginAdmin extends Component {
         
         if(email){
             console.log(__dirname)
-            axois.get('http://localhost:1234/admin/'+email)
+            axois.get('http://'+this.state.API_HOST+':1234/admin/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{

@@ -19,7 +19,8 @@ class addProduct extends Component {
         super(props);
         this.state = {
             isTrue: false,
-            imagePreviewUrl: ''
+            imagePreviewUrl: '',
+            API_HOST : process.env.REACT_APP_API_URL
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
@@ -41,7 +42,7 @@ class addProduct extends Component {
                 number: event.target.number,
                 img: this.state.imagePreviewUrl
             }
-            axios.post('http://localhost:1234/product',product)
+            axios.post('http://'+this.state.API_HOST+':1234/product',product)
                 .then(res=>{
                     console.log(res);
                 })

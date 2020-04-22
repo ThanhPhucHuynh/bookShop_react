@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import axios from 'axios';
 import './cssjs/table.css'
 import MaterialTable from 'material-table';
-const API_HOST = 'localhost'
+const API_HOST = process.env.REACT_APP_API_URL
 // const columns = [
 //   { id: 'name', label: 'Name', minWidth: 170 },
 //   { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
@@ -279,7 +279,7 @@ let i=true;
                     // img: this.state.imagePreviewUrl
                 }
                 console.log(product)
-                axios.post('http://localhost:1234/product/update',product)
+                axios.post('http://'+API_HOST+':1234/product/update',product)
                     .then(res=>{
                         console.log(res);
                     })
@@ -312,7 +312,7 @@ let i=true;
                   // img: this.state.imagePreviewUrl
               }
               console.log(product)
-              axios.post('http://localhost:1234/product/delete',product)
+              axios.post('http://'+API_HOST+':1234/product/delete',product)
                   .then(res=>{
                       console.log(res);
                   })

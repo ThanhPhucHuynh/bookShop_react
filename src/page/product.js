@@ -48,8 +48,8 @@ class Product extends Component {
       pagination_second: 2,
       pagination_third: 3,
       number_pagination: 0,
-      API_HOST : 'localhost'
-      // API_HOST : '192.168.3.121'
+      // API_HOST : 'localhost'
+      API_HOST : process.env.REACT_APP_API_URL
 
     };
     let productsOriginal = [];
@@ -262,7 +262,7 @@ class Product extends Component {
           <div className="formProduct">
             <Form >
               <FormGroup className="radioFillter" onChange={this.radioFillter} >
-                <Label for="exampleCheckbox" >Fillter</Label>
+               <Label for="exampleCheckbox" >Fillter</Label>
                 <div>
                   {/* <CustomInput type="radio" name="fillter" value="all" id="exampleCustomCheckbox" label="All" defaultChecked checked={((valueRadio&&valueRadio==="all")?true:false)} />
               <CustomInput type="radio" name="fillter" value="food" id="exampleCustomCheckbox2" label="Food" checked={((valueRadio&&valueRadio==="food")?true:false)}/>
