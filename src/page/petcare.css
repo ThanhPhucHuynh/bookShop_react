@@ -255,3 +255,78 @@ body {
     display: block;
     width: 100%;
 }
+
+
+@media screen and (max-width: 550px){
+
+  .one {
+    font-size: 6.5vw;
+    margin-top: 1rem;
+    width: calc(15em - 5.5em);
+    height: 2em;
+    z-index: 2;
+  }
+  
+  .two {
+    width: calc(100% - 1em);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 1em;
+  }
+  
+  .one:before,
+  .two:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1em;
+    border: 0.1em solid rgb(0, 0, 0);
+  }
+  .one:before:hover,
+  .two:before:hover {
+    background-color: rgb(5, 5, 5);
+  }
+  
+  .one:before {
+    left: 0;
+    border-right: none;
+    border-radius: 1em 0 0 1em;
+  }
+  
+  .two:before {
+    right: 0;
+    border-left: none;
+    border-radius: 0 1em 1em 0;
+  }
+  
+  .three {
+    height: 100%;
+    width: calc(100% - 1em);
+    overflow: hidden;
+  }
+  
+ 
+ 
+  
+  .stick {
+    position: absolute;
+    height: 1em;
+    width: 0.1em;
+    right: 1em;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+  }
+  .stick:before, .stick:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(24, 23, 23);
+  }
+
+
+}

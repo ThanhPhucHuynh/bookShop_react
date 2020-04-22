@@ -119,7 +119,7 @@ class Cart extends Component{
             return(
               <div className="cartMain">
                 <div className="cartContent">
-                      <h1>Cart</h1>
+                      <h1  className="contenProductMain">Cart</h1>
                 </div>
                 <Row className="row_cart">
                   <div className="cart">

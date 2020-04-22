@@ -33,8 +33,8 @@ class main extends Component {
             name:[],
             navNumber:0,
             navHide: false,
-            // API_HOST : 'localhost'
-            API_HOST : '192.168.1.7'
+            API_HOST : 'localhost'
+            // API_HOST : '192.168.3.121'
 
         }
         // if(this.props.location.state){
@@ -119,14 +119,14 @@ class main extends Component {
                                      this.setState({
                                          navNumber:0
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={imgHome}className="imgIcon" alt="imgMain"></img> Main</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={imgHome}className="imgIcon" alt="imgMain"></img> Home</p> </Link>
                             </li>
                             <li className="nav-item">
                                  <Link className="nav-link" to="/main/product" onClick={()=>{
                                      this.setState({
                                          navNumber:1
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={imgProduct}className="imgIcon" alt="imgProduct"></img> Product</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={imgProduct}className="imgIcon" alt="imgProduct"></img> Products</p> </Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/cart"onClick={()=>{
@@ -164,7 +164,7 @@ class main extends Component {
                                           <a href="/main" className='logout btn' >Oder</a>
                                     </DropdownItem>
                                     <DropdownItem  >
-                                         <a href="/main" className='logout btn' onClick={this.onClickLogout}>Logn out</a>
+                                         <a href="/main" className='logout btn' onClick={this.onClickLogout}>Log out</a>
                                     </DropdownItem>
                                     
                                 </DropdownMenu>

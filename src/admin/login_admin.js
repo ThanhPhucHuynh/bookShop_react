@@ -48,6 +48,7 @@ class LoginAdmin extends Component {
                         imgAvatar: res.data.admin.userImg,
                         name: res.data.admin.name,
                         pass: res.data.admin.pass
+                        // user: res.data.admin
                     },()=>{
                         // Cookie.set("email",email,{expires: 1})
                     })
@@ -79,7 +80,7 @@ class LoginAdmin extends Component {
 
         //  history.push('/main',event.target.email.value,event.target.pass.value )
         if(pass === this.state.pass && pass !== ""){
-            Cookie.set("email",email,{expires: 1})    
+            Cookie.set("emailad",email,{expires: 1})    
              this.setState({
            
                         
@@ -101,7 +102,7 @@ class LoginAdmin extends Component {
     }
     render() {
         const {corrent,use,isPass} = this.state;
-
+        console.log(Cookie.get("emailad"))
            
             if (corrent===false) {
                 let $checkNotification=(<div></div>);
@@ -181,7 +182,7 @@ class LoginAdmin extends Component {
                 return(
                     <Redirect
                     to={{
-                        pathname: "/main/home",
+                        pathname: "/mainadmin",
                         state: {
                             form: this.state.user
                         }

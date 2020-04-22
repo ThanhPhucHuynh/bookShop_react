@@ -23,6 +23,7 @@ import appCart from './reducers/index'
 import AddProduct from './components/addProduct'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
  
+import Main_admin from './admin/main_admin';
 
 const store = createStore(
     appCart
@@ -61,9 +62,12 @@ function App() {
                   <AddProduct />
                 </Route>
                 <Router exact  path="/dkadmin" >
-                  <h1>haha</h1>
+                  
                   <SignUpAdmin />
                 </Router>
+                <Route   path="/mainadmin" >
+                  <Main_admin />
+                </Route>
               </Switch>
             {/* <!--       _
                       
@@ -123,6 +127,10 @@ function App() {
                 </Router>
                 <Route  path="/main">
                   <Main />
+                </Route>
+                <Route  path="/mainadmin" >
+                  
+                  <Main_admin />
                 </Route>
               </Switch>
       

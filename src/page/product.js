@@ -48,8 +48,8 @@ class Product extends Component {
       pagination_second: 2,
       pagination_third: 3,
       number_pagination: 0,
-      // API_HOST : 'localhost'
-      API_HOST : '192.168.1.7'
+      API_HOST : 'localhost'
+      // API_HOST : '192.168.3.121'
 
     };
     let productsOriginal = [];

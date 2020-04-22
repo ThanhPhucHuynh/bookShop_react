@@ -25,8 +25,8 @@ class LoginA extends Component {
             imgAvatar: '',
             pass:'',
             isPass: true,
-            // API_HOST : 'localhost'
-            API_HOST : '192.168.1.7'
+            API_HOST : 'localhost'
+            // API_HOST : '192.168.3.121'
 
         }
         // let API_HOST = 'localhost';
@@ -139,7 +139,7 @@ class LoginA extends Component {
 
                             <div className='wellcome'>
                                 {$wellcome}
-                                <h1>Wellcome  {(this.state.name )}</h1>
+                                <h1>Welcome  {(this.state.name )}</h1>
                             </div>
                         
 

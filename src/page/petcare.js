@@ -104,7 +104,7 @@ const PetCare = (props) => {
                 </div>
 
                 </label>
-            <p className="contentPetcare">Hãy nhập chiệu trứng của thú cưng của bạn.....</p>
+            <p className="contentPetcare">Hãy nhập triệu trứng của thú cưng của bạn.....</p>
         </div>
         
     </div>
