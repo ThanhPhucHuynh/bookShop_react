@@ -14,25 +14,28 @@ import {
     Pagination, PaginationItem, PaginationLink,
     Form, FormGroup, Label, Input, FormText, CustomInput
   } from "reactstrap";
-
+  import Swal from 'sweetalert2'
   import Modal from 'react-awesome-modal';
   import PropTypes from "prop-types";
   import "./product.css";
   import axios from "axios";
   import  "./card.css";
-
+  import Cookie from 'js-cookie';
+  import sortID from 'short-id';
 class Cart extends Component{
     constructor(props){
         super(props);
         this.state={
             cartProduct: [],
             price:[],
-            visible : false
+            visible : false,
+            API_HOST : process.env.REACT_APP_API_URL
         }
         this.delItem = this.delItem.bind(this)
         this.changeNumber= this.changeNumber.bind(this)
         this.openModal = this.openModal.bind(this)
         this.closeModal = this.closeModal.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     componentDidMount(){
         if(localStorage.getItem('cartProduct')!=null){
@@ -76,7 +79,7 @@ class Cart extends Component{
        cartProduct.splice(flag,1);
      }
      var Gia =0;
-     for(var i of this.state.cartProduct){
+     for(var i of cartProduct){
       Gia = Gia+ Number(i.price)*i.number
     }
      this.setState({
@@ -111,6 +114,90 @@ class Cart extends Component{
           localStorage.setItem("cartProduct",JSON.stringify(productTmp))
         }
     }
+    handleSubmit(event) {
+      event.preventDefault();
+      const address = event.target.address.value;
+      const phone = event.target.phone_number.value;
+      const email = Cookie.get('email');
+      if(address==''||phone==''){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
+      }else{
+        // console.log(email,address,phone);
+        const listIdProduct = this.state.cartProduct.map(product=>{
+            return product.id
+        })
+        let Order ={
+          id: sortID.generate(),
+          email: email,
+          phone: phone,
+          address: address,
+          idproduct: JSON.stringify(listIdProduct),
+          price: this.state.price,
+          status: 0
+        }
+        console.log(JSON.stringify(Order));
+        console.log(typeof (Order.phone));
+
+
+        axios.post('http://'+this.state.API_HOST+':1234/order',Order)
+
+        .then(res=>{
+            console.log(res,"thanh cong");
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+        let timerInterval
+        Swal.fire({
+          title: 'Tiến hành đặt hàng!',
+          html: 'Ordering.....<b></b>',
+          timer: 2000,
+          timerProgressBar: true,
+          onBeforeOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+              if (content) {
+                const b = content.querySelector('b')
+                if (b) {
+                  b.textContent = Swal.getTimerLeft()
+                }
+              }
+            }, 100)
+          },
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Thank you...',
+            text: 'Thành Công!',
+            timer: 1000,
+          })
+          localStorage.removeItem('cartProduct')
+          /* Read more about handling dismissals below */
+          window.location.replace("/main/home")
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
+
+
+        
+      }
+
+
+
+
+     
+
+    }
     render(){
         const {cartProduct,price} = this.state
         console.log(price,this.props);
@@ -123,7 +210,7 @@ class Cart extends Component{
                 </div>
                 <Row className="row_cart">
                   <div className="cart">
-                    <p className="noThingsItem">Nothing item.....</p>
+                    <p className="noThingsItem">Nothing.....</p>
                   </div>
                 </Row>
                 
@@ -183,9 +270,9 @@ class Cart extends Component{
                         <div className="Price">
                             <h1>THANHTOAN</h1>
                             <p>Name: {this.props.nameUser}</p>
-                            <Form>
+                            <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
-                              <Input type="text" name="phone_number" id="phone_number" placeholder="Phone Number..." />
+                              <Input  type="tel" pattern="[0-9]{10}" name="phone_number" id="phone_number" placeholder="Phone Number..." required />
                               <Input type="textarea" name="address" id="address" placeholder="address..." />
                               <p className="Price_gia"> Total: ${ price }</p>
                             </FormGroup>
@@ -198,7 +285,7 @@ class Cart extends Component{
                                     <option>Visa</option>
                                     </CustomInput>
                                 </FormGroup>
-                                <Button className="btn_thanhtoan" color="info">Thanh Toán</Button>
+                                <Button className="btn_thanhtoan" color="info" >Thanh Toán</Button>
                             </Form>
 
                               {/* <a  onClick={this.closeModal}>Close</a> */}

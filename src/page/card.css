@@ -20,6 +20,9 @@
         transition: ease .5s;
     }
   }
+  .swal2-container{
+      z-index: 10060;
+  }
 .cartMain{
     padding: 20px;
 }

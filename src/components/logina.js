@@ -14,6 +14,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+  import Swal from 'sweetalert2'
   import Main from './main.js';
 class LoginA extends Component {
     constructor(props){
@@ -85,7 +86,7 @@ class LoginA extends Component {
         //  history.push('/main',event.target.email.value,event.target.pass.value )
         if(pass === this.state.pass && pass !== ""){
             Cookie.set("email",email,{expires: 1})    
-             this.setState({
+            this.setState({
            
                         
                     user:{
@@ -96,6 +97,13 @@ class LoginA extends Component {
                 
             },()=>{
                 console.log(this.state.user)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Complete',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
         }else(
             this.setState({

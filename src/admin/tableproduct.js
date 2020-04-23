@@ -86,7 +86,7 @@ const rows = [
 //   createData('Nigeria', 'NG', 200962417, 923768),
 //   createData('Brazil', 'BR', 210147125, 8515767),
 ];
-console.log(rows)
+// console.log(rows)
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -202,7 +202,9 @@ let i=true;
 
                                     }
                                     
-                                    return { ...prevState, data };
+                                    // return { ...prevState, data };
+                                  return [...prevState, data ];
+
                                   });
                             }}
                         >
@@ -257,7 +259,8 @@ let i=true;
               setState((prevState) => {
                 const data = [...prevState.data];
                 data.push(newData);
-                return { ...prevState, data };
+              //  return { ...prevState, data };
+              return [...prevState, data ];
               });
             }, 600);
           }),
@@ -293,7 +296,8 @@ let i=true;
                   const data = [...prevState.data];
                   data[data.indexOf(oldData)] = newData;
                   i = !i;
-                  return { ...prevState, data };
+                  //return { ...prevState, data };
+                  return [...prevState, data ];
                 });
               }
             }, 600);
@@ -326,7 +330,8 @@ let i=true;
               setState((prevState) => {
                 const data = [...prevState.data];
                 data.splice(data.indexOf(oldData), 1);
-                return { ...prevState, data };
+                // return { ...prevState, data };
+                return [...prevState, data ];
               });
             }, 600);
           }),

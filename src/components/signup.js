@@ -19,7 +19,8 @@ class SignUp extends Component {
         super(props);
         this.state = {
             isTrue: false,
-            imagePreviewUrl: ''
+            imagePreviewUrl: '',
+            API_HOST : process.env.REACT_APP_API_URL
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.fileChangedHandler = this.fileChangedHandler.bind(this);
@@ -50,7 +51,7 @@ class SignUp extends Component {
             formData.append('user',(JSON.stringify(user)));
             console.log(formData)
             // axios.post('http://localhost:1234/user/img',formData,config)
-            axios.post('http://localhost:1234/user',user)
+            axios.post('http://'+this.state.API_HOST+':1234/user',user)
 
                 .then(res=>{
                     console.log(res);

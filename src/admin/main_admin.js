@@ -9,6 +9,7 @@ import Navigation from './nav'
 import axois from 'axios'
 import Product from './productmanage'
 import User from './usermanage'
+import Order from './order'
 // import './css/font-awesome-4.7.0/css/font-awesome.min.css'
 import './cssjs/main.css'
 class main extends Component {
@@ -82,7 +83,9 @@ class main extends Component {
                         <Route exact path="/mainadmin/usermanager" >
                             <User data={this.state.user}/>
                         </Route>
-                        
+                        <Route exact path="/mainadmin/order" >
+                            <Order data={this.state.user}/>
+                        </Route>
                     </Switch>
 
                 </Router>

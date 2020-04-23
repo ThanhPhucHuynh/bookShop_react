@@ -257,7 +257,7 @@ class Product extends Component {
           <ReactNotification />
         </div>
         <Container>
-
+          <div className="mainProduct">
           <h1 className="contenProductMain">Product</h1>
           <div className="formProduct">
             <Form >
@@ -282,7 +282,15 @@ class Product extends Component {
               </FormGroup>
             </Form>
           </div>
+          </div>
+          {(productNagivication.length==0)
+            ? (<div>
+              <p className="noThingsItem">Nothing.....</p>
+            </div>)
+            :
+          
           <Row>
+            
             {productNagivication.map((product, index) => (
               <Col sm="4" key={index}>
                 <div className="cardProduct">
@@ -351,7 +359,7 @@ class Product extends Component {
             </PaginationItem> */}
             </Pagination>
           </Row>
-
+          }
         </Container>
         <section>
           {/* <Button color="primary" className="btnPrice" onClick={this.openModal}> Buy </Button> */}

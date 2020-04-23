@@ -16,10 +16,16 @@ import Cart from '../page/cart'
 import Pet from "../page/pet";
 import Home from "../page/home"
 import PetCare from "../page/petcare"
-import imgHome from './images/siberian-husky.svg'
-import imgCart from './images/supermarket.svg'
-import imgProduct from './images/bowl.svg'
-import imgFunImg from './images/cat.svg'
+import Order from "../page/order"
+
+import imgHome from './images/pet-home.svg'
+import imgHomeColor from './images/pet-care-color.svg'
+import imgCart from './images/shopping-cart.svg'
+import imgCartColor from './images/shopping-cart-color.svg'
+import imgProduct from './images/petBolw.svg'
+import imgProductColor from './images/bowl.svg'
+import imgFunImg from './images/pet-care.svg'
+import imgFunImgColor from './images/pet-care-color-dung.svg'
 import { UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -119,28 +125,28 @@ class main extends Component {
                                      this.setState({
                                          navNumber:0
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={imgHome}className="imgIcon" alt="imgMain"></img> Home</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={(this.state.navNumber===0? imgHomeColor: imgHome)}className="imgIcon" alt="imgMain"></img><span>Home</span> </p> </Link>
                             </li>
                             <li className="nav-item">
                                  <Link className="nav-link" to="/main/product" onClick={()=>{
                                      this.setState({
                                          navNumber:1
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={imgProduct}className="imgIcon" alt="imgProduct"></img> Products</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={(this.state.navNumber===1? imgProductColor:imgProduct)}className="imgIcon" alt="imgProduct"></img> <span>Products</span></p> </Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/cart"onClick={()=>{
                                      this.setState({
                                          navNumber:2
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={imgCart}className="imgIcon" alt="imgcart"></img> Cart ({cartProducts.length})</p></Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={(this.state.navNumber===2? imgCartColor:imgCart)}className="imgIcon" alt="imgcart"></img> <span>Cart ({cartProducts.length})</span></p></Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/petcare"onClick={()=>{
                                      this.setState({
                                          navNumber:3
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={imgFunImg}className="imgIcon" alt="imgFun"></img>PetCare</p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={(this.state.navNumber===3? imgFunImgColor:imgFunImg)}className="imgIcon" alt="imgFun"></img><span>PetCare</span></p> </Link>
                             </li>
                             <li className="nav-item">
                                  
@@ -161,7 +167,7 @@ class main extends Component {
                                           <a href="/main/pet" className='logout btn' >Pets Fun</a>
                                     </DropdownItem>
                                     <DropdownItem  >
-                                          <a href="/main" className='logout btn' >Oder</a>
+                                          <a href="/main/order" className='logout btn' >Oder</a>
                                     </DropdownItem>
                                     <DropdownItem  >
                                          <a href="/main" className='logout btn' onClick={this.onClickLogout}>Log out</a>
@@ -198,6 +204,9 @@ class main extends Component {
                         <Route  exact path="/main/home">
                            
                            <Home />
+                       </Route>
+                       <Route  exact path="/main/order">
+                           <Order />
                        </Route>
                     </Switch>
                 </div>
