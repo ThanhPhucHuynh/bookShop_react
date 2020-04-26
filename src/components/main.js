@@ -37,7 +37,7 @@ class main extends Component {
         super(props);
         this.state={
             name:[],
-            navNumber:0,
+            navNumber:10,
             navHide: false,
             // API_HOST : 'localhost'
             API_HOST : process.env.REACT_APP_API_URL
@@ -77,6 +77,20 @@ class main extends Component {
                 })
         }
 
+        const pathname = window.location.pathname;
+        let indexNav = 10;
+        if(pathname.indexOf("home")!=-1){
+            indexNav = 0;
+        }else if(pathname.indexOf("product")!=-1){
+            indexNav = 1;
+        }else if(pathname.indexOf("cart")!=-1){
+            indexNav = 2;
+        }else if(pathname.indexOf("petcare")!=-1){
+            indexNav = 3;
+        }
+        this.setState({
+            navNumber: indexNav
+        })
 
     }
     onClickLogout(event){
@@ -95,7 +109,7 @@ class main extends Component {
         
         const {email,password}= this.props;
         const {name,isCookie,imgAvata} = this.state;
-        console.log("is", isCookie)
+        console.log("is", window.location.pathname)
         if(Cookie.get('email')){
         
         
@@ -202,7 +216,7 @@ class main extends Component {
                             <Pet />
                         </Route>
                         <Route  exact path="/main/home">
-                           
+                          
                            <Home />
                        </Route>
                        <Route  exact path="/main/order">

@@ -96,7 +96,7 @@ class SignUp extends Component {
             
         );
         if (this.state.imagePreviewUrl) {
-        $imagePreview = (<div className="image-container" ><img src={this.state.imagePreviewUrl} alt="icon" width="200" height="200" /><div className='contentSignUp'><h1>
+        $imagePreview = (<div className="image-container" ><img src={this.state.imagePreviewUrl} alt="icon" width="200" height="200" /><div className='contentSignUpNOne'><h1>
             REGISTER
         </h1>
         
@@ -104,59 +104,59 @@ class SignUp extends Component {
          }
         return (
             <Router>
-            <div className='DivformSignup'>  
-            <Form className='formSignup' onSubmit={this.handleSubmit}>
-            { $imagePreview }
-                <FormGroup>
-                    <Label for="exampleEmail">Name</Label>
-                    <Input type="text" name="name" id="exampleName" placeholder="Your Name" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="Your Email" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="examplePassword">Password</Label>
-                    <Input type="password" name="pass" id="examplePassword" placeholder="password placeholder" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleFile">File</Label>
-                    {/* <Input type="file" name="avatar" id="exampleFile" /> */}
-                    <FormText color="muted">
-                        This is some placeholder block-level help text for the above input.
-                        It's a bit lighter and easily wraps to a new line.
-                    </FormText>
-                    <div className="App">
-                    <Input type="file" name="avatar" onChange={this.fileChangedHandler} />
-                    {/* <button type="button" onClick={this.submit} > Upload </button> */}
-                   
-      </div>
+            <div className="wrap-login">
+                <div className='DivformSignup'>  
+                <Form className='formSignup Login_form' onSubmit={this.handleSubmit}>
+                { $imagePreview }
+                    <FormGroup>
+                        <Label for="exampleEmail">Name</Label>
+                        <Input type="text" name="name" id="exampleName" placeholder="Your Name" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="exampleEmail">Email</Label>
+                        <Input type="email" name="email" id="exampleEmail" placeholder="Your Email" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="examplePassword">Password</Label>
+                        <Input type="password" name="pass" id="examplePassword" placeholder="password placeholder" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="exampleFile">File</Label>
+                        {/* <Input type="file" name="avatar" id="exampleFile" /> */}
+                        <FormText color="muted">
+                            This is some placeholder block-level help text for the above input.
+                            It's a bit lighter and easily wraps to a new line.
+                        </FormText>
+                        <div className="App">
+                            <Input type="file" name="avatar" onChange={this.fileChangedHandler} />
+                            {/* <button type="button" onClick={this.submit} > Upload </button> */}
+                    
+                        </div>
 
-                </FormGroup>
-                
-                <FormGroup check>
-                    <Label check>
-                        <Input type="checkbox" />{' '}
-          Check me out
-        </Label>
-                </FormGroup>
-                <Button>Submit</Button>
-            </Form>
-            <Link to='/login'>Login</Link>
+                    </FormGroup>
+                    
+                    <FormGroup check>
+                        <Label check>
+                            <Input type="checkbox" />{' '}
+                                Check me out
+                        </Label>
+                    </FormGroup>
+                    <Button color="primary">REGISTER</Button>
+                </Form>
+                {/* <Link to='/login'>Login</Link> */}
+                </div>
+                <div className="loginBackgound"></div>
             </div>
             </Router>
         )
         }else{
             return(
-                <Router>
+              
                <Redirect
             to={{
               pathname: "/login",
               state: { from: this.state }
-            }}
-
-    />
-</Router>
+            }} />
             )
         }
     }

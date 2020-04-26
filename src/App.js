@@ -48,25 +48,25 @@ function App() {
               <Route exact path="/">
                 {/* <div>Home</div> */}
                 </Route>
-                <Route exact path="/login" >
+                <Route  path="/login" >
                   <LoginA />
                 </Route>
                 <Route exact path="/loginadmin" >
                   <LoginAdmin />
                 </Route>
-                <Router exact  path="/signup" >
+                <Route  path="/signup" >
                   <SignUp />
-                </Router>
+                </Route>
                 <Route  path="/main">
                   <Main />
                 </Route>
                 <Route exact path="/addproduct" >
                   <AddProduct />
                 </Route>
-                <Router exact  path="/dkadmin" >
+                <Route exact  path="/dkadmin" >
                   
                   <SignUpAdmin />
-                </Router>
+                </Route>
                 <Route   path="/mainadmin" >
                   <Main_admin />
                 </Route>
@@ -111,7 +111,7 @@ function App() {
               <Route exact path="/">
                 <div>NOthing</div>
                 </Route>
-                <Route exact path="/login" >
+                <Route  path="/login" >
                   <LoginA />
                 </Route>
                 <Route exact path="/loginadmin" >
@@ -120,13 +120,13 @@ function App() {
                 <Route exact path="/addproduct" >
                   <AddProduct />
                 </Route>
-                <Router exact  path="/signup" >
+                <Route   path="/signup" >
                   <SignUp />
-                </Router>
-                <Router exact  path="/dkadmin" >
+                </Route>
+                <Route exact  path="/dkadmin" >
                   <h1>haha</h1>
                   <SignUpAdmin />
-                </Router>
+                </Route>
                 <Route  path="/main">
                   <Main />
                 </Route>

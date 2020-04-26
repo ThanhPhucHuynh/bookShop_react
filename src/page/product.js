@@ -26,11 +26,11 @@ import axios from "axios";
 // import {NotificationContainer, NotificationManager} from 'react-notifications';
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
-const noty = () => {
+const noty = () => { 
   return (
     <div className="app-container">
       <ReactNotification />
-
+      
     </div>
   )
 };
@@ -43,7 +43,7 @@ class Product extends Component {
     this.state = {
       visible : false,
       products: [],
-       productDetail: [],
+      productDetail: [],
       pagination_first: 1,
       pagination_second: 2,
       pagination_third: 3,

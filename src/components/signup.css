@@ -23,3 +23,15 @@
     margin: auto;
     font-weight: 300;
 }
+/*  */
+.image-container{
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+.contentSignUpNOne >h1 {
+    display: block;
+    text-align: center;
+}
+
