@@ -32,6 +32,8 @@ import { UncontrolledDropdown,
     DropdownItem } from 'reactstrap';
 import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
+import ChatBot from './Chat'
+
 class main extends Component {
     constructor(props){
         super(props);
@@ -44,15 +46,15 @@ class main extends Component {
 
         }
         // if(this.props.location.state){
-         console.log('00',this.props.location.state);
+        //  console.log('00',this.props.location.state);
         //this.getCookie();
         // }
         this.onClickLogout = this.onClickLogout.bind(this)
     }
     componentDidMount(){
         const valueCookie = Cookie.get('email');
-        console.log(valueCookie);
-        console.log(this.state.cookie)
+        // console.log(valueCookie);
+        // console.log(this.state.cookie)
         
         if(valueCookie){
             axois.get('http://'+this.state.API_HOST+':1234/user/'+valueCookie)
@@ -69,7 +71,7 @@ class main extends Component {
                         imgAvata:res.data.user.userImg,
                         isCookie:true
                     },()=>{
-                        console.log(this.state.cookie)
+                        // console.log(this.state.cookie)
                     })
 
                 }).catch(err=>{
@@ -103,13 +105,14 @@ class main extends Component {
     
     render(){
         var {cartProducts} = this.props;
-        console.log("cartproduct",cartProducts);
+        // console.log("cartproduct",cartProducts);
         // console.log(this.state.imgAvata);
-        
+        // console.log(this.state.imgAvata)
+
         
         const {email,password}= this.props;
         const {name,isCookie,imgAvata} = this.state;
-        console.log("is", window.location.pathname)
+        // console.log("is", window.location.pathname)
         if(Cookie.get('email')){
         
         
@@ -118,6 +121,7 @@ class main extends Component {
                     {/* <Redirect to="/main/home
                     "></Redirect> */}
                 <div>
+                <ChatBot imgBot={this.state.imgAvata} />
                 {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> */}
                     {/* <link rel="stylesheet" href="css/owl.css" /> */}
                     <div className='navbar navbar-expand-lg '>

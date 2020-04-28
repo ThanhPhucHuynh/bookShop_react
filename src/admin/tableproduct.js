@@ -202,8 +202,8 @@ let i=true;
 
                                     }
                                     
-                                    // return { ...prevState, data };
-                                  return [...prevState, data ];
+                                    return { ...prevState, data };
+                                  // return [...prevState, data ];
 
                                   });
                             }}
@@ -296,8 +296,8 @@ let i=true;
                   const data = [...prevState.data];
                   data[data.indexOf(oldData)] = newData;
                   i = !i;
-                  //return { ...prevState, data };
-                  return [...prevState, data ];
+                  return { ...prevState, data };
+                  // return [...prevState, data ];
                 });
               }
             }, 600);
@@ -330,8 +330,8 @@ let i=true;
               setState((prevState) => {
                 const data = [...prevState.data];
                 data.splice(data.indexOf(oldData), 1);
-                // return { ...prevState, data };
-                return [...prevState, data ];
+                return { ...prevState, data };
+                // return [...prevState, data ];
               });
             }, 600);
           }),

@@ -141,7 +141,7 @@ class SignUp extends Component {
                                 Check me out
                         </Label>
                     </FormGroup>
-                    <Button color="primary">REGISTER</Button>
+                    <Button className='btn_login' color="primary">REGISTER</Button>
                 </Form>
                 {/* <Link to='/login'>Login</Link> */}
                 </div>

@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap'
 import Cookie from 'js-cookie';
 import { Redirect , withRouter} from 'react-router-dom'
-import './logina.css'
+
 import axois from 'axios';
 import path from 'path'
 import Singup from './signup'
+import './logina.css'
 import {
     BrowserRouter as Router,
     Switch,
@@ -98,7 +99,7 @@ class LoginA extends Component {
             },()=>{
                 console.log(this.state.user)
                 Swal.fire({
-                    position: 'top-end',
+                    // position: 'top-end',
                     icon: 'success',
                     title: 'Login Complete',
                     showConfirmButton: false,
@@ -173,7 +174,8 @@ class LoginA extends Component {
 
                                 LOGIN
                             </Button>
-                            <p className="signup-content">or sign up using</p>
+                            <a href='/signup'> or SIGNUP</a>
+                            <p className="signup-content">or login using</p>
                             <div className="signupfor login100-form-social flex-c-m">
                                
                                 <a href="#" className="login100-form-social-item flex-c-m bg1 m-r-5">

@@ -73,7 +73,7 @@ margin: auto;
 .Login_form{
     float: right;
     width: 30%;
-    height: 100%;
+    /* height: 100%; */
     padding: 5%;
     transition: ease .5s;
 
@@ -155,15 +155,12 @@ input{
     }
     .Login_form{
         background-image: url(images/c.jpg);
-        
-      
         background-position: center;
         background-size: cover;
         /* background-origin: unset; */
         /* opacity: .5; */
         /* float: right; */
         width: 100%;
-        height: 100%;
         padding: 5%;
         transition: ease 1s;
         
