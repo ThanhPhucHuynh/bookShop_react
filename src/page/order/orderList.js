@@ -21,7 +21,7 @@ export default function FolderList(props) {
       setproductOrder(res.data.product[0])
       
     }).then(resp => { setIsTrue(false)})
-    
+   
   },[isTrue])
   
   // useEffect(() => {
@@ -45,7 +45,7 @@ export default function FolderList(props) {
             src={productOrder.img}></img>
         </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={productOrder.name} secondary={productOrder.description} />
+        <ListItemText primary={(props.number)?(productOrder.name + " ("+ props.number+")"):productOrder.name } secondary={productOrder.description} />
     </ListItem>
   );
 }

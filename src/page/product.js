@@ -19,6 +19,7 @@ import ReactImageMagnify from 'react-image-magnify';
 import PropTypes from "prop-types";
 import "./product.css";
 import axios from "axios";
+import TextField from '@material-ui/core/TextField';
 // import { CartContext } from "../contexts/Cart";
 // import { connect } from "react-redux";
 // import { dispatch } from "redux";
@@ -106,6 +107,10 @@ class Product extends Component {
       pagination_second: numberPage,
       pagination_third: numberPage + 1
     })
+
+   
+
+
   }
   addToCart(product) {
     // NotificationManager.success('Success message', 'Title here');
@@ -161,6 +166,15 @@ class Product extends Component {
     } catch (error) {
       // this.createNotification('error')
     }
+
+    ///
+    
+
+
+
+
+
+
   }
   searchProduct(event) {
     event.preventDefault();
@@ -171,7 +185,7 @@ class Product extends Component {
     this.setState({
       products: [...searchProduct]
     })
-    localStorage.setItem("search", document.getElementById("exampleSearch").value)
+    // localStorage.setItem("search", document.getElementById("exampleSearch").value)
   }
   radioFillter(event) {
     let numberProduct;
@@ -276,9 +290,12 @@ class Product extends Component {
               </FormGroup>
               <FormGroup className="search">
 
-                <Label for="exampleEmail">Name</Label>
-                <Input type="text" name="nameSearch" id="exampleSearch" placeholder="Searching....."
-                  onChange={this.searchProduct} />
+                <Label for="exampleEmail"></Label>
+                {/* <Input type="text" name="nameSearch" id="exampleSearch" placeholder="Searching....."
+                  onChange={this.searchProduct} /> */}
+                <TextField className="inputSearch" id="standard-basic" name="nameSearch"  label="Searching...." 
+                  onChange={this.searchProduct} 
+                />
               </FormGroup>
             </Form>
           </div>
@@ -293,6 +310,10 @@ class Product extends Component {
             
             {productNagivication.map((product, index) => (
               <Col sm="4" key={index}>
+                 <img className="imgClassFly"  src={product.img} 
+                      style={{display: "none"}}
+                    
+                    ></img>
                 <div className="cardProduct">
                   <Card body >
                     <CardImg
@@ -302,6 +323,7 @@ class Product extends Component {
                       alt={product.name}
                       onClick={()=>{this.setState({productDetail:product,visible:true})}}
                     />
+                   
                     <CardBody>
                       <CardTitle>{product.name}</CardTitle>
                       {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
@@ -320,7 +342,12 @@ class Product extends Component {
 
                           }}
                         >Add to cart</Button>
+                        {/* <a className="buttomAddCArt add-to-cart"
+                            onClick={() => {
+                              this.addToCart(product)
 
+                            }}
+                        >Add to cart</a> */}
                       </div>
 
                     </CardBody>

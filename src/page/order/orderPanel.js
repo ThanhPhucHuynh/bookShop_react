@@ -50,7 +50,7 @@ export default function SimpleExpansionPanel() {
             setOrder1(res.data.order[0]);
             res.data.order.map((order)=>{
               JSON.parse(order.idproduct).map(  (productID,index)=>{
-                // console.log(productID);
+                 console.log(productID);
 
               })
             })
@@ -111,8 +111,9 @@ export default function SimpleExpansionPanel() {
 
 
                             { JSON.parse(order.idproduct).map(  (productID,index)=>{
-                              console.log("productID",productID)
-                                return( <OrderList data={productID} key={index} />)
+                              // console.log("productID",productID)
+                                productID = productID.split(" ");
+                                return( <OrderList data={productID[0]} number={productID[1]} key={index} />)
 
 
                             })

@@ -17,7 +17,7 @@ import Pet from "../page/pet";
 import Home from "../page/home"
 import PetCare from "../page/petcare"
 import Order from "../page/order"
-
+import Logo from './logo/logo'
 import imgHome from './images/pet-home.svg'
 import imgHomeColor from './images/pet-care-color.svg'
 import imgCart from './images/shopping-cart.svg'
@@ -120,6 +120,7 @@ class main extends Component {
                 <Router>
                     {/* <Redirect to="/main/home
                     "></Redirect> */}
+               
                 <div>
                 <ChatBot imgBot={this.state.imgAvata} />
                 {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> */}
@@ -127,6 +128,7 @@ class main extends Component {
                     <div className='navbar navbar-expand-lg '>
                     {/* <i className="fa fa-cat"></i> */}
                     {/* <img src={imgDOG}className="imgIconHome"></img> */}
+                    <Logo />
                     <h2 className="HeaderName navbar-brand">Webpet</h2>
                         {/* {(this.props.location.state!=undefined) ? this.props.location.state.form.name:''} </h2> */}
                     <h1>{email}</h1>
@@ -143,28 +145,28 @@ class main extends Component {
                                      this.setState({
                                          navNumber:0
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={(this.state.navNumber===0? imgHomeColor: imgHome)}className="imgIcon" alt="imgMain"></img><span>Home</span> </p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===0? "choosed":"")}>  <img src={(this.state.navNumber===0? imgHomeColor: imgHome)}className="imgIcon" alt="imgMain"></img><span className="Content_nav">Home</span> </p> </Link>
                             </li>
                             <li className="nav-item">
                                  <Link className="nav-link" to="/main/product" onClick={()=>{
                                      this.setState({
                                          navNumber:1
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={(this.state.navNumber===1? imgProductColor:imgProduct)}className="imgIcon" alt="imgProduct"></img> <span>Products</span></p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===1? "choosed":"")}>  <img src={(this.state.navNumber===1? imgProductColor:imgProduct)}className="imgIcon" alt="imgProduct"></img> <span className="Content_nav">Products</span></p> </Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/cart"onClick={()=>{
                                      this.setState({
                                          navNumber:2
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={(this.state.navNumber===2? imgCartColor:imgCart)}className="imgIcon" alt="imgcart"></img> <span>Cart ({cartProducts.length})</span></p></Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={(this.state.navNumber===2? imgCartColor:imgCart)}className="imgIcon" alt="imgcart"></img> <span className="Content_nav">Cart <span className='cartNumber'>{cartProducts.length}</span></span></p></Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/petcare"onClick={()=>{
                                      this.setState({
                                          navNumber:3
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={(this.state.navNumber===3? imgFunImgColor:imgFunImg)}className="imgIcon" alt="imgFun"></img><span>PetCare</span></p> </Link>
+                                 }}><p className={"nameNav "+(this.state.navNumber===3? "choosed":"")}> <img src={(this.state.navNumber===3? imgFunImgColor:imgFunImg)}className="imgIcon" alt="imgFun"></img><span className="Content_nav">PetCare</span></p> </Link>
                             </li>
                             <li className="nav-item">
                                  

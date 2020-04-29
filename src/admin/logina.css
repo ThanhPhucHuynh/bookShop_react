@@ -113,6 +113,30 @@ margin: auto;
 input{
     transition: ease 2s;
 }
+
+@media only screen and (max-height: 900px) {
+   
+    .loginBackgound{
+       
+        transition: ease-out 1s;
+        width: 65%;
+    }
+    .Login_form{
+            padding-top: 10px;
+            width: 35%;
+    
+    }
+    .imgAvataNot{
+        width: 100px;
+        height: 100px;
+    }
+    .wellcome h1{
+        margin-top: 10px;
+    }
+    .form-check{
+        padding-top: 0;
+    }
+}
 @media only screen and (max-width: 1200px) {
     .imgAvata{
         display: block;
@@ -170,29 +194,6 @@ input{
         transition: ease 1s;
         
 
-    }
-}
-@media only screen and (max-height: 900px) {
-   
-    .loginBackgound{
-       
-        transition: ease-out 1s;
-        width: 65%;
-    }
-    .Login_form{
-            padding-top: 10px;
-            width: 35%;
-    
-    }
-    .imgAvataNot{
-        width: 100px;
-        height: 100px;
-    }
-    .wellcome h1{
-        margin-top: 10px;
-    }
-    .form-check{
-        padding-top: 0;
     }
 }
 

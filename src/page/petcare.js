@@ -20,8 +20,8 @@ import './javascrip/petcare.js'
 const items = [
   {
     src:    PetImg1,
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    altText: 'Letting the cat out of the bag',
+    caption: 'Cat in the bag'
   },
   {
     src: PetImg2,
@@ -31,8 +31,8 @@ const items = [
   },
   {
     src: PetImg3,
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    altText: 'hihi haha hihi haha',
+    caption: 'Phúc nè <3'
   },
   {
     src: "as",
@@ -64,7 +64,7 @@ const PetCare = (props) => {
   }
  
   const slides = items.map((item,index) => {
-    console.log((item.video))
+    // console.log((item.video))
     if(item.video){
       return (
         <CarouselItem
@@ -96,7 +96,7 @@ const PetCare = (props) => {
           
         </div>
         
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <CarouselCaption captionText={item.altText} captionHeader={item.caption} />
       </CarouselItem>
        
     );

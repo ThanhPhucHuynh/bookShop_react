@@ -51,6 +51,7 @@
 .HeaderName{
     margin-left: 5%;
     font-size: 150%;
+    display: none;
     font-family: 'Kaushan Script', cursive;
 }
 .nav-item{
@@ -78,7 +79,7 @@
 
 .nav-link .choosed{
     color: rgb(0, 0, 0);
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: 17px;
 }
 .btn_dropdown{
@@ -117,6 +118,13 @@
     width: 100%;
     display: block;
     height: 99px;
+}
+.cartNumber{
+    position: absolute;
+    margin-left: 5px;
+}
+.Content_nav{
+    /* text-transform: uppercase; */
 }
 .dropdown-toggle:not(:disabled):not(.disabled).active, 
 .dropdown-toggle:not(:disabled):not(.disabled):active, 

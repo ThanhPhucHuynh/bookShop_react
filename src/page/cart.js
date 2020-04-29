@@ -129,7 +129,7 @@ class Cart extends Component{
       }else{
         // console.log(email,address,phone);
         const listIdProduct = this.state.cartProduct.map(product=>{
-            return product.id
+            return product.id+" "+product.number
         })
         let Order ={
           id: sortID.generate(),

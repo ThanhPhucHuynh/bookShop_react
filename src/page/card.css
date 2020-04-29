@@ -121,8 +121,9 @@
     font-size: 31px;
 }
 .row_cart{
-    height: 800px;
-    overflow: scroll;
+    height: 680px;
+    /* overflow: scroll; */
+    overflow-y: scroll;
 }
 .btn_thanhtoan {
     border-radius: 0px;
