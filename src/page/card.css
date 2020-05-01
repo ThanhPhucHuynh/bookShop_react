@@ -4,15 +4,17 @@
     width: 100px;
 }
 .mediaCart{
-    width: 400px;
+    width: 450px;
     float: left;
-    margin: 20px;
+    margin: 10px;
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
     transition: ease 1s;
     animation-name: open;
     animation-duration: 2s;
-    height: 100px;
+    height: 110px;
+    box-shadow: -2px 2px 8px silver;
+    padding: 8px;
 }
 @keyframes open {
     from {width: 0px;}
@@ -31,11 +33,17 @@
     width: 80%;
     margin: auto;
 }
+.headingCart{
+    font-size: 110%;
+}
 .cart{
-    display: block;
+    /* display: block; */
     margin: auto;
     position: relative;
     width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .media-body{
     margin: 0px 10px;
@@ -133,6 +141,16 @@
     display: block;
     color: red;
     font-size: 20px;
+}
+.notyRemoveItem div .notification-parent {
+    color: #ffffff;
+    background-color: #e00000;
+    opacity: .6;
+    border-radius: 3px;
+    padding: 11px;
+    top: 40px;
+    margin: 10px;
+    width: 160px;
 }
 @media only screen and (max-width: 990px) {
     .mediaCart{

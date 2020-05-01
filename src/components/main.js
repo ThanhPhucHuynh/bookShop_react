@@ -159,7 +159,9 @@ class main extends Component {
                                      this.setState({
                                          navNumber:2
                                      })
-                                 }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={(this.state.navNumber===2? imgCartColor:imgCart)}className="imgIcon" alt="imgcart"></img> <span className="Content_nav">Cart <span className='cartNumber'>{cartProducts.length}</span></span></p></Link>
+                                //  }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={(this.state.navNumber===2? imgCartColor:imgCart)}className="imgIcon" alt="imgcart"></img> <span className="Content_nav">Cart <span className='cartNumber'>{cartProducts.length}</span></span></p></Link>
+                                   }}><p className={"nameNav "+(this.state.navNumber===2? "choosed":"")}> <img src={(this.state.navNumber===2? imgCartColor:imgCart)}className="imgIcon" alt="imgcart"></img> <span className="Content_nav">Cart <span className='cartNumber flip4'>{cartProducts.reduce((count,a)=>{return count+=a.number},0)}</span></span></p></Link>
+                                
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link" to="/main/petcare"onClick={()=>{

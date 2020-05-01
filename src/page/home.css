@@ -125,7 +125,7 @@
 }
 #mapDiv iframe{
     margin-left: -27px;
-    margin-top: 54px;
+    /* margin-top: 54px; */
 }
 @media only screen and (max-width: 600px) {
     .headerSection2{

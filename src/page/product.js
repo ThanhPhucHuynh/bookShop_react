@@ -113,6 +113,17 @@ class Product extends Component {
 
   }
   addToCart(product) {
+
+    try {
+        document.getElementsByClassName("cartNumber")[0].style.display = 'none';
+        setTimeout((  ) => {     
+          document.getElementsByClassName("cartNumber")[0].style.display = 'inherit'
+        ; }, 100);  
+    } catch (error) {
+      console.log("changNumberCart EEEERO")
+    }
+
+
     // NotificationManager.success('Success message', 'Title here');
     store.addNotification({
       title: "Wonderful!",
@@ -341,7 +352,7 @@ class Product extends Component {
                             this.addToCart(product)
 
                           }}
-                        >Add to cart</Button>
+                        >Add to Cart</Button>
                         {/* <a className="buttomAddCArt add-to-cart"
                             onClick={() => {
                               this.addToCart(product)
@@ -419,9 +430,9 @@ class Product extends Component {
 
                         <p className="detaildecription">Description: {this.state.productDetail.description}</p>
                           <div className="detailPriceMain">
-                            <p className="detailPriceGoc">original price: ${this.state.productDetail.price*130/100} </p>
+                            <p className="detailPriceGoc">Original price: <p className="detailPriceNumber">{"$"+this.state.productDetail.price*130/100}</p> </p>
                             
-                            <p className="detailPriceSave">Save 30%</p>
+                            <p className="detailPriceSave">Save: <p className="detailPriceNumber">30%</p></p>
                             <div className="detailPrice">Price: <p>${this.state.productDetail.price}</p></div>
                           </div> 
                         </div>         

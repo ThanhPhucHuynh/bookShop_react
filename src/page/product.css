@@ -58,21 +58,23 @@
     opacity: 1;
   }
   .price{
-    color: red;
+    color: #013663;
     float: left;
-    font-size: 22px;
-    /* font-weight: 600; */
-    font-family: 'Open Sans', sans-serif;
+    font-size: 119%;
+    font-weight: 600;
+    font-family: serif,'Open Sans', sans-serif;
   }
   .buttomAddCArt{
     float: right;
     color: black;
+    border-radius: 0px;
     background-color: rgba(255, 255, 255, 0.6);
   }
   .buttomAddCArt:hover{
-    border-radius: 10px;
+    border-radius: 0px;
     transition: ease .5s;
     border: none;
+    border: 1px white solid;
     /* background-color: cornflowerblue; */
   }
   .formProduct{
@@ -100,17 +102,20 @@
   .inputSearch{
     width: 100%;
   }
-  /* .cardProduct{
-    transition:ease-out 1s;
+  .cardProduct{
+    box-shadow: -2px 2px 8px silver;
+    /* transition:ease-out 1s; */
     animation-name: open;
-    animation-duration: 1s;
+    /* animation-duration: 1s; */
 }
 @keyframes open {
-    from {opacity: 0.4;}
-    to {opacity: 1;
-      
+    from {opacity: 0.4;
+        transition: ease .5s;
     }
-  } */
+    to {opacity: 1;
+      transition:ease .5s;
+    }
+  }
   .detail_product{
     position: relative;
     height: 100%;
@@ -166,28 +171,37 @@
     /* letter-spacing: 5px; */
     margin-left: 42%;
   }
-  .detailPriceGoc{
+  .detailPriceGoc >p {
     text-decoration: line-through;
   }
   .detailPriceGoc, .detailPriceSave {
+    clear: both;
     /* margin-left: 42%; */
-    color:blue;
+    color:rgb(0, 0, 0);
     font-size:15px;
+    /* border-top: black solid 1px; */
+    margin: 10px;
     
+  }
+  .detailPriceNumber{
+    display: flex;
+    float: right;
   }
   .detailPriceMain{
     position: absolute;
     width: 60%;
-    bottom: 0;
+    bottom: 38px;
     right: 0;
   }
   .detailPrice{
     color: #504e4f;
     /* float: right; */
     font-size: 33px;
+    border-top: black solid 1px;
+    margin: 10px;
   }
   .detailPrice > p{
-    color: #ff0736;
+    color: #000000;
     float: right;
     font-size: 57px;
   }

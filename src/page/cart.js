@@ -22,6 +22,17 @@ import {
   import  "./card.css";
   import Cookie from 'js-cookie';
   import sortID from 'short-id';
+  import ButtonMa from '@material-ui/core/Button';
+  import ReactNotification from 'react-notifications-component'
+  import { store } from 'react-notifications-component'
+  const noty = () => { 
+    return (
+      <div className="app-container">
+        <ReactNotification />
+        
+      </div>
+    )
+  };
 class Cart extends Component{
     constructor(props){
         super(props);
@@ -67,6 +78,19 @@ class Cart extends Component{
         });
       }
     delItem(product){
+      store.addNotification({
+        title: "Done!",
+        message: "Completed.....",
+        type: "warning",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 2000
+          // , onScreen: true
+        }
+      });
       let cartProduct = [...this.state.cartProduct];
       var flag;
       for(var an in cartProduct){
@@ -88,6 +112,15 @@ class Cart extends Component{
      })
      localStorage.setItem("cartProduct",JSON.stringify(cartProduct))
      this.props.getData();
+
+     try {
+      document.getElementsByClassName("cartNumber")[0].style.display = 'none';
+      setTimeout((  ) => {     
+        document.getElementsByClassName("cartNumber")[0].style.display = 'inherit'
+      ; }, 100);  
+    } catch (error) {
+      console.log("changNumberCart EEEERO")
+    }
     }
     changeNumber(x,product){
         console.log(x);
@@ -113,6 +146,15 @@ class Cart extends Component{
           })
           localStorage.setItem("cartProduct",JSON.stringify(productTmp))
         }
+        this.props.getData();
+        try {
+          document.getElementsByClassName("cartNumber")[0].style.display = 'none';
+          setTimeout((  ) => {     
+            document.getElementsByClassName("cartNumber")[0].style.display = 'inherit'
+          ; }, 100);  
+      } catch (error) {
+        console.log("changNumberCart EEEERO")
+      }
     }
     handleSubmit(event) {
       event.preventDefault();
@@ -204,7 +246,7 @@ class Cart extends Component{
         
         if(cartProduct.length===0){
             return(
-              <div className="cartMain">
+              <div className="cartMain ">
                 <div className="cartContent">
                       <h1  className="contenProductMain">Cart</h1>
                 </div>
@@ -222,7 +264,10 @@ class Cart extends Component{
                 number = 0;
             }
             return(
-                <div className="cartMain">
+                <div className="cartMain ">
+                  <div>
+                    <ReactNotification className='notyRemoveItem'/>
+                  </div>
                     <div className="cartContent">
                       <h1 className="contenProductMain">Cart</h1>
                     </div>
@@ -237,7 +282,7 @@ class Cart extends Component{
                               <Media object src={product.img} alt="product image" />
                             </Media>
                             <Media body>
-                              <Media heading>
+                              <Media heading className='headingCart'>
                                 {product.name}
                               </Media>
                               <p> $ {product.price}</p>
@@ -255,9 +300,13 @@ class Cart extends Component{
                             </Pagination>
                               </div>
                              
-                              <Button className="btn_cart" onClick={()=>{
+                              <ButtonMa
+                              // variant="outlined"
+                              
+                              color="secondary"
+                              className="btn_cart" onClick={()=>{
                                 this.delItem(product)
-                              }}>remove</Button>
+                              }}>remove</ButtonMa>
                             </Media>
                           </Media> 
                           
@@ -265,10 +314,10 @@ class Cart extends Component{
                     </div>
                     </Row>
                     <section>
-                    <Button color="primary" className="btnPrice" onClick={this.openModal}> BUY ${ price } </Button>
+                    <Button outline color="primary" className="btnPrice" onClick={this.openModal}> Total: ${ price }  </Button>
                     <Modal visible={this.state.visible} width="400" height="50%" effect="fadeInUp" onClickAway={this.closeModal}>
                         <div className="Price">
-                            <h1>THANHTOAN</h1>
+                            <h1>Pay</h1>
                             <p>Name: {this.props.nameUser}</p>
                             <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
@@ -285,7 +334,7 @@ class Cart extends Component{
                                     <option>Visa</option>
                                     </CustomInput>
                                 </FormGroup>
-                                <Button className="btn_thanhtoan" color="info" >Thanh Toán</Button>
+                                <Button className="btn_thanhtoan" color="success" >Thanh Toán</Button>
                             </Form>
 
                               {/* <a  onClick={this.closeModal}>Close</a> */}
