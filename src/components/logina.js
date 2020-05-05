@@ -139,6 +139,8 @@ class LoginA extends Component {
             return (
 
                 <Router>
+                <div id="fb-root"></div>
+                <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=2512134162374802&autoLogAppEvents=1"></script>
                 <div className="wrap-login">
 
                     
@@ -184,10 +186,18 @@ class LoginA extends Component {
                                 <a href="#" className="login100-form-social-item flex-c-m bg2 m-r-5">
                                     <i className="fa fa-twitter" aria-hidden="true" />
                                 </a>
+                                
                             </div>
+                            <div className="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
                         </Form>
                     </div>
-                    <div className="loginBackgound"></div>
+                    <div className="loginBackgound"
+                    style={{
+                        // backgroundImage: 'url("https://images.wallpaperscraft.com/image/cat_peep_funny_148007_1920x1080.jpg")'
+                    //    backgroundImage: 'url("https://scontent.fvca1-2.fna.fbcdn.net/v/t1.0-9/87654159_2670119386554564_1678043129841713152_n.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=jGICZBBsnWQAX8PHRNk&_nc_ht=scontent.fvca1-2.fna&oh=a142c0aa11597f854d0534ebe3c8146e&oe=5E910305")'
+                       }}
+                    
+                    ></div>
                    
                 </div>
                 

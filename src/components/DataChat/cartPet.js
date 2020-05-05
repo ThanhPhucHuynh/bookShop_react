@@ -27,17 +27,17 @@ export default function ImgMediaCard(props) {
   let price = 0;
   let img = ''
 
-  if(pet == 'pug'){
+  if(pet === 'pug'){
     name = "Pug Dog";
     details ="Pug, hay thường được gọi là chó mặt xệ, là giống chó thuộc nhóm chó cảnh có nguồn gốc từ Trung Quốc, chúng có một khuôn mặt nhăn, mõm ngắn, và đuôi xoăn."
     price = 500
     img = imgPug
-  } else  if(pet == 'exotic'){
+  } else  if(pet === 'exotic'){
     name = "Exotic Shorthair";
     details ="Mèo lông ngắn Ba Tư hay còn gọi là mèo Exotic hay còn gọi là mèo Ba Tư mặt tịt là giống mèo có nguồn gốc tại Mỹ, được phát triển trên cơ sở phiên bản của giống mèo Ba Tư."
     price = 600
     img = imgCata
-  }else if(pet == 'british'){
+  }else if(pet === 'british'){
     name = "British Shorthair";
     details ="Mèo lông ngắn Anh là phiên bản nhân giống có chọn lọc của mèo nhà Anh truyền thống với những đặc điểm như thân hình mũm mĩm, lông ngắn và dày cùng với khuôn mặt to."
     price = 1500

@@ -12,7 +12,7 @@
     text-transform: uppercase;
 }
 .card {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   .card img {
     height: 212px;
@@ -129,6 +129,7 @@
      float: left;
   }
   .DetailProduct > div{
+    margin-top: 40%;
     box-shadow: -2px 2px 26px #0202023b;
   }
   .detailName{
@@ -192,6 +193,7 @@
     width: 60%;
     bottom: 38px;
     right: 0;
+    z-index: -1;
   }
   .detailPrice{
     color: #504e4f;
@@ -305,7 +307,10 @@
     }
   }
   @media screen and (max-width: 790px){
-
+    .DetailProduct > div{
+      margin-top: 0%;
+      /* box-shadow: -2px 2px 26px #0202023b; */
+    }
     .card img {
       height: 300px;
       /* width: 192px; */
@@ -323,18 +328,19 @@
   @media screen and (max-width: 550px){
 
     .DetailProduct{
-      height: 200px;
+      height: auto;
       width: 300px;
       /* 
        */
       
       
     }
+
     .detaiContent{
       letter-spacing: 10px;
     }
     .detailType,.detaildecription{
-      font-size: 19px;
+      font-size: 13px;
       margin: 0px;
       /* letter-spacing: 5px; */
       /* margin-left: 42%; */

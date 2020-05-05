@@ -1,14 +1,28 @@
 import React,{Component} from 'react'
+// import music from './media/crush_tessa_violet.mp3'
+import music from './media/bat.mp3'
 
 import './lo.js'
 import './logo.css'
 
 class Logo extends Component {
+    constructor(props){
+        super(props);
+
+        
+       
+        
+    }
+
+
     render(){
 
 
         return(
             <div className="logoAnimate">
+                {/* <audio id="myAudio" preload='none'>
+                    <source src={music} ></source>
+                </audio> */}
                  <ul className="text hidden">
                 <li>W</li>
                 <li>e</li>

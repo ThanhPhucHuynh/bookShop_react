@@ -10,7 +10,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import axios from 'axios';
 import './cssjs/table.css'
-import MaterialTable from 'material-table';
+// import MaterialTable from 'material-table';
 const API_HOST = process.env.REACT_APP_API_URL
 // const columns = [
 //   { id: 'name', label: 'Name', minWidth: 170 },
@@ -66,26 +66,10 @@ const columns = [
     // },
   ];
 function createData(id, name, userImg, email) {
-//   const density = population / size;
   return { id, name, userImg, email };
 }
 
 const rows = [
-//   createData('India', 'IN', 1324171354, 3287263),
-//   createData('China', 'CN', 1403500365, 9596961),
-//   createData('Italy', 'IT', 60483973, 301340),
-//   createData('United States', 'US', 327167434, 9833520),
-//   createData('Canada', 'CA', 37602103, 9984670),
-//   createData('Australia', 'AU', 25475400, 7692024),
-//   createData('Germany', 'DE', 83019200, 357578),
-//   createData('Ireland', 'IE', 4857000, 70273),
-//   createData('Mexico', 'MX', 126577691, 1972550),
-//   createData('Japan', 'JP', 126317000, 377973),
-//   createData('France', 'FR', 67022000, 640679),
-//   createData('United Kingdom', 'GB', 67545757, 242495),
-//   createData('Russia', 'RU', 146793744, 17098246),
-//   createData('Nigeria', 'NG', 200962417, 923768),
-//   createData('Brazil', 'BR', 210147125, 8515767),
 ];
 // console.log(rows)
 const useStyles = makeStyles({
@@ -103,37 +87,7 @@ export default function StickyHeadTable() {
   const [page, setPage] = useState(0);
   const [isReload, setIsReload] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-let i=true;
-//   const [state, setState] = useState({
-//     columns: [
-//       { title: 'ID', field: 'id',editable: 'never' },
-//       { title: 'Name', field: 'name' },
-//       { title: 'Picture', field: 'img',editable: 'never',
-//         render: (rowData) => (<img src={rowData.img} style={{width: 50,height: 50, borderRadius: '50%'}}/>)
-//     },
-//       {
-//         title: 'Type',
-//         field: 'type',
-//         // type: 'text' ,
-//         lookup: { 'food': 'food', 'care': 'care','oder': 'oder' },
-//       },
-//       {
-//         title: 'description',
-//         field: 'description',
-//         // type: 'text' ,
-//       },
-//       { title: 'Price', field: 'price',type: 'numeric'},
-//     ],
-//     data: [
-//     //   { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-//     //   {
-//     //     name: 'Zerya Betül',
-//     //     surname: 'Baran',
-//     //     birthYear: 2017,
-//     //     birthCity: 34,
-//     //   },
-//     ],
-//   });
+  let i=true;
 
   useEffect(() => {
     let API_URL = "http://"+API_HOST+":1234/user";

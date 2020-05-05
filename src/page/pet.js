@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {  FormGroup, Label, Input ,
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button} from 'reactstrap';
+     CardImg
+      } from 'reactstrap';
 import axios from "axios";
 import "./pet.css";
 class Pet extends Component {

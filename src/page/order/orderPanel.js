@@ -10,15 +10,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import OrderList from './orderList'
 import './orderlist.css'
 import './orderPanel.css'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
-import WorkIcon from '@material-ui/icons/Work';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-
+// import List from '@material-ui/core/List';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
+// import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+// import Avatar from '@material-ui/core/Avatar';
+// import ImageIcon from '@material-ui/icons/Image';
+// import WorkIcon from '@material-ui/icons/Work';
+// import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 const API_HOST = process.env.REACT_APP_API_URL
 
 const useStyles = makeStyles((theme) => ({
@@ -68,15 +67,15 @@ export default function SimpleExpansionPanel() {
             {
               
             order.map((order,index)=>{
-                // console.log(JSON.parse(order.idproduct));
-                if(order.status!=4){
+              
+                if(order.status!==4){
                   let content='';
-                  if(order.status==0){
+                  if(order.status===0){
                     content="Chờ xác nhận";
                   }else
-                  if(order.status==2){
+                  if(order.status===2){
                     content="Đang vận chuyển";
-                  }else if(order.status==1){
+                  }else if(order.status===1){
                     content="Đã xác nhận";
                   }
                   let date = new Date()//.toLocaleString();
@@ -99,7 +98,7 @@ export default function SimpleExpansionPanel() {
                         
                         </span>       
                         <span className="giaohang">
-                        {(order.status==2)?"Dự kiến giao hàng"+someDate: ""}
+                        {(order.status===2)?"Dự kiến giao hàng"+someDate: ""}
                         </span><br></br>
                         <span>
                           Price {order.price} VND

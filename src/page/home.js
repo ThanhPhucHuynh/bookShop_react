@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import imgHome from '../components/images/cathome.jpg'
+// import imgHome from '../components/images/cathome.jpg'
 import './home.css'
 class Home extends Component {
     render(){
@@ -30,7 +30,7 @@ class Home extends Component {
                             <h1>Location</h1>
                             <p>3/2, NinhKieu, CanTho</p>
                             <div id="mapDiv" >
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31430.628112739087!2d105.75139450416518!3d10.031005900760672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0883d0dac6b15%3A0xf6ae5b1bd18625!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBD4bqnbiBUaMah!5e0!3m2!1svi!2s!4v1585573095498!5m2!1svi!2s"></iframe>
+                                <iframe title="This is a map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31430.628112739087!2d105.75139450416518!3d10.031005900760672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0883d0dac6b15%3A0xf6ae5b1bd18625!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBD4bqnbiBUaMah!5e0!3m2!1svi!2s!4v1585573095498!5m2!1svi!2s"></iframe>
                             </div>
                         </div>
                         <div className="contact">

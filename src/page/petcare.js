@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React, { useState } from 'react';
 import {
   Carousel,
   CarouselItem,
@@ -122,12 +122,13 @@ const PetCare = (props) => {
                 <div className="one">
                 <div className="two">
                     <div className="three">
-                    <input className=""type="search" className="searchPetCareInput four" placeholder="@Keyframers Search"
+                    <input type="search" className="searchPetCareInput four" placeholder="@Keyframers Search"
                           onKeyUp={(event)=>{
-                                console.log(event.keyCode);
-                                console.log(event.target.value)
+                                // console.log(event.keyCode);
+                                // console.log(event.target.value)
                                 if(event.keyCode === 13){
-                                    window.open("https://www.google.com.vn/search?q="+"pet "+event.target.value)
+                                    let text = "https://www.google.com.vn/search?q=pet "+event.target.value
+                                    window.open(text)
                                 }
                           }}  
                     />

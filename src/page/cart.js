@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import {
-    Container,
     Row,
-    Col,
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
     Button,
     Media,
     Pagination, PaginationItem, PaginationLink,
@@ -25,14 +17,14 @@ import {
   import ButtonMa from '@material-ui/core/Button';
   import ReactNotification from 'react-notifications-component'
   import { store } from 'react-notifications-component'
-  const noty = () => { 
-    return (
-      <div className="app-container">
-        <ReactNotification />
+  // const noty = () => { 
+  //   return (
+  //     <div className="app-container">
+  //       <ReactNotification />
         
-      </div>
-    )
-  };
+  //     </div>
+  //   )
+  // };
 class Cart extends Component{
     constructor(props){
         super(props);
@@ -53,11 +45,11 @@ class Cart extends Component{
         let item = JSON.parse(localStorage.getItem('cartProduct'));
         var Gia=0;  
         for(var i of item){
-          console.log(i)
+          // console.log(i)
             Gia = Gia+ Number(i.price)*i.number
           }
           
-         console.log('kkkkb',item,Gia);
+        //  console.log('kkkkb',item,Gia);
           this.setState({
             cartProduct: [...item],
             price : Gia
@@ -123,7 +115,7 @@ class Cart extends Component{
     }
     }
     changeNumber(x,product){
-        console.log(x);
+        // console.log(x);
         let a = this.state.cartProduct.findIndex(tmp => tmp.id===product.id)
         let productTmp = [...this.state.cartProduct]
         if(x===1){
@@ -182,8 +174,8 @@ class Cart extends Component{
           price: this.state.price,
           status: 0
         }
-        console.log(JSON.stringify(Order));
-        console.log(typeof (Order.phone));
+        // console.log(JSON.stringify(Order));
+        // console.log(typeof (Order.phone));
 
 
         axios.post('http://'+this.state.API_HOST+':1234/order',Order)
@@ -242,7 +234,7 @@ class Cart extends Component{
     }
     render(){
         const {cartProduct,price} = this.state
-        console.log(price,this.props);
+        // console.log(price,this.props);
         
         if(cartProduct.length===0){
             return(

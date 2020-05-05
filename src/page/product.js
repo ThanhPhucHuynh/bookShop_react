@@ -12,7 +12,7 @@ import {
   Button,
   CustomInput,
   Pagination, PaginationItem, PaginationLink,
-  FormGroup, Label, Input, Form
+  FormGroup, Label, Form
 } from "reactstrap";
 import Modal from 'react-awesome-modal';
 import ReactImageMagnify from 'react-image-magnify';
@@ -27,15 +27,14 @@ import TextField from '@material-ui/core/TextField';
 // import {NotificationContainer, NotificationManager} from 'react-notifications';
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
-const noty = () => { 
-  return (
-    <div className="app-container">
-      <ReactNotification />
+// const noty = () => { 
+//   return (
+//     <div className="app-container">
+//       <ReactNotification />
       
-    </div>
-  )
-};
-
+//     </div>
+//   )
+// };
 
 class Product extends Component {
   constructor(props) {
@@ -66,30 +65,33 @@ class Product extends Component {
   componentDidMount() {
     let numberProduct;
     let numberPage = window.location.search;
-    // console.log(numberPage==='')
-    // console.log(numberPage === '?0' || numberPage==='' )
     let type = sessionStorage.getItem("type");
+
     let API_URL = "http://"+this.state.API_HOST+":1234/product";
+
     let API_link = (!type) ? API_URL : API_URL+"/" + type
+
     if (type) {
       document.getElementById(type).checked = true
     } else { document.getElementById("all").checked = true }
+
     if (type === "all") API_link = API_URL;
+
     axios.get(API_link).then(res => {
       // axios.get("http://192.168.3.104:1234/product").then(res => {
       this.setState({
         products: this.shuffle(res.data.product),
         productDetail : res.data.product[0]
         // products: (res.data.product)
-
       }, () => {
         numberProduct = this.state.products.length;
-        console.log(this.state.products);
+        // console.log(this.state.products);
         // console.log("ss",res.data.product);
       });
+
       this.productsOriginal = [...this.state.products]
       this.productsAfterFillter = [...this.state.products]
-      console.log("ori", this.productsOriginal)
+      // console.log("ori", this.productsOriginal)
     });
 
 
@@ -99,7 +101,7 @@ class Product extends Component {
       numberPage = 1;
     } else {
       numberPage = Number(numberPage.slice(1, numberPage.length))
-      console.log(numberPage);
+      // console.log(numberPage);
       let soLuongPage = numberProduct / 6;
     }
     this.setState({
@@ -124,7 +126,7 @@ class Product extends Component {
     }
 
 
-    // NotificationManager.success('Success message', 'Title here');
+  
     store.addNotification({
       title: "Wonderful!",
       message: "success.....",
@@ -191,7 +193,7 @@ class Product extends Component {
     event.preventDefault();
     const textSearch = event.target.value;
     let searchProduct = this.productsAfterFillter.filter((product) => {
-      return (product.name.search(textSearch) !== -1)
+      return (product.name.toLowerCase().search(textSearch.toLowerCase()) !== -1)
     })
     this.setState({
       products: [...searchProduct]
@@ -261,18 +263,18 @@ class Product extends Component {
     //   productDetail = products[0];
     // }
     // const a = productDetail.img;
-    console.log(productDetail)
-    console.log((productDetail.name) ,products.length)
+    // console.log(productDetail)
+    // console.log((productDetail.name) ,products.length)
     let numberPage = Math.ceil(products.length / 6)
     let { pagination_first, pagination_second, pagination_third } = this.state;
     let productNagivication = products.slice((pagination_second - 1) * 6, pagination_second * 6);
-    console.log(pagination_first, pagination_second, pagination_third);
+    // console.log(pagination_first, pagination_second, pagination_third);
 
     if (products.length <= 6) {
       productNagivication = [...products]
     }
-    console.log(productNagivication)
-    console.log(this.props, window.location.search)
+    // console.log(productNagivication)
+    // console.log(this.props, window.location.search)
 
     
 
@@ -317,10 +319,12 @@ class Product extends Component {
             </div>)
             :
           
-          <Row>
+          <Row className="row justify-content-center">
             
             {productNagivication.map((product, index) => (
-              <Col sm="4" key={index}>
+              // <Col sm="4" key={index}>
+              <Col sm="6" md='4' lg="4"  key={index}>
+
                  <img className="imgClassFly"  src={product.img} 
                       style={{display: "none"}}
                     
@@ -340,6 +344,7 @@ class Product extends Component {
                       {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                       <CardText>{product.description}</CardText>
                       <CardText>{product.type}</CardText>
+                      <div className="borderProductItem"></div>
                       {/* <CartContext.Consumer>
                       {({ addToCart }) => (
                         <Button onClick={() => addToCart(product)}>ADD</Button>
@@ -430,9 +435,9 @@ class Product extends Component {
 
                         <p className="detaildecription">Description: {this.state.productDetail.description}</p>
                           <div className="detailPriceMain">
-                            <p className="detailPriceGoc">Original price: <p className="detailPriceNumber">{"$"+this.state.productDetail.price*130/100}</p> </p>
+                            <p className="detailPriceGoc">Original price: <span className="detailPriceNumber">{"$"+this.state.productDetail.price*130/100}</span> </p>
                             
-                            <p className="detailPriceSave">Save: <p className="detailPriceNumber">30%</p></p>
+                            <p className="detailPriceSave">Save: <span className="detailPriceNumber">30%</span></p>
                             <div className="detailPrice">Price: <p>${this.state.productDetail.price}</p></div>
                           </div> 
                         </div>         
