@@ -1,0 +1,108 @@
+.info_center{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: 20px;
+    transition: ease .5s;
+
+
+}
+
+.formChangePass{
+    transition: ease 2s;
+    animation-name: openIfo;
+    animation-duration: .5s;
+}
+.inputChangepassInput{
+    animation-name: openIfoinput;
+    animation-duration: .5s;
+}
+@keyframes openIfo  {
+    from {opacity: 0;}
+    to {opacity: 1;
+        transition: ease 1s;
+    }
+  }
+@keyframes openIfo  {
+    from {height:  0px;}
+    to {height: 300px;
+        transition: ease 1s;
+    }
+  }
+.Info_img{
+    padding-top: 10px;
+}
+.infoorther ,.nameInfo{
+    text-align: center;
+}
+.inputChangePass{
+    width: 90%;
+    margin: auto;
+}
+.inputChangepassInput{
+    width: 100%;
+    margin: 10px;
+}
+.inputChangepass{
+    margin: 10px;
+}
+.Info_img img{
+    width: 350px;
+    height: 350px;
+    transition: ease .5s;
+    border: silver 1px solid;
+    margin: auto;
+    align-items: center;
+    display: block;
+    border-radius: 200px;
+}
+.inputChangepassButton{
+    display: block;
+    /* margin: 30px; */
+    padding-bottom: 20px;
+}
+.cartInfo{
+    box-shadow: -1px 1px 32px 3px silver;
+    transition: ease .5s;
+
+}
+.contenInfoMain{
+    letter-spacing: 50px;
+    font-size: -webkit-xxx-large;
+    color: black;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    transition: ease .5s;
+
+}
+@media screen and (max-width: 800px){
+
+    /* .Info_img img{
+        width: 250px;
+        height: 250px;
+        transition: ease .5s;
+    } */
+    .contenInfoMain{
+      letter-spacing: 20px;
+      transition: ease .5s;
+
+    }
+  }
+
+
+
+@media screen and (max-width: 550px){
+
+    .Info_img img{
+        width: 250px;
+        height: 250px;
+        transition: ease .5s;
+    }
+    .contenInfoMain{
+      letter-spacing: 7px;
+      transition: ease .5s;
+
+    }
+  }
+ 

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap'
 import Cookie from 'js-cookie';
 import { Redirect , withRouter} from 'react-router-dom'
-
+import LoginWithFacebook from './loginFB/loginfb'
 import axois from 'axios';
 import path from 'path'
 import Singup from './signup'
@@ -181,14 +181,16 @@ class LoginA extends Component {
                             <div className="signupfor login100-form-social flex-c-m">
                                
                                 <a href="#" className="login100-form-social-item flex-c-m bg1 m-r-5">
-                                    <i className="fa fa-facebook" aria-hidden="true" />
+                                    {/* <i className="fa fa-facebook" aria-hidden="true" /> */}
+                                    <LoginWithFacebook />
                                 </a>
                                 <a href="#" className="login100-form-social-item flex-c-m bg2 m-r-5">
                                     <i className="fa fa-twitter" aria-hidden="true" />
                                 </a>
                                 
                             </div>
-                            <div className="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+                            {/* <div className="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div> */}
+                            <LoginWithFacebook />
                         </Form>
                     </div>
                     <div className="loginBackgound"

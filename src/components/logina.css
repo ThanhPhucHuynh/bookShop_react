@@ -108,6 +108,9 @@ margin: auto;
 .signupfor a {
     margin: 5px;
 }
+.my-facebook-button-class i {
+    color: white;
+}
 input{
     transition: ease 2s;
 }

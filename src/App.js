@@ -9,7 +9,7 @@ import LoginAdmin from './admin/login_admin.js'
 import SignUp from './components/signup'
 import SignUpAdmin from './components/signupAdmin'
 import Cookie from 'js-cookie'
-
+// set HTTPS=true&& 
 import {
   BrowserRouter as Router,
   Switch,

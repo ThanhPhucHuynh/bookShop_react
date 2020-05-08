@@ -33,6 +33,8 @@ import { UncontrolledDropdown,
 import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
 import ChatBot from './Chat'
+import InfoUser from '../page/userinfo'
+
 
 class main extends Component {
     constructor(props){
@@ -69,6 +71,8 @@ class main extends Component {
                         cookie:valueCookie,
                         name: res.data.user.name,
                         imgAvata:res.data.user.userImg,
+                        user: res.data.user,
+                        email: res.data.user.email,
                         isCookie:true
                     },()=>{
                         // console.log(this.state.cookie)
@@ -189,7 +193,14 @@ class main extends Component {
                                           <a href="/main/pet" className='logout btn' >Pets Fun</a>
                                     </DropdownItem>
                                     <DropdownItem  >
-                                          <a href="/main/order" className='logout btn' >Oder</a>
+                                          {/* <a href="/main/order" className='logout btn' >Oder</a> */}
+                                          <Link to="/main/info" className='logout btn' >Info User</Link>
+
+                                    </DropdownItem>
+                                    <DropdownItem  >
+                                          {/* <a href="/main/order" className='logout btn' >Oder</a> */}
+                                          <Link to="/main/order" className='logout btn' >Oder</Link>
+
                                     </DropdownItem>
                                     <DropdownItem  >
                                          <a href="/main" className='logout btn' onClick={this.onClickLogout}>Log out</a>
@@ -229,6 +240,9 @@ class main extends Component {
                        </Route>
                        <Route  exact path="/main/order">
                            <Order />
+                       </Route>
+                       <Route  exact path="/main/info">
+                           <InfoUser email={this.state.email}/>
                        </Route>
                     </Switch>
                 </div>
