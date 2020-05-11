@@ -9,7 +9,7 @@
 }
 
 .formChangePass{
-    transition: ease 2s;
+    transition: 2s ease-out;
     animation-name: openIfo;
     animation-duration: .5s;
 }
@@ -25,7 +25,7 @@
   }
 @keyframes openIfo  {
     from {height:  0px;}
-    to {height: 300px;
+    to {height: 260px;
         transition: ease 1s;
     }
   }

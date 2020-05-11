@@ -4,6 +4,7 @@ import axois from 'axios'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
+import md5 from 'md5'
 
 import Swal from 'sweetalert2'
 import './userinfo.css'
@@ -15,7 +16,8 @@ class UserInfo extends Component {
         this.state = {
             userInfo: [],
             API_HOST : process.env.REACT_APP_API_URL,
-            changePass: false
+            changePass: false,
+            isPass: true
         }
         this.changPassword = this.changPassword.bind(this)
         this.changPasswordAction = this.changPasswordAction.bind(this)
@@ -23,13 +25,23 @@ class UserInfo extends Component {
     componentDidMount(props){
         const email = Cookie.get('email');
         console.log(email);
-        axois.get('http://'+this.state.API_HOST+':1234/user/'+email)
+        axois.get('http://'+this.state.API_HOST+':1234/user/img/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
                 .then(res=>{
-                    this.setState({
+                    console.log(res.data.user.id.length);
+                    if(res.data.user.id.length > 7){
+                        this.setState({
 
-                        userInfo: res.data.user
-                    })
+                            userInfo: res.data.user,
+                            isPass: !true
+                        })
+                    }else{
+                        this.setState({
+
+                            userInfo: res.data.user
+                        })
+                    }
+                   
 
                 }).catch(err=>{
                     console.log(err)
@@ -42,46 +54,58 @@ class UserInfo extends Component {
         const oldPass = event.target.oldPass.value;
         const newPass = event.target.newPass.value;
         const newPassAgain = event.target.newPassAgain.value;
+        const email = Cookie.get('email');
+        var user = {
+            email: email,
+            pass : md5(oldPass)+md5("webpet")
+        }
+        axois.post('http://'+ this.state.API_HOST +':1234/user/check',user)
+        .then(res=>{
+            console.log(res.data)
+            if( res.data===true && newPass!=="" && newPass===newPassAgain){
+                console.log("dung")
+                var user = {
+                    id: this.state.userInfo.id,
+                    name: this.state.userInfo.name,
+                    email: this.state.userInfo.email,
+                    pass: newPass,
+                    userImg: this.state.userInfo.userImg
+                    // userImg: this.selectedFile
+                }
+    
+                axios.post('http://'+this.state.API_HOST+':1234/user/update',user)
+    
+                    .then(res=>{
+                        console.log(res);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                          }).then(()=>{
+                            window.location.reload();
+                          })
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
+    
+               
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    // footer: '<a href>Why do I have this issue?</a>'
+                  })
+                console.log("sai")
+            }
+        }).catch(err=>{
+            console.log(err)
+        })
 
         console.log(oldPass===this.state.userInfo.pass,newPass,newPassAgain)
-        if(oldPass===this.state.userInfo.pass && newPass!=="" && newPass===newPassAgain){
-            console.log("dung")
-            var user = {
-                id: this.state.userInfo.id,
-                name: this.state.userInfo.name,
-                email: this.state.userInfo.email,
-                pass: newPass,
-                userImg: this.state.userInfo.userImg
-                // userImg: this.selectedFile
-            }
-
-            axios.post('http://'+this.state.API_HOST+':1234/user/update',user)
-
-                .then(res=>{
-                    console.log(res);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Your work has been saved',
-                        showConfirmButton: false,
-                        timer: 1500
-                      }).then(()=>{
-                        window.location.reload();
-                      })
-                })
-                .catch(err=>{
-                    console.log(err);
-                })
-
-           
-        }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                // footer: '<a href>Why do I have this issue?</a>'
-              })
-            console.log("sai")
-        }
+       
     }
     changPassword(email){
         console.log(email);
@@ -132,15 +156,16 @@ class UserInfo extends Component {
                             >Change Password</Button>
                     </div>
             }
+            // console.log(this.state.userInfo.isPass)
 
-            if(this.state.userInfo.pass=== 'loginfb'){
+            if(this.state.isPass === false){
                 inputPass=<div>
                 
                </div>
             }
             return(
                 <div className='info_center'>
-                    <h1 className="contenInfoMain">Infomation</h1>
+                    <h1 className="contenInfoMain">Information</h1>
                      <div className="cartInfo">
 
                         <div className="content_info">

@@ -10,7 +10,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 6px;
     transition: ease 1s;
-    animation-name: open;
+    /* animation-name: open; */
     animation-duration: 2s;
     height: 110px;
     box-shadow: -2px 2px 8px silver;

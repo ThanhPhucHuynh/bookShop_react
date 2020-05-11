@@ -59,9 +59,23 @@ class Cart extends Component{
        
       }
     openModal() {
-        this.setState({
+
+      const email = Cookie.get('email');
+      if(email==="guest"){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Sorry! PLS login to continue',
+          // footer: '<a href>Why do I have this issue?</a>'
+        })
+      }else{
+          this.setState({
             visible : true
         });
+      }
+
+
+       
       }
  
     closeModal() {

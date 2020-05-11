@@ -322,6 +322,12 @@
         margin: auto;
    
     }
+    .wellcomImgUserPannal, .dropdown, .dropdown button a{
+        /* width: 100%; */
+        display: block;
+        /* margin: auto; */
+   
+    }
     .HeaderName{
         display: block;
         width: 100%;

@@ -5,10 +5,14 @@ import { Form, Button } from 'react-bootstrap'
 import Cookie from 'js-cookie';
 import { Redirect , withRouter} from 'react-router-dom'
 import LoginWithFacebook from './loginFB/loginfb'
+import LoginWithGoogle from './loginGG/logingg'
+import md5 from 'md5'
 import axois from 'axios';
 import path from 'path'
 import Singup from './signup'
+// import Button from '@material-ui/core/Button';
 import './logina.css'
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,6 +21,7 @@ import {
   } from "react-router-dom";
   import Swal from 'sweetalert2'
   import Main from './main.js';
+  
 class LoginA extends Component {
     constructor(props){
         super(props);
@@ -43,7 +48,7 @@ class LoginA extends Component {
         // console.log(process.env.URL_HOST)
         if(email){
             console.log(__dirname)
-            axois.get('http://'+ this.state.API_HOST +':1234/user/'+email)
+            axois.get('http://'+ this.state.API_HOST +':1234/user/img/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{
@@ -80,37 +85,48 @@ class LoginA extends Component {
         //  console.log(event.target.email.value)
         const email =event.target.email.value;
         const pass =event.target.pass.value;
-         
+        
         console.log(email,pass)
         console.log(this.props)
+        var user = {
+            email: email,
+            pass : md5(pass)+md5("webpet")
+        }
+        axois.post('http://'+ this.state.API_HOST +':1234/user/check',user)
+            .then(res=>{
+                console.log(res.data)
+                // if(pass === this.state.pass && pass !== ""){
+                if( res.data===true && pass !== ""){
 
-        //  history.push('/main',event.target.email.value,event.target.pass.value )
-        if(pass === this.state.pass && pass !== ""){
-            Cookie.set("email",email,{expires: 1})    
-            this.setState({
-           
-                        
-                    user:{
-                            name: email
-                         },
-                     corrent: true
-        
+                    Cookie.set("email",email,{expires: 1})    
+                    this.setState({
+                   
+                                
+                            user:{
+                                    name: email
+                                 },
+                             corrent: true
                 
-            },()=>{
-                console.log(this.state.user)
-                Swal.fire({
-                    // position: 'top-end',
-                    icon: 'success',
-                    title: 'Login Complete',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
+                        
+                    },()=>{
+                        console.log(this.state.user)
+                        Swal.fire({
+                            // position: 'top-end',
+                            icon: 'success',
+                            title: 'Login Complete',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                    })
+                }else(
+                    this.setState({
+                        isPass: false
+                    })
+                )
+            }).catch(err=>{
+                console.log(err)
             })
-        }else(
-            this.setState({
-                isPass: false
-            })
-        )
+      
         
     }
     render() {
@@ -177,6 +193,12 @@ class LoginA extends Component {
                                 LOGIN
                             </Button>
                             <a href='/signup'> or SIGNUP</a>
+                            <br></br>
+                            <a onClick={()=>{
+                                console.log("Dsada");
+                              Cookie.set("email","guest",{expires: 1});
+                              window.location.reload() ;
+                            }}> Login with account </a>
                             <p className="signup-content">or login using</p>
                             <div className="signupfor login100-form-social flex-c-m">
                                
@@ -185,12 +207,15 @@ class LoginA extends Component {
                                     <LoginWithFacebook />
                                 </a>
                                 <a href="#" className="login100-form-social-item flex-c-m bg2 m-r-5">
-                                    <i className="fa fa-twitter" aria-hidden="true" />
+                                    {/* <i className="fa fa-twitter" aria-hidden="true" /> */}
+                                    <LoginWithGoogle />
                                 </a>
                                 
                             </div>
                             {/* <div className="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div> */}
-                            <LoginWithFacebook />
+                            {/* <LoginWithFacebook />
+                            <LoginWithGoogle /> */}
+                            {/* <div class="g-signin2" data-onsuccess="onSignIn"></div> */}
                         </Form>
                     </div>
                     <div className="loginBackgound"

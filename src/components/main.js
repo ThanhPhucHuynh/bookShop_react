@@ -34,7 +34,7 @@ import { connect } from "react-redux";
 import { reloadToCart } from "../actions/index";
 import ChatBot from './Chat'
 import InfoUser from '../page/userinfo'
-
+import imgGuest from './images/icons/guest.png'
 
 class main extends Component {
     constructor(props){
@@ -57,31 +57,41 @@ class main extends Component {
         const valueCookie = Cookie.get('email');
         // console.log(valueCookie);
         // console.log(this.state.cookie)
-        
-        if(valueCookie){
-            axois.get('http://'+this.state.API_HOST+':1234/user/'+valueCookie)
-            // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
+        if(valueCookie==="guest"){
+            this.setState({
+                cookie:valueCookie,
+                name: "Guest",
+                imgAvata: imgGuest,
+                email: "Guest",
+                isCookie:true
+            },()=>{
+                // console.log(this.state.cookie)
+            })
+        }else
+            if(valueCookie){
+                axois.get('http://'+this.state.API_HOST+':1234/user/img/'+valueCookie)
+                // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
 
-                .then(res=>{
-                    // this.setState({
-                    
-                    //     imgAvatar: res.data
-                    // })
-                    this.setState({
-                        cookie:valueCookie,
-                        name: res.data.user.name,
-                        imgAvata:res.data.user.userImg,
-                        user: res.data.user,
-                        email: res.data.user.email,
-                        isCookie:true
-                    },()=>{
-                        // console.log(this.state.cookie)
+                    .then(res=>{
+                        // this.setState({
+                        
+                        //     imgAvatar: res.data
+                        // })
+                        this.setState({
+                            cookie:valueCookie,
+                            name: res.data.user.name,
+                            imgAvata:res.data.user.userImg,
+                            user: res.data.user,
+                            email: res.data.user.email,
+                            isCookie:true
+                        },()=>{
+                            // console.log(this.state.cookie)
+                        })
+
+                    }).catch(err=>{
+                        console.log(err)
                     })
-
-                }).catch(err=>{
-                    console.log(err)
-                })
-        }
+            }
 
         const pathname = window.location.pathname;
         let indexNav = 10;
@@ -145,7 +155,7 @@ class main extends Component {
                              <li className="nav-item">
                                
 
-                                 <Link className="nav-link" to="/main/home" onClick={()=>{
+                                <Link className="nav-link" to="/main/home" onClick={()=>{
                                      this.setState({
                                          navNumber:0
                                      })
@@ -178,7 +188,7 @@ class main extends Component {
                                  
                             </li>
                         </ul>
-
+                             
                         <div className="wellcomImgUserPannal">
                         <UncontrolledDropdown  inNavbar>
                                 <DropdownToggle  caret>
@@ -188,25 +198,51 @@ class main extends Component {
                                     </div>
                                 </DropdownToggle>
                                 
-                                <DropdownMenu right  >
-                                    <DropdownItem  >
-                                          <a href="/main/pet" className='logout btn' >Pets Fun</a>
-                                    </DropdownItem>
-                                    <DropdownItem  >
-                                          {/* <a href="/main/order" className='logout btn' >Oder</a> */}
-                                          <Link to="/main/info" className='logout btn' >Info User</Link>
+                                 {
+                                     (this.state.cookie==="guest")?(
+                                        <DropdownMenu right  >
+                                            <DropdownItem  >
+                                                <a href="/login" className='logout btn' 
+                                                    onClick={this.onClickLogout}
+                                                >Login</a>
+                                            </DropdownItem>
+                                        </DropdownMenu>
+                                     ):
+                                     (
+                                        <DropdownMenu right  >
+                                        <DropdownItem  >
+                                              <a href="/main/pet" className='logout btn' >Pets Fun</a>
+                                        </DropdownItem>
+                                        <DropdownItem  >
+                                              {/* <a href="/main/order" className='logout btn' >Oder</a> */}
+                                              <Link to="/main/info"
+                                               onClick={
+                                                ()=>{
+                                                    this.setState({
+                                                          navNumber: 10
+                                                    })
+                                                }}
+                                              className='logout btn' >Info User</Link>
+                                        </DropdownItem>
+                                        <DropdownItem  >
+                                              {/* <a href="/main/order" className='logout btn' >Oder</a> */}
+                                              <Link to="/main/order" 
+                                              onClick={
+                                                  ()=>{
+                                                      this.setState({
+                                                            navNumber: 10
+                                                      })
+                                                  }}
+                                              className='logout btn' >Oder</Link>
+                                        </DropdownItem>
+                                        <DropdownItem  >
+                                             <a href="/main" className='logout btn' onClick={this.onClickLogout}>Log out</a>
+                                        </DropdownItem>
+                                        
+                                    </DropdownMenu> 
+                                     )
+                                 }
 
-                                    </DropdownItem>
-                                    <DropdownItem  >
-                                          {/* <a href="/main/order" className='logout btn' >Oder</a> */}
-                                          <Link to="/main/order" className='logout btn' >Oder</Link>
-
-                                    </DropdownItem>
-                                    <DropdownItem  >
-                                         <a href="/main" className='logout btn' onClick={this.onClickLogout}>Log out</a>
-                                    </DropdownItem>
-                                    
-                                </DropdownMenu>
                         </UncontrolledDropdown>
                                  
                        

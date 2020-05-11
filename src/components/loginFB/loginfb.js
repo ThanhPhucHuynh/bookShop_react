@@ -40,8 +40,10 @@ const responseFacebook = (response) => {
                     title: 'Login Complete',
                     showConfirmButton: false,
                     timer: 2000
-                  })   
-                  window.location.reload();
+                  }).then(()=>{
+                    window.location.reload();
+                  }) 
+                  // window.location.reload();
 
                 })
                 .catch(err=>{
@@ -57,8 +59,10 @@ const responseFacebook = (response) => {
                     title: 'Login Complete',
                     showConfirmButton: false,
                     timer: 2000
-                  })   
-                window.location.reload();
+                  }).then(()=>{
+                    window.location.reload();
+                  })
+                // window.location.reload();
             }
         })
 
