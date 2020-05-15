@@ -119,10 +119,23 @@
     margin-left: 10px;
     margin-top: 10px;
     color: darkblue;
+
+    text-align: center;
+}
+.div_price{
+    margin-top: 40px;
+}
+.hrPay{
+    border: .5px solid black;
+    margin: auto;
+    width: 80%;
 }
 #phone_number , #address{
     margin: auto;
     width: 90%;
+}
+.swal2-container{
+    z-index: 100600;
 }
 .noThingsItem{
     text-align: center;
@@ -137,10 +150,26 @@
     border-radius: 0px;
 }
 .Price_gia{
-    text-align: center;
-    display: block;
-    color: red;
+    /* text-align: center; */
+    /* display: block; */
+    /* color: red; */
+    /* font-size: 20px; */
+    text-transform: uppercase;
+    color: black;
     font-size: 20px;
+    float: left;
+    margin-left: 10px;
+}
+.PriceValue{
+    font-size: 25px;
+    display: block;
+    text-align: right;
+    margin-right: 20px;
+    letter-spacing: 5px;
+}
+.typeShip {
+    width: 90%;
+    margin: auto;
 }
 .notyRemoveItem div .notification-parent {
     color: #ffffff;

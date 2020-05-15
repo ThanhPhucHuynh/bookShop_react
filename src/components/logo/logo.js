@@ -6,14 +6,7 @@ import './lo.js'
 import './logo.css'
 
 class Logo extends Component {
-    constructor(props){
-        super(props);
-
-        
-       
-        
-    }
-
+    
 
     render(){
 

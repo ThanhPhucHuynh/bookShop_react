@@ -37,7 +37,7 @@ export default function SimpleExpansionPanel() {
   const [productOrder, setproductOrder] = useState([]);
   useEffect(() => {
       
-    let API_URL = "http://"+API_HOST+":1234/order/"+Cookie.get('email');
+    let API_URL = "http://"+API_HOST+"/order/"+Cookie.get('email');
     axios.get(API_URL)
         .then(res => {
             // setOrder(res.data.order.reverse().slice(0,1));

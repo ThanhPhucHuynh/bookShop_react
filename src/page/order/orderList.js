@@ -18,7 +18,7 @@ export default function FolderList(props) {
 
   
   useEffect(() => {
-    let API = "http://"+API_HOST+":1234/product/id/"+props.data;
+    let API = "http://"+API_HOST+"/product/id/"+props.data;
     axios.get(API).then(res => {
       setproductOrder(res.data.product[0])
       

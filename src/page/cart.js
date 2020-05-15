@@ -168,6 +168,7 @@ class Cart extends Component{
       const phone = event.target.phone_number.value;
       const email = Cookie.get('email');
       if(address==''||phone==''){
+        this.closeModal();
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -175,6 +176,7 @@ class Cart extends Component{
           footer: '<a href>Why do I have this issue?</a>'
         })
       }else{
+
         // console.log(email,address,phone);
         const listIdProduct = this.state.cartProduct.map(product=>{
             return product.id+" "+product.number
@@ -188,8 +190,8 @@ class Cart extends Component{
           price: this.state.price,
           status: 0
         }
-        // console.log(JSON.stringify(Order));
-        // console.log(typeof (Order.phone));
+        console.log(JSON.stringify(Order));
+        console.log(typeof (Order.phone));
 
 
         axios.post('http://'+this.state.API_HOST+'/order',Order)
@@ -201,6 +203,7 @@ class Cart extends Component{
             console.log(err);
         })
         let timerInterval
+        this.closeModal();
         Swal.fire({
           title: 'Tiến hành đặt hàng!',
           html: 'Ordering.....<b></b>',
@@ -324,14 +327,15 @@ class Cart extends Component{
                     <Modal visible={this.state.visible} width="400" height="50%" effect="fadeInUp" onClickAway={this.closeModal}>
                         <div className="Price">
                             <h1>Pay</h1>
-                            <p>Name: {this.props.nameUser}</p>
+                            <div className="hrPay"></div>
+                            <p>{this.props.nameUser}</p>
                             <Form onSubmit={this.handleSubmit}>
                             <FormGroup>
                               <Input  type="tel" pattern="[0-9]{10}" name="phone_number" id="phone_number" placeholder="Phone Number..." required />
                               <Input type="textarea" name="address" id="address" placeholder="address..." />
-                              <p className="Price_gia"> Total: ${ price }</p>
+                              
                             </FormGroup>
-                                <FormGroup>
+                                <FormGroup className="typeShip">
                                     <Label for="exampleCustomSelect">Type</Label>
                                     <CustomInput type="select" id="exampleCustomSelect" name="typePrice">
                                     {/* <option value="">Select</option> */}
@@ -340,6 +344,14 @@ class Cart extends Component{
                                     <option>Visa</option>
                                     </CustomInput>
                                 </FormGroup>
+                                <div className="div_price">
+                                  <p className="Price_gia"> Total:</p>
+                                  <p className="PriceValue"> ${ price }</p> 
+                                </div>
+                                <div style={{clear:"both"}}>
+
+                                </div>
+                                
                                 <Button className="btn_thanhtoan" color="success" >Thanh Toán</Button>
                             </Form>
 
