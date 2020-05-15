@@ -8,6 +8,9 @@ class Home extends Component {
                 <section>
                     <div className="section1">
                         <h1>Welcome to WEBPET</h1>
+                        <p className="slogan">
+                        If animals can talk, they will say love you like your ex once said!!!
+                        </p>
                             <div className='img_section1'></div>
                     </div>
                     <div className="section2">

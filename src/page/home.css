@@ -82,6 +82,23 @@
     font-family: 'Indie Flower', cursive;
     padding: 0;
 }
+.slogan{
+    letter-spacing: 39px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    z-index: 1;
+    color: #b2b6b9;
+    bottom: 0;
+    transition: ease-in-out 1s;
+}
+.slogan:hover{
+    margin-top: 20px;
+    letter-spacing: 2px;
+    padding-top: 80px;
+}
 .section3 div {
     float: left;
     height: 100%;
