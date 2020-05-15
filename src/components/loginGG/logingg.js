@@ -21,14 +21,14 @@ const responseGoogle = (response) => {
   console.log(response);
   // axois.get("http://" + API_HOST + ":1234/user/" + user.email);
   axois
-    .get("http://" + API_HOST + ":1234/user/" + user.email)
+    .get("http://" + API_HOST + "/user/" + user.email)
 
     .then((res) => {
       console.log(res.data);
       if (res.data.user === null) {
         // axois.post('http://'+API_HOST+':1234/user',user)
         axois
-          .post("http://" + API_HOST + ":1234/user", user)
+          .post("http://" + API_HOST + "/user", user)
 
           .then((res) => {
             console.log(res);

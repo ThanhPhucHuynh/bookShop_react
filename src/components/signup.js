@@ -51,7 +51,7 @@ class SignUp extends Component {
             formData.append('user',(JSON.stringify(user)));
             console.log(formData)
             // axios.post('http://localhost:1234/user/img',formData,config)
-            axios.post('http://'+this.state.API_HOST+':1234/user',user)
+            axios.post('http://'+this.state.API_HOST+'/user',user)
 
                 .then(res=>{
                     console.log(res);

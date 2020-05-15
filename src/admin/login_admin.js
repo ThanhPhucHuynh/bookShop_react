@@ -37,7 +37,7 @@ class LoginAdmin extends Component {
         
         if(email){
             console.log(__dirname)
-            axois.get('http://'+this.state.API_HOST+':1234/admin/'+email)
+            axois.get('http://'+this.state.API_HOST+'/admin/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{

@@ -67,7 +67,7 @@ class Product extends Component {
     let numberPage = window.location.search;
     let type = sessionStorage.getItem("type");
 
-    let API_URL = "http://"+this.state.API_HOST+":1234/product";
+    let API_URL = "http://"+this.state.API_HOST+"/product";
 
     let API_link = (!type) ? API_URL : API_URL+"/" + type
 
@@ -204,7 +204,7 @@ class Product extends Component {
     let numberProduct;
     let rdomitem= event.target.value;
     console.log(event.target.value)
-    let API_URL = "http://"+this.state.API_HOST+":1234/product";
+    let API_URL = "http://"+this.state.API_HOST+"/product";
     let API = API_URL;
     if (event.target.value === "all") {
       API = API_URL;

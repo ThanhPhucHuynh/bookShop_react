@@ -31,7 +31,7 @@ class main extends Component {
     console.log(this.state.cookie)
     
     if(valueCookie){
-          axois.get('http://'+this.state.API_HOST+':1234/admin/'+valueCookie)
+          axois.get('http://'+this.state.API_HOST+'/admin/'+valueCookie)
         // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
 
             .then(res=>{

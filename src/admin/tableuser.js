@@ -90,7 +90,7 @@ export default function StickyHeadTable() {
   let i=true;
 
   useEffect(() => {
-    let API_URL = "http://"+API_HOST+":1234/user";
+    let API_URL = "http://"+API_HOST+"/user";
     axios.get(API_URL)
         .then(res => {
             setProduct(res.data.user);

@@ -135,7 +135,7 @@ let i=true;
   });
 
   useEffect(() => {
-    let API_URL = "http://"+API_HOST+":1234/product";
+    let API_URL = "http://"+API_HOST+"/product";
     axios.get(API_URL)
         .then(res => {
             setProduct(res.data.product);
@@ -270,7 +270,7 @@ let i=true;
               resolve();
               if (oldData) {
                 console.log(newData);
-                let API_URL = "http://"+API_HOST+":1234/product";
+                let API_URL = "http://"+API_HOST+"/product";
                 var product = {
                     id: newData.id,
                     name: newData.name,
@@ -282,7 +282,7 @@ let i=true;
                     // img: this.state.imagePreviewUrl
                 }
                 console.log(product)
-                axios.post('http://'+API_HOST+':1234/product/update',product)
+                axios.post('http://'+API_HOST+'/product/update',product)
                     .then(res=>{
                         console.log(res);
                     })
@@ -308,7 +308,7 @@ let i=true;
           new Promise((resolve) => {
             setTimeout(() => {
               resolve();
-              let API_URL = "http://"+API_HOST+":1234/product";
+              let API_URL = "http://"+API_HOST+"/product";
               var product = {
                   id: oldData.id,
                  
@@ -316,7 +316,7 @@ let i=true;
                   // img: this.state.imagePreviewUrl
               }
               console.log(product)
-              axios.post('http://'+API_HOST+':1234/product/delete',product)
+              axios.post('http://'+API_HOST+'/product/delete',product)
                   .then(res=>{
                       console.log(res);
                   })

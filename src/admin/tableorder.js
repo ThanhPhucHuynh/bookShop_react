@@ -91,7 +91,7 @@ export default function MaterialTableDemo() {
               resolve();
               if (oldData) {
                 console.log(newData);
-                let API_URL = "http://"+API_HOST+":1234/order/update";
+                let API_URL = "http://"+API_HOST+"/order/update";
                 var order = {
                     id: newData.id,
                     email: newData.email,
@@ -104,7 +104,7 @@ export default function MaterialTableDemo() {
                     // img: this.state.imagePreviewUrl
                 }
                 console.log(order)
-                axios.post('http://'+API_HOST+':1234/order/update',order)
+                axios.post('http://'+API_HOST+'/order/update',order)
                     .then(res=>{
                         console.log(res);
                     })

@@ -48,7 +48,7 @@ class LoginA extends Component {
         // console.log(process.env.URL_HOST)
         if(email){
             console.log(__dirname)
-            axois.get('http://'+ this.state.API_HOST +':1234/user/img/'+email)
+            axois.get('http://'+ this.state.API_HOST +'/user/img/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+email)
              
             .then(res=>{
@@ -92,7 +92,7 @@ class LoginA extends Component {
             email: email,
             pass : md5(pass)+md5("webpet")
         }
-        axois.post('http://'+ this.state.API_HOST +':1234/user/check',user)
+        axois.post('http://'+ this.state.API_HOST +'/user/check',user)
             .then(res=>{
                 console.log(res.data)
                 // if(pass === this.state.pass && pass !== ""){

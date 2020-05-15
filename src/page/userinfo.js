@@ -25,7 +25,7 @@ class UserInfo extends Component {
     componentDidMount(props){
         const email = Cookie.get('email');
         console.log(email);
-        axois.get('http://'+this.state.API_HOST+':1234/user/img/'+email)
+        axois.get('http://'+this.state.API_HOST+'/user/img/'+email)
             // axois.get('http://192.168.3.104:1234/user/'+valueCookie)
                 .then(res=>{
                     console.log(res.data.user.id.length);
@@ -59,7 +59,7 @@ class UserInfo extends Component {
             email: email,
             pass : md5(oldPass)+md5("webpet")
         }
-        axois.post('http://'+ this.state.API_HOST +':1234/user/check',user)
+        axois.post('http://'+ this.state.API_HOST +'/user/check',user)
         .then(res=>{
             console.log(res.data)
             if( res.data===true && newPass!=="" && newPass===newPassAgain){
@@ -73,7 +73,7 @@ class UserInfo extends Component {
                     // userImg: this.selectedFile
                 }
     
-                axios.post('http://'+this.state.API_HOST+':1234/user/update',user)
+                axios.post('http://'+this.state.API_HOST+'/user/update',user)
     
                     .then(res=>{
                         console.log(res);

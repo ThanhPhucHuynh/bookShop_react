@@ -192,7 +192,7 @@ class Cart extends Component{
         // console.log(typeof (Order.phone));
 
 
-        axios.post('http://'+this.state.API_HOST+':1234/order',Order)
+        axios.post('http://'+this.state.API_HOST+'/order',Order)
 
         .then(res=>{
             console.log(res,"thanh cong");

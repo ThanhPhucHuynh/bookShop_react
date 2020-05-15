@@ -42,7 +42,7 @@ class addProduct extends Component {
                 number: event.target.number,
                 img: this.state.imagePreviewUrl
             }
-            axios.post('http://'+this.state.API_HOST+':1234/product',product)
+            axios.post('http://'+this.state.API_HOST+'/product',product)
                 .then(res=>{
                     console.log(res);
                 })
