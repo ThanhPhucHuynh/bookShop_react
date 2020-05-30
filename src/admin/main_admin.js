@@ -10,6 +10,7 @@ import axois from 'axios'
 import Product from './productmanage'
 import User from './usermanage'
 import Order from './order'
+import Chart from './chart'
 // import './css/font-awesome-4.7.0/css/font-awesome.min.css'
 import './cssjs/main.css'
 class main extends Component {
@@ -85,6 +86,9 @@ class main extends Component {
                         </Route>
                         <Route exact path="/mainadmin/order" >
                             <Order data={this.state.user}/>
+                        </Route>
+                        <Route exact path="/mainadmin/chart">
+                            <Chart data={this.state.user} />
                         </Route>
                     </Switch>
 

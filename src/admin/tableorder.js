@@ -39,7 +39,7 @@ export default function MaterialTableDemo() {
   });
   const [stateOrder, setStateOrder]= useState([])
   useEffect(() => {
-    let API_URL = "http://"+API_HOST+":1234/order";
+    let API_URL = "http://"+API_HOST+"/order";
     axios.get(API_URL)
         .then(res => {
             // setState(res.data.order);

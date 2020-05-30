@@ -42,6 +42,11 @@ const [isOpen, setIsOpen] = useState(false);
             <NavItem>
               <Link to="/mainadmin/order">Order Manager</Link>
             </NavItem>
+
+            <NavItem>
+              <Link to="/mainadmin/chart" >Dashboard Chart</Link>
+            </NavItem>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                {props.data.name}
