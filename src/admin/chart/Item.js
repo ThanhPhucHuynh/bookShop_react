@@ -52,7 +52,7 @@ export default function Item(props) {
                     {productOrder.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    productOrder.description
+                    {productOrder.description}
                 </Typography>
                 </CardContent>
             </CardActionArea>
@@ -63,7 +63,7 @@ export default function Item(props) {
                 <Button size="small" color="primary">
                     Total: {total}
                 </Button>
-                <Button disabled>Price Total: {Number(productOrder.price)*Number(total)}  </Button>
+            <Button color='secondary'>Price Total: {Number(productOrder.price)*Number(total)}  </Button>
             </CardActions>
             </Card>
         );
@@ -72,7 +72,7 @@ export default function Item(props) {
 
             
             <div>
-                <h1>Chua chon</h1>
+                {/* <h1>Chua chon</h1> */}
 
             </div>
         )

@@ -20,6 +20,7 @@ import PropTypes from "prop-types";
 import "./product.css";
 import axios from "axios";
 import TextField from '@material-ui/core/TextField';
+import MostProductions from './product/mostproduct'
 // import { CartContext } from "../contexts/Cart";
 // import { connect } from "react-redux";
 // import { dispatch } from "redux";
@@ -286,6 +287,9 @@ class Product extends Component {
         <Container>
           <div className="mainProduct">
           <h1 className="contenProductMain">Product</h1>
+          <div className='mostproductions'>
+                  <MostProductions addProduct={this.addToCart} />
+          </div>
           <div className="formProduct">
             <Form >
               <FormGroup className="radioFillter" onChange={this.radioFillter} >
@@ -312,6 +316,7 @@ class Product extends Component {
               </FormGroup>
             </Form>
           </div>
+          
           </div>
           {(productNagivication.length==0)
             ? (<div>

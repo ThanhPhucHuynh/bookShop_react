@@ -45,19 +45,19 @@ class ChartManage extends Component {
     render() {
         // console.log(this.state.listProductSales)
         return(
-            <div className="div_product">
-            <h1>ChartManage</h1>
+            <div className="div_product" >
+            <h1 >ChartManage</h1>
             <div className="div_table">
                 <div>
-                    <h2>Tong: </h2>
+                    <h2 className='Header_chart'>Total: </h2>
                 </div>
-                <ChartOrder dataProduct={this.state.listProductSales} priceTotal={this.state.priceTotal}/>
+                <ChartOrder key='1' dataProduct={this.state.listProductSales} priceTotal={this.state.priceTotal}/>
             </div> 
             <div className="div_table">
                 <div>
-                    <h2>Trong Thang</h2>
+                    <h2 className='Header_chart'>Total in Month:</h2>
                 </div>
-                <ChartOrder dataProduct={this.state.listProductSalesMonth} priceTotal={this.state.priceTotalMonth}/>
+                <ChartOrder key='2' dataProduct={this.state.listProductSalesMonth} priceTotal={this.state.priceTotalMonth}/>
             </div>
 
                 

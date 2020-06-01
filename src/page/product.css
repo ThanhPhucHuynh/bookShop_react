@@ -295,8 +295,18 @@
   }
   
 
+  .cardMost{
+    box-shadow: none !important;
+  }
+  .containerMostProduct{
+    margin: auto;
+    position: relative;
+    /* width: 80%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-
+  }
 
 
   @media screen and (max-width: 1024px){
@@ -307,6 +317,9 @@
     }
   }
   @media screen and (max-width: 790px){
+    /* .containerMostProduct{
+      display: inline-block !important;
+    } */
     .DetailProduct > div{
       margin-top: 0%;
       /* box-shadow: -2px 2px 26px #0202023b; */

@@ -62,7 +62,8 @@ export default function ChartOrder(props){
                 margin={{
                 top: 5, right: 30, left: 20, bottom: 5,
                 }}
-            >
+            >   
+                
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="id" 
                 
@@ -70,19 +71,29 @@ export default function ChartOrder(props){
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="total" stroke="#8884d8" activeDot={{ r: 8 }} 
+                <Line 
+             
+                type="monotone" dataKey="total" stroke="#8884d8" activeDot={{ r: 8 }} 
                     activeDot={{onClick: handClickID}}
                 
                 />
                 {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         </LineChart>
                 <div>
-                    <p>PriceTotal: {props.priceTotal}</p>
+                    <p
+                      className="contentpricechart"
+                    >PriceTotal: {props.priceTotal}</p>
                 </div>
 
             </div>
             <div className="item" >
                 <Item data={itemID} />
+                   <div>
+                      <p
+                        className="hidecontentpricechart"
+                      >PriceTotal</p>
+                  </div>
+
             </div>
         </div>
 
